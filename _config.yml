@@ -1,0 +1,6 @@
+name: "alles im fluss&#8230;"
+markdown: redcarpet
+highlighter: pygments
+permalink: /:year/:month/:day/:title/
+url: http://ronnyhartenstein.github.io/
+baseurl:

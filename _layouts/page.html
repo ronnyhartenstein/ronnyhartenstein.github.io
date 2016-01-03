@@ -10,20 +10,17 @@
 {% include header-googleanalytics.html %}
 
 </head>
-<body class="single single-post single-format-standard group-blog comment-avatars dark">
+<body class="page page-template-default group-blog comment-avatars dark">
 <div id="page" class="hfeed site">
   {% include site-header.html %}
 
   <main id="content" class="site-content" role="main">
-    <article class="post type-post status-publish format-standard hentry post-bright">
-	     {% include entry-header.html %}
+    <article class="page type-page status-publish format-standard hentry category-allgemein post-bright">
+      {% include entry-header.html %}
        <div class="entry-content">
     	    {{content}}
         </div><!-- .entry-content -->
-    	{% include post/footer-entry-meta.html %}
     </article><!-- #post-764 -->
-    {% include post/nav-below.html %}
-    {% include post/disqus.html %}
 	</main><!-- #content .site-content -->
 
   {% include sidebar.html %}
