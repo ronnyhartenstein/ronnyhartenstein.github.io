@@ -8,9 +8,6 @@ author:
   login: ''
   email: ''
   url: ''
-excerpt: |+
-  Lets assume we want to overwrite a value while constructing in class `B` which inherits from `A`.
-
 wordpress_id: 742
 wordpress_url: http://blog.rh-flow.de/?p=742
 date: '2015-09-09 19:13:04 +0200'

@@ -8,7 +8,6 @@ author:
   login: ''
   email: ''
   url: ''
-
 wordpress_id: 712
 wordpress_url: http://blog.rh-flow.de/?p=712
 date: '2015-05-06 21:21:07 +0200'

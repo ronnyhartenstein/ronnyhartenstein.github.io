@@ -10,9 +10,6 @@ author:
   login: ''
   email: ''
   url: ''
-excerpt: |+
-  Fuck you fuckin spammer! Because of the arms race it started that getting those message some days ago
-
 wordpress_id: 764
 wordpress_url: http://blog.rh-flow.de/?p=764
 date: '2015-11-10 00:24:37 +0100'
@@ -29,6 +26,7 @@ Fuck you fuckin spammer! Because of the arms race it started that getting those 
 
 **TL;DR** MSMTP is a beyond edge of plate tip when I ran into the DKIM issue. Nothing what follows is really new or surprising.
 
+<!--more-->
 
 You can have a look at the [Google Support page][1] and this helpfull [Serverfault][2] answer.
 

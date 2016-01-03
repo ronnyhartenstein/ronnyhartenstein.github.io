@@ -8,11 +8,6 @@ author:
   login: ''
   email: ''
   url: ''
-excerpt: |+
-  <p>When I started with Elixir and Phoenix I wanted to see with my own eyes the speed of functional approach and Erlang in comparing with other well known languages. I just want to compare the simplest possible "Hello world" in Javascript, PHP and Elixir.</p>
-
-  <p>Every implementation is benchmarked with the Apache HTTP server benchmarking tool `ab`. I run 1000 requests on 10 and 100 concurrent connections with `ab -n 1000 -c 10 http://127.0.0.1:../`. The return of "Hello world" ist quite enough but it differs a little bit from test to test. So no HTML, no pre/postprocessing or something. Well, its a bit "comparing apples with peaches".</p>
-
 wordpress_id: 750
 wordpress_url: http://blog.rh-flow.de/?p=750
 date: '2015-10-08 22:23:37 +0200'

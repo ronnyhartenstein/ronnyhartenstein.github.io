@@ -8,9 +8,6 @@ author:
   login: ''
   email: ''
   url: ''
-excerpt: |+
-  Der Weg zum Alchemist Rookie ist lang und steinig. Aber wie alle solche Wege lohnt er sich. Und wenn nicht, wahres konsequentes Handeln zeigt man erst wenn man auch Holzwege zuende gegangen ist.
-
 wordpress_id: 731
 wordpress_url: http://blog.rh-flow.de/?p=731
 date: '2015-09-05 22:39:45 +0200'

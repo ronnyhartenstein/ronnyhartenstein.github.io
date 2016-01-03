@@ -8,11 +8,6 @@ author:
   login: ''
   email: ''
   url: ''
-excerpt: |+
-  <p>Wie man GitLab auf Ubuntu 10.04 LTS einrichtet hab ich ja hier beschrieben. Backups sind wichtig. Deswegen muss auch eine GitLab-Instanz, bzw. die Repositories und Datenbanken gesichert werden. In der Anleitung ist die Methode für Sourcecode-kompilierte GitLab-Installationen.</p>
-
-  <p><strong>TL;DR</strong> Backup erstellen funktioniert wie in der Anleitung beschrieben, nur der S3-Upload funktioniert nicht, weil Region Frankfurt nur mit IAM Auth v4 läuft. Geht evtl. bei einer Omnibus-Install, bei mir aber nicht. Daher erfolgt der Backup des Backups per FTP-Upload. [Update: jetzt mit Boxbackup..]</p>
-
 wordpress_id: 696
 wordpress_url: http://rhflow.wp-root.rh-flow.de/?p=696
 date: '2015-04-04 22:12:36 +0200'
