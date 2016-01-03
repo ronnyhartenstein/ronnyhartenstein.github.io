@@ -1,0 +1,28 @@
+---
+layout: home
+---
+{% assign loop_index = 0 %}
+{% for post in site.posts %}
+  {% if loop_index <= 6 %}
+  <article class="post type-post status-publish format-standard hentry post-bright">
+  	<header class="entry-header">
+				<h1 class="entry-title"><a href="{{ post.url }}" rel="bookmark">{{ post.title }}</a></h1>
+		</header><!-- .entry-header -->
+
+		<div class="entry-content">
+  		{{ post.excerpt }}
+      <p> <a href="{{ post.url }}#more" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+  	</div><!-- .entry-content -->
+
+  	<footer class="entry-meta">
+      <div class="posted-on icon icon-month">
+        Posted on <time class="entry-date" datetime="{{ page.date }}">{{ post.date | date_to_string }}</time></a>
+      </div>
+      <div class="byline icon icon-user">
+        By <span class="author vcard">{{ post.author }}</span>
+      </div>
+    </footer>
+  </article>
+  {% endif %}
+  {% assign loop_index = loop_index | plus:1 %}
+{% endfor %}

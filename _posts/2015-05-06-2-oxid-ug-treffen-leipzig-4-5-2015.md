@@ -8,8 +8,6 @@ author:
   login: ''
   email: ''
   url: ''
-excerpt: |+
-  <p>Das 2. OXID UG Treffen war mein Erstes. In der heimeligen Atmosph&auml;re des neuen pixi* B&uuml;ro-Dachstuhls fand dieses statt. Mit dabei waren sogar zwei Hunde, ein Blindenhund und meine Tammi. Als Agenturen waren D3 und Marmalade vor Ort und haben jeweils zwei ihrer Module vorgestellt. Ich hab zum Schluss noch ein kleines Azure-Responsive-Experiment und Docker vorgestellt. Da Marmalade u.a. neue Kollegen aus Litauen dabei wurde zum Teil auch Englisch gesprochen.<&#47;p>
 
 wordpress_id: 712
 wordpress_url: http://blog.rh-flow.de/?p=712
@@ -21,31 +19,71 @@ categories:
 - Docker
 tags: []
 ---
-<p>Das 2. OXID UG Treffen war mein Erstes. In der heimeligen Atmosph&auml;re des neuen pixi* B&uuml;ro-Dachstuhls fand dieses statt. Mit dabei waren sogar zwei Hunde, ein Blindenhund und meine Tammi. Als Agenturen waren D3 und Marmalade vor Ort und haben jeweils zwei ihrer Module vorgestellt. Ich hab zum Schluss noch ein kleines Azure-Responsive-Experiment und Docker vorgestellt. Da Marmalade u.a. neue Kollegen aus Litauen dabei wurde zum Teil auch Englisch gesprochen.<&#47;p></p>
-<p><a id="more"></a><a id="more-712"></a></p>
-<h2>D3 Development<&#47;h2></p>
-<p>Die Agentur ist bei GitHub unter <a href="http:&#47;&#47;github.com&#47;d3datadevelopment">d3datadevelopment<&#47;a> zu finden. Vorgestellt wurden TPL Develop Tool und der Auftragsmanager.<&#47;p></p>
-<h3>TPL Develop Tool<&#47;h3></p>
-<p>Dieses Modul erm&ouml;glicht eine schnelle Entwicklung von Formular-Abschluss-Templates (Thankyou-Seite) und Bestell-Email-Templates, indem diese Schritte per Parameter direkt aufgerufen wird. Dann wird die letzte abgeschlossene Bestellung direkt nochmal angezeit. Das Modul ist Opensource bei GitHub <a href="https:&#47;&#47;github.com&#47;d3datadevelopment&#47;TPL-development-helper">d3datadevelopment&#47;TPL-development-helper<&#47;a>. Ich finde das eine super Sache, da das genau die Workflow-Schritte sind, deren Entwicklung nervig ist und enorm Zeit frisst.<&#47;p></p>
-<h3>Auftragsmanager<&#47;h3></p>
-<p>Dieses Modul kann l&auml;stige Routineaufgaben automatisieren und ist damit ideal f&uuml;r Kunden ohne ERP-Backend. Damit l&auml;sst sich z.B. ein automatisches Umsortieren von Bestellungen in Ordnern realisieren. Verschiedene Cronjob-Zyklen werden per Cron-IDs realisiert. Jeder Cronjob-Aufruf startet mit einer ID. Nur Aufgaben mit dieser ID werden dann gepr&uuml;ft und abgearbeitet. Netter Kniff!<br />
-Weitere Aufgaben-Ideen werden schon mitgeliefert, um die M&ouml;glichkeiten zu verstehen - u.a. Umsortieren von Kunden in andere Gruppen, z.B. wenn Rechnungen nach einer bestimmten Zeit noch nicht bezahlt wurden (um Rabatte automatisch zu deaktivieren).<br />
-Das Modul ist nicht Opensource, kann aber f&uuml;r bis zu 5 Aufgaben kostenfrei verwendet werden. Mehr Infos <a href="http:&#47;&#47;www.oxidmodule.com&#47;OXID-Professional-Community&#47;Module-PE&#47;Auftragsmanager-fuer-Oxid-PE.html">hier<&#47;a>.<&#47;p></p>
-<h2>Marmalade<&#47;h2></p>
-<p>Die Agentur ist bei GitHub unter <a href="https:&#47;&#47;github.com&#47;marmaladeDE">marmaladeDE<&#47;a> zu finden. Vorgestellt wurden yamm und der Filial-Finder.<&#47;p></p>
-<h3>yamm (Jet another Meta Module) Modulkonfig<&#47;h3></p>
-<p>Bei Shops mit sehr vielen Modulen ist die Reihenfolge der Modulaktivierung wichtig. Beim Crash hilft manchmal nur, in der DB die Modulliste und Vererbungsliste zu reseten und die Module nacheinander wieder zu aktivieren. Bei Shops mit 50+ Modulen ein Herkulesakt. Abhilfe schafft eine versionierbare Konfigdatei, die beim Deployment f&uuml;r die korrekte Aktivierung sorgt. Das Modul ist auf GitHub <a href="http:&#47;&#47;github.com&#47;marmaladeDE&#47;yamm">marmaladeDE&#47;yamm<&#47;a> zu finden. Die Erzeugung der initialen Konfigdatei kann bequem per Backend erfolgen, ist aber wohl noch nicht 100% stabil.<br />
-Spannend ist das Ganze schon, wenn man Module hat, die andere Module erweitern - z.B. das Paypal-Modul. Denn dann muss das Modul tats&auml;chlich <em>nach<&#47;em> Paypal aktiviert werden.<&#47;p></p>
-<h3>Filial-Finder &#47; Storelocator<&#47;h3></p>
-<p>Damit ist es m&ouml;glich, im Bestellprozess den Zielort der Lieferung auszuw&auml;hlen - optional per Google-Karte in Lightbox. Die Pflege der Stores erfolgt im Backend - mit Geolocation und Adresse. Im Einsatz ist das Modul u.a. bei <a href="https:&#47;&#47;www.schindelhauerbikes.com&#47;haendler&#47;">Schindelhauer Bikes<&#47;a>.<&#47;p></p>
-<h2>Responsive Azure Experiment<&#47;h2></p>
-<p>Basierend auf den Erfahrungen aus <a href="http:&#47;&#47;blog.rh-flow.de&#47;2015&#47;03&#47;06&#47;oxid-azure-ins-responsive-zeitalter-katapultieren-mit-bootstrap-sass-und-grunt&#47;">OXID Azure ins Responsive Zeitalter katapultieren<&#47;a> hab ich mal versucht, Azure mit per LESS injizierten Bootstrap responsiv zu machen. &Uuml;bungsbeispiel ist die Startseite. Das Repo befindet sich <a href="https:&#47;&#47;github.com&#47;ronnyhartenstein&#47;oxideshop_ce&#47;tree&#47;responsive-azure">hier<&#47;a> (Branch responsive-azure). So schaut es aktuell aus:<&#47;p></p>
-<p>[caption id="attachment_714" align="alignnone" width="1034"]<a href="http:&#47;&#47;rhflow.wp-root.rh-flow.de&#47;files&#47;2015&#47;05&#47;oxid-responsive-comp.gif"><img src="http:&#47;&#47;rhflow.wp-root.rh-flow.de&#47;files&#47;2015&#47;05&#47;oxid-responsive-comp.gif" alt="OXID Responsive Vorschau" width="1034" height="855" class="size-full wp-image-714" &#47;><&#47;a> OXID Responsive Vorschau[&#47;caption]<&#47;p></p>
-<p>Die Idee dabei ist, per <a href="http:&#47;&#47;lesscss.org&#47;">LESS<&#47;a> die <a href="https:&#47;&#47;github.com&#47;twbs&#47;bootstrap&#47;blob&#47;master&#47;less&#47;mixins.less">Mixins von Bootstrap<&#47;a> einzubinden und damit die einzelnen Bl&ouml;cke um Grid-Spalten-Styledefinitionen zu erweitern. Die Less(CSS)-Dateien befinden sich <a href="https:&#47;&#47;github.com&#47;ronnyhartenstein&#47;oxideshop_ce&#47;tree&#47;responsive-azure&#47;source&#47;out&#47;azure-bootstrap&#47;src&#47;css">out&#47;azure-bootstrap&#47;src&#47;css<&#47;a> und verdeutlichen das Vorgehen.<&#47;p></p>
-<p>Nach dem Test bin ich mir nicht so recht sicher, ob dass ein Weg ist, um die bestehenden Azure-basierenden Shops per Fingerschnipp (=Update) responsiv zu machen. Grund ist, das man st&auml;ndig an die Grenzen der Zur&uuml;cksetzbarkeit von bestehenden Azure-CSS-Styles st&ouml;&szlig;t und das &uuml;berschreiben von zahlreichen Styles eine unheimlich langatmige Arbeit ist, die kaum Spa&szlig; macht. Bitte ber&uuml;cksichtig, dass meine Meinung auf nur zwei Abenden Arbeit und ein paar Spielereien basiert und zudem annimmt, das bestehende Azure-CSS genau so zu lassen.<&#47;p></p>
-<p>Der Weg wird wohl eher sein, dass man ein neues responsives Standard-Theme startet und Azure wie seinerzeit Basic eine zeitlang weiterpflegt um den bestehenden Shops einen sanften &Uuml;bergang zu erm&ouml;glichen.<&#47;p></p>
-<p>BTW: Bei der Vorstellung gab mir Thomas Dartsch den Tipp, dass man zum <em>parallelen Test von verschiedenen Viewports<&#47;em> auch die  Firefox Web Dev Toolbar genutzt werden kann: Men&uuml; "Gr&ouml;&szlig;e &auml;ndern" -> "Angepasste Layouts anzeigen". Einfach mal probieren!<&#47;p></p>
-<h2>Docker<&#47;h2></p>
-<p>Da ich lokal auf meinem Mac nach <a href="http:&#47;&#47;blog.rh-flow.de&#47;2014&#47;11&#47;11&#47;es-hat-sich-ausgemampft-vagrant-ist&#47;">Vagrant<&#47;a> komplett auf <a href="http:&#47;&#47;blog.rh-flow.de&#47;2015&#47;01&#47;25&#47;docker-statt-vagrant-dank-boot2docker-auch-auf-dem-mac&#47;">Docker<&#47;a> setze, hab ich mir f&uuml;r die OXID Tests ein Dockerfile aufgebaut. Der aktuelle Stand findet sich <a href="https:&#47;&#47;github.com&#47;ronnyhartenstein&#47;oxideshop_ce&#47;tree&#47;responsive-azure&#47;docker">hier auf GitHub<&#47;a>. Allerdings gibt es noch kein sch&ouml;nes sauberes <code>Dockerfile<&#47;code> wo alle ben&ouml;tigten PHP-Module und der Apache nach und nach installiert werden, sondern "nur" ein fertiges DockerHub-Image <a href="https:&#47;&#47;registry.hub.docker.com&#47;u&#47;gpayer&#47;apache-php53-oxid-i386&#47;">gpayer&#47;apache-php53-oxid-i386<&#47;a> Geht erstmal auch, wie in der <a href="https:&#47;&#47;github.com&#47;ronnyhartenstein&#47;oxideshop_ce&#47;blob&#47;responsive-azure&#47;docker&#47;rebuild.sh"><code>rebuild.sh<&#47;code><&#47;a>  zu sehen ist, ist aber nicht sch&ouml;n. Als Abh&auml;ngigkeit wird ein laufender Mysql-Docker-Container angenommen. Sofern man eine externe DB hat, die Docker bzw. das OXID darin erreichen kann, kann man den Link weglassen. Mehr dazu folgt noch in einen separaten Blogpost.<&#47;p></p>
-<h2>Fazit<&#47;h2></p>
-<p>F&uuml;r mich war es spannend, mal wieder aus der eigenen Welt (FinTech) herauszublicken und zu schauen wie andere so arbeiten und mit welchen Problemen sie sich so herumschlagen m&uuml;ssen. Geben und neben - sch&ouml;n wars!<&#47;p></p>
+
+Das 2. OXID UG Treffen war mein Erstes. In der heimeligen Atmosphäre des neuen pixi* Büro-Dachstuhls fand dieses statt. Mit dabei waren sogar zwei Hunde, ein Blindenhund und meine Tammi. Als Agenturen waren D3 und Marmalade vor Ort und haben jeweils zwei ihrer Module vorgestellt. Ich hab zum Schluss noch ein kleines Azure-Responsive-Experiment und Docker vorgestellt. Da Marmalade u.a. neue Kollegen aus Litauen dabei wurde zum Teil auch Englisch gesprochen.
+
+<!--more-->
+
+## D3 Development
+
+Die Agentur ist bei GitHub unter [d3datadevelopment][1] zu finden. Vorgestellt wurden TPL Develop Tool und der Auftragsmanager.
+
+### TPL Develop Tool
+
+Dieses Modul ermöglicht eine schnelle Entwicklung von Formular-Abschluss-Templates (Thankyou-Seite) und Bestell-Email-Templates, indem diese Schritte per Parameter direkt aufgerufen wird. Dann wird die letzte abgeschlossene Bestellung direkt nochmal angezeit. Das Modul ist Opensource bei GitHub [d3datadevelopment/TPL-development-helper][2]. Ich finde das eine super Sache, da das genau die Workflow-Schritte sind, deren Entwicklung nervig ist und enorm Zeit frisst.
+
+### Auftragsmanager
+
+Dieses Modul kann lästige Routineaufgaben automatisieren und ist damit ideal für Kunden ohne ERP-Backend. Damit lässt sich z.B. ein automatisches Umsortieren von Bestellungen in Ordnern realisieren. Verschiedene Cronjob-Zyklen werden per Cron-IDs realisiert. Jeder Cronjob-Aufruf startet mit einer ID. Nur Aufgaben mit dieser ID werden dann geprüft und abgearbeitet. Netter Kniff! Weitere Aufgaben-Ideen werden schon mitgeliefert, um die Möglichkeiten zu verstehen - u.a. Umsortieren von Kunden in andere Gruppen, z.B. wenn Rechnungen nach einer bestimmten Zeit noch nicht bezahlt wurden (um Rabatte automatisch zu deaktivieren). Das Modul ist nicht Opensource, kann aber für bis zu 5 Aufgaben kostenfrei verwendet werden. Mehr Infos [hier][3].
+
+## Marmalade
+
+Die Agentur ist bei GitHub unter [marmaladeDE][4] zu finden. Vorgestellt wurden yamm und der Filial-Finder.
+
+### yamm (Jet another Meta Module) Modulkonfig
+
+Bei Shops mit sehr vielen Modulen ist die Reihenfolge der Modulaktivierung wichtig. Beim Crash hilft manchmal nur, in der DB die Modulliste und Vererbungsliste zu reseten und die Module nacheinander wieder zu aktivieren. Bei Shops mit 50+ Modulen ein Herkulesakt. Abhilfe schafft eine versionierbare Konfigdatei, die beim Deployment für die korrekte Aktivierung sorgt. Das Modul ist auf GitHub [marmaladeDE/yamm][5] zu finden. Die Erzeugung der initialen Konfigdatei kann bequem per Backend erfolgen, ist aber wohl noch nicht 100% stabil. Spannend ist das Ganze schon, wenn man Module hat, die andere Module erweitern - z.B. das Paypal-Modul. Denn dann muss das Modul tatsächlich *nach* Paypal aktiviert werden.
+
+### Filial-Finder / Storelocator
+
+Damit ist es möglich, im Bestellprozess den Zielort der Lieferung auszuwählen - optional per Google-Karte in Lightbox. Die Pflege der Stores erfolgt im Backend - mit Geolocation und Adresse. Im Einsatz ist das Modul u.a. bei [Schindelhauer Bikes][6].
+
+## Responsive Azure Experiment
+
+Basierend auf den Erfahrungen aus [OXID Azure ins Responsive Zeitalter katapultieren][7] hab ich mal versucht, Azure mit per LESS injizierten Bootstrap responsiv zu machen. Übungsbeispiel ist die Startseite. Das Repo befindet sich [hier][8] (Branch responsive-azure). So schaut es aktuell aus:
+
+[caption id="attachment_714" align="alignnone" width="1034"][<img src="http://rhflow.wp-root.rh-flow.de/files/2015/05/oxid-responsive-comp.gif" alt="OXID Responsive Vorschau" width="1034" height="855" class="size-full wp-image-714" />][9] OXID Responsive Vorschau[/caption]
+
+Die Idee dabei ist, per [LESS][10] die [Mixins von Bootstrap][11] einzubinden und damit die einzelnen Blöcke um Grid-Spalten-Styledefinitionen zu erweitern. Die Less(CSS)-Dateien befinden sich [out/azure-bootstrap/src/css][12] und verdeutlichen das Vorgehen.
+
+Nach dem Test bin ich mir nicht so recht sicher, ob dass ein Weg ist, um die bestehenden Azure-basierenden Shops per Fingerschnipp (=Update) responsiv zu machen. Grund ist, das man ständig an die Grenzen der Zurücksetzbarkeit von bestehenden Azure-CSS-Styles stößt und das überschreiben von zahlreichen Styles eine unheimlich langatmige Arbeit ist, die kaum Spaß macht. Bitte berücksichtig, dass meine Meinung auf nur zwei Abenden Arbeit und ein paar Spielereien basiert und zudem annimmt, das bestehende Azure-CSS genau so zu lassen.
+
+Der Weg wird wohl eher sein, dass man ein neues responsives Standard-Theme startet und Azure wie seinerzeit Basic eine zeitlang weiterpflegt um den bestehenden Shops einen sanften Übergang zu ermöglichen.
+
+BTW: Bei der Vorstellung gab mir Thomas Dartsch den Tipp, dass man zum *parallelen Test von verschiedenen Viewports* auch die Firefox Web Dev Toolbar genutzt werden kann: Menü "Größe ändern" -> "Angepasste Layouts anzeigen". Einfach mal probieren!
+
+## Docker
+
+Da ich lokal auf meinem Mac nach [Vagrant][13] komplett auf [Docker][14] setze, hab ich mir für die OXID Tests ein Dockerfile aufgebaut. Der aktuelle Stand findet sich [hier auf GitHub][15]. Allerdings gibt es noch kein schönes sauberes `Dockerfile` wo alle benötigten PHP-Module und der Apache nach und nach installiert werden, sondern "nur" ein fertiges DockerHub-Image [gpayer/apache-php53-oxid-i386][16] Geht erstmal auch, wie in der [`rebuild.sh`][17] zu sehen ist, ist aber nicht schön. Als Abhängigkeit wird ein laufender Mysql-Docker-Container angenommen. Sofern man eine externe DB hat, die Docker bzw. das OXID darin erreichen kann, kann man den Link weglassen. Mehr dazu folgt noch in einen separaten Blogpost.
+
+## Fazit
+
+Für mich war es spannend, mal wieder aus der eigenen Welt (FinTech) herauszublicken und zu schauen wie andere so arbeiten und mit welchen Problemen sie sich so herumschlagen müssen. Geben und neben - schön wars!
+
+ [1]: http://github.com/d3datadevelopment
+ [2]: https://github.com/d3datadevelopment/TPL-development-helper
+ [3]: http://www.oxidmodule.com/OXID-Professional-Community/Module-PE/Auftragsmanager-fuer-Oxid-PE.html
+ [4]: https://github.com/marmaladeDE
+ [5]: http://github.com/marmaladeDE/yamm
+ [6]: https://www.schindelhauerbikes.com/haendler/
+ [7]: http://blog.rh-flow.de/2015/03/06/oxid-azure-ins-responsive-zeitalter-katapultieren-mit-bootstrap-sass-und-grunt/
+ [8]: https://github.com/ronnyhartenstein/oxideshop_ce/tree/responsive-azure
+ [9]: http://rhflow.wp-root.rh-flow.de/files/2015/05/oxid-responsive-comp.gif
+ [10]: http://lesscss.org/
+ [11]: https://github.com/twbs/bootstrap/blob/master/less/mixins.less
+ [12]: https://github.com/ronnyhartenstein/oxideshop_ce/tree/responsive-azure/source/out/azure-bootstrap/src/css
+ [13]: http://blog.rh-flow.de/2014/11/11/es-hat-sich-ausgemampft-vagrant-ist/
+ [14]: http://blog.rh-flow.de/2015/01/25/docker-statt-vagrant-dank-boot2docker-auch-auf-dem-mac/
+ [15]: https://github.com/ronnyhartenstein/oxideshop_ce/tree/responsive-azure/docker
+ [16]: https://registry.hub.docker.com/u/gpayer/apache-php53-oxid-i386/
+ [17]: https://github.com/ronnyhartenstein/oxideshop_ce/blob/responsive-azure/docker/rebuild.sh
