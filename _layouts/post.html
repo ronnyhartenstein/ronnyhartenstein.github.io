@@ -1,36 +1,12 @@
-<!DOCTYPE html>
-<html lang="de-DE">
-<head>
-<meta charset="UTF-8" />
-<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-<title>{{ page.title }} - {{ site.name}}</title>
-{% include header-assets.html %}
-{% include header-opengraph.html %}
-{% include header-googleanalytics.html %}
-
-</head>
-<body class="single single-post single-format-standard group-blog comment-avatars dark">
-<div id="page" class="hfeed site">
-  {% include site-header.html %}
-
-  <main id="content" class="site-content" role="main">
-    <article class="post type-post status-publish format-standard hentry post-bright">
-	     {% include post/entry-header.html %}
-       <div class="entry-content">
-    	    {{content}}
-        </div><!-- .entry-content -->
-    	{% include post/footer-entry-meta.html %}
-    </article><!-- #post-764 -->
-    {% include post/nav-below.html %}
-    {% include post/disqus.html %}
-	</main><!-- #content .site-content -->
-
-  {% include sidebar.html %}
-  {% include site-footer.html %}
-</div><!-- #page .hfeed .site -->
-
-	{% include cookiebar.html %}
-  {% include footer-assets.html %}
-
-</body>
-</html>
+---
+layout: default
+---
+<article class="post type-post status-publish format-standard hentry post-bright">
+   {% include post/entry-header.html %}
+   <div class="entry-content">
+	    {{content}}
+    </div><!-- .entry-content -->
+	{% include post/footer-entry-meta.html %}
+</article><!-- #post-764 -->
+{% include post/nav-below.html %}
+{% include post/disqus.html %}

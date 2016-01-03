@@ -1,33 +1,9 @@
-<!DOCTYPE html>
-<html lang="de-DE">
-<head>
-<meta charset="UTF-8" />
-<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-<title>{{ page.title }} - {{ site.name}}</title>
-{% include header-assets.html %}
-{% include header-opengraph.html %}
-{% include header-googleanalytics.html %}
-
-</head>
-<body class="page page-template-default group-blog comment-avatars dark">
-<div id="page" class="hfeed site">
-  {% include site-header.html %}
-
-  <main id="content" class="site-content" role="main">
-    <article class="page type-page status-publish format-standard hentry category-allgemein post-bright">
-      {% include entry-header.html %}
-       <div class="entry-content">
-    	    {{content}}
-        </div><!-- .entry-content -->
-    </article><!-- #post-764 -->
-	</main><!-- #content .site-content -->
-
-  {% include sidebar.html %}
-  {% include site-footer.html %}
-</div><!-- #page .hfeed .site -->
-
-	{% include cookiebar.html %}
-  {% include footer-assets.html %}
-
-</body>
-</html>
+---
+layout: default
+---
+<article class="page type-page status-publish format-standard hentry category-allgemein post-bright">
+  {% include entry-header.html %}
+   <div class="entry-content">
+	    {{content}}
+    </div><!-- .entry-content -->
+</article>
