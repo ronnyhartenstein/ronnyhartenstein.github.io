@@ -135,14 +135,14 @@ a img {
 
 @font-face {
 	font-family: 'LeagueTitle';
-	src: local('.'), url('fonts/leaguegothic/leaguegothic.woff') format('woff'), url('fonts/leaguegothic/leaguegothic.ttf') format('truetype');
+	src: local('.'), url('eaguegothic.woff') format('woff'), url('leaguegothic.ttf') format('truetype');
 	font-weight: 700;
 	font-style: normal;
 }
 
 /* =Genericons
 ----------------------------------------------- */
- 
+
 .icon-single,
 .icon:before {
 	display: inline-block;
@@ -599,7 +599,7 @@ a:active {
 body {
 	line-height: 20px;
 	background-color: #1d2024;
-	background-image: url('images/bg_gradient.png'), url('images/bg.png');
+	background-image: url('bg_gradient.png'), url('bg.png');
 	background-position: 0 top, 0 0;
 	background-repeat: repeat-x, repeat;
 	color: #000000;
@@ -626,7 +626,7 @@ body.background-image.dark #page,
 body.background-color.dark #page {
 	background-color: #242424;
 	background-color: rgba(16,16,16,0.8);
-	background-image: url('images/bg_gradient.png');
+	background-image: url('bg_gradient.png');
 	background-position: 0 top;
 	background-repeat: repeat-x;
 	box-shadow: 0 0 5px rgba(0,0,0,0.15);
@@ -2199,7 +2199,7 @@ body.logged-in #respond #submit {
 	line-height: 20px;
 	color: #fff;
 	background-color: #111;
-	background: transparent url('images/search.png') no-repeat right 0;
+	background: transparent url('search.png') no-repeat right 0;
 	border: 1px solid #3f3f3f;
 	border-color: rgba(255,255,255,0.1);
 	border-radius: 20px;
