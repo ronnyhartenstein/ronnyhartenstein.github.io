@@ -1,13 +1,9 @@
 <footer class="entry-meta">
-  <div class="comments-link icon icon-comment">
-    <a href="http://blog.rh-flow.de/2015/11/10/dkim-ptr-spf-replacing-your-mta-with-msmtp-php-system-apache/#respond" title="Comment on DKIM, PTR, SPF? Replacing your MTA with MSMTP (+PHP, +System, +Apache)">Leave a comment</a>
-  </div>
   <div class="posted-on icon icon-month">
-    Posted on <a href="http://blog.rh-flow.de/2015/11/10/dkim-ptr-spf-replacing-your-mta-with-msmtp-php-system-apache/" title="Permalink to DKIM, PTR, SPF? Replacing your MTA with MSMTP (+PHP, +System, +Apache)" rel="bookmark">
-      <time class="entry-date" datetime="2015-11-10T00:24:37+00:00">10. November 2015</time></a>
+    Posted on <time class="entry-date" datetime="{{ page.date }}">{{ page.date | date_to_string }}</time></a>
   </div>
   <div class="byline icon icon-user">
-    By <span class="author vcard"><a class="url fn n" href="http://blog.rh-flow.de/author/admin/" title="View all posts by admin" rel="author">admin</a></span>
+    By <span class="author vcard">{{ page.author }}</span>
   </div>
   <div class="cat-links icon icon-category">
     <ul class="post-categories">
