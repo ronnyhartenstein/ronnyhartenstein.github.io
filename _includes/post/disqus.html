@@ -1,0 +1,57 @@
+
+<!-- Here we load disqus comments -->
+<div class="dcl-disqus-thread" id="comments" >
+<div id="disqus_thread">
+</div>
+</div>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var disqus_url = 'http://blog.rh-flow.de/2015/11/10/dkim-ptr-spf-replacing-your-mta-with-msmtp-php-system-apache/';
+var disqus_identifier = '764 http://blog.rh-flow.de/?p=764';
+var disqus_container_id = 'disqus_thread';
+var disqus_domain = 'disqus.com';
+var disqus_shortname = 'rhflow';
+var disqus_title = "DKIM, PTR, SPF? Replacing your MTA with MSMTP (+PHP, +System, +Apache)";
+var disqus_config = function () {
+var config = this; // Access to the config object
+config.language = '';
+
+/* Add the ability to add javascript callbacks */
+
+/*
+   All currently supported events:
+  * preData — fires just before we request for initial data
+  * preInit - fires after we get initial data but before we load any dependencies
+  * onInit  - fires when all dependencies are resolved but before dtpl template is rendered
+  * afterRender - fires when template is rendered but before we show it
+  * onReady - everything is done
+ */
+
+config.callbacks.preData.push(function() {
+  // clear out the container (its filled for SEO/legacy purposes)
+  document.getElementById(disqus_container_id).innerHTML = '';
+});
+      config.callbacks.onReady.push(function() {
+  // sync comments in the background so we don't block the page
+  var script = document.createElement('script');
+  script.async = true;
+  script.src = '?cf_action=sync_comments&post_id=764';
+
+  var firstScript = document.getElementsByTagName( "script" )[0];
+  firstScript.parentNode.insertBefore(script, firstScript);
+});
+          };
+/* ]]> */
+</script>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var DsqLocal = {
+'trackbacks': [
+  ],
+'trackback_url': "http:\/\/blog.rh-flow.de\/2015\/11\/10\/dkim-ptr-spf-replacing-your-mta-with-msmtp-php-system-apache\/trackback\/"		};
+/* ]]> */
+</script>
