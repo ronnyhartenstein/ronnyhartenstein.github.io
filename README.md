@@ -3,11 +3,25 @@
 
 ## TODO
 
-- RSS-Feed OXID http://blog.rh-flow.de/category/entwicklung/oxid/feed/ (static?)
-- Index page: last x posts
-- Category page
-- Search
+- [x] Bootstrap Jekyll
+- [x] Split up Layout Displaced
+- [x] Permalinks like old links
+  - http://jekyllrb.com/docs/permalinks/
+- [x] Disqus for posts
+  - https://help.disqus.com/customer/portal/articles/472138-jekyll-installation-instructions
+  - https://rhflow.disqus.com/admin/settings/universalcode/
+  - https://help.disqus.com/customer/en/portal/articles/2158629
+- [ ] Index page: last x posts
+- [ ] Category page
+- [x] Remove JQuery (for now)
+- [ ] Lazy load Disqus (without Jquery)
+  - https://www.kadder.de/2014/04/pagespeed-disqus-mit-lazyload/
+  - https://www.hagen-bauer.de/2015/12/jekyll-disquss.html
+- [ ] RSS-Feed OXID http://blog.rh-flow.de/category/entwicklung/oxid/feed/ (static?)
+- [ ] Search
 
+- [ ] move all drafts from Repo `_blog`
+  - http://jekyllrb.com/docs/drafts/
 
 ## Install Jekyll
 

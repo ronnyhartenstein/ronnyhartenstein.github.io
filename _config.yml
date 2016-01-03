@@ -1,6 +1,7 @@
-name: "alles im fluss&#8230;"
+name: "alles im fluss&#8230; &bull; bleibt neugierig!"
 markdown: redcarpet
 highlighter: pygments
 permalink: /:year/:month/:day/:title/
-url: http://ronnyhartenstein.github.io/
+url: http://blog.rh-flow.de
+#url: http://ronnyhartenstein.github.io
 baseurl:
