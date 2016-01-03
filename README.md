@@ -11,14 +11,22 @@
   - https://help.disqus.com/customer/portal/articles/472138-jekyll-installation-instructions
   - https://rhflow.disqus.com/admin/settings/universalcode/
   - https://help.disqus.com/customer/en/portal/articles/2158629
-- [ ] Index page: last x posts
+- [x] Index page: last x posts
 - [ ] Category page
+  - https://github.com/zroger/jekyll-categories
+  - http://geligalabs.com/code/2014/06/19/jekyll-category-list.html
 - [x] Remove JQuery (for now)
+
+
 - [ ] Lazy load Disqus (without Jquery)
   - https://www.kadder.de/2014/04/pagespeed-disqus-mit-lazyload/
   - https://www.hagen-bauer.de/2015/12/jekyll-disquss.html
+
 - [ ] RSS-Feed OXID http://blog.rh-flow.de/category/entwicklung/oxid/feed/ (static?)
+
 - [ ] Search
+- [ ] Post: more articles of category of Post
+  - http://stackoverflow.com/questions/22441281/jekyll-site-categories-variable
 
 - [ ] move all drafts from Repo `_blog`
   - http://jekyllrb.com/docs/drafts/

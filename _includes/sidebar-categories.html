@@ -1,59 +1,7 @@
-<aside id="categories-3" class="widget widget_categories"><h1 class="widget-title">Kategorien</h1>		<ul>
-	<li class="cat-item cat-item-1"><a href="http://blog.rh-flow.de/category/allgemein/" >Allgemein</a> (13)
-</li>
-	<li class="cat-item cat-item-28"><a href="http://blog.rh-flow.de/category/devop/" >DevOp</a> (12)
-<ul class='children'>
-	<li class="cat-item cat-item-32"><a href="http://blog.rh-flow.de/category/devop/bower/" >Bower</a> (2)
-</li>
-	<li class="cat-item cat-item-29"><a href="http://blog.rh-flow.de/category/devop/docker/" >Docker</a> (2)
-</li>
-	<li class="cat-item cat-item-34"><a href="http://blog.rh-flow.de/category/devop/git/" >Git</a> (3)
-</li>
-	<li class="cat-item cat-item-31"><a href="http://blog.rh-flow.de/category/devop/grunt/" >Grunt</a> (3)
-</li>
-	<li class="cat-item cat-item-30"><a href="http://blog.rh-flow.de/category/devop/vagrant/" >Vagrant</a> (2)
-</li>
-</ul>
-</li>
-	<li class="cat-item cat-item-12"><a href="http://blog.rh-flow.de/category/entwicklung/" >Entwicklung</a> (14)
-<ul class='children'>
-	<li class="cat-item cat-item-37"><a href="http://blog.rh-flow.de/category/entwicklung/elixir/" >Elixir</a> (2)
-</li>
-	<li class="cat-item cat-item-13"><a href="http://blog.rh-flow.de/category/entwicklung/javascript/" >Javascript</a> (2)
-</li>
-	<li class="cat-item cat-item-35"><a href="http://blog.rh-flow.de/category/entwicklung/opendata/" >OpenData</a> (1)
-</li>
-	<li class="cat-item cat-item-20"><a href="http://blog.rh-flow.de/category/entwicklung/oxid/" >OXID</a> (4)
-</li>
-	<li class="cat-item cat-item-15"><a href="http://blog.rh-flow.de/category/entwicklung/paradigmen-entwicklung/" >Paradigmen</a> (3)
-</li>
-	<li class="cat-item cat-item-42"><a href="http://blog.rh-flow.de/category/entwicklung/phoenix/" >Phoenix</a> (1)
-</li>
-	<li class="cat-item cat-item-27"><a href="http://blog.rh-flow.de/category/entwicklung/php-entwicklung/" >PHP</a> (5)
-</li>
-	<li class="cat-item cat-item-33"><a href="http://blog.rh-flow.de/category/entwicklung/sass/" >Sass</a> (2)
-</li>
-	<li class="cat-item cat-item-36"><a href="http://blog.rh-flow.de/category/entwicklung/tests/" >Tests</a> (1)
-</li>
-</ul>
-</li>
-	<li class="cat-item cat-item-3"><a href="http://blog.rh-flow.de/category/fotografie/" >Fotografie</a> (3)
-<ul class='children'>
-	<li class="cat-item cat-item-25"><a href="http://blog.rh-flow.de/category/fotografie/agility-fotografie/" >Agility Fotografie</a> (2)
-</li>
-</ul>
-</li>
-	<li class="cat-item cat-item-5"><a href="http://blog.rh-flow.de/category/internetdienstleistungen/" >Internetdienstleistungen</a> (1)
-<ul class='children'>
-	<li class="cat-item cat-item-6"><a href="http://blog.rh-flow.de/category/internetdienstleistungen/php/" >PHP</a> (1)
-</li>
-</ul>
-</li>
-	<li class="cat-item cat-item-7"><a href="http://blog.rh-flow.de/category/ueberblick/" >Überblick</a> (16)
-<ul class='children'>
-	<li class="cat-item cat-item-9"><a href="http://blog.rh-flow.de/category/ueberblick/agility/" >Agility Turniere</a> (16)
-</li>
-</ul>
-</li>
-		</ul>
+<aside class="widget widget_categories"><h1 class="widget-title">Kategorien</h1>
+	<ul>
+		{% for cat in site.categories %}
+			<li class="cat-item"><a href="http://blog.rh-flow.de/category/allgemein/" >{{ cat }}</a></li>
+		{% endfor %}
+	</ul>
 </aside>
