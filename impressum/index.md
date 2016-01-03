@@ -16,6 +16,7 @@ categories: []
 tags: []
 ---
 <p>Das Angebot von rh-flow.de &#47; agi-fotos.de wird betrieben von:</p>
+
 <h2>Inhaber<&#47;h2><br />
 Dipl. WirtInf.<br />
 Ronny Hartenstein<br />
@@ -28,15 +29,7 @@ Handy: +49-(0)1511-78 80 844 1<br />
 Telefon: +49-(0)371-26 79 088</p>
 <p>Missbr&auml;uchliche Nutzung der Nummern kann zivil- und strafrechtlich verfolgt werden.</p>
 <p>USt.-Id-Nr.: keine vergeben</p>
-<h2>Copyright- und Urheberrechtshinweise<&#47;h2><br />
-Das Ver&ouml;ffentlichungsrecht der Bilder leitet sich durch das &sect; 23 KunstUrhG ab,<br />
-da ausschlie&szlig;lich sog. "relative Personen der Zeitgeschichte" abgebildet werden.</p>
-<p>Mehr Infos gibt es da:<br />
-<a href="http:&#47;&#47;www.photoscala.de&#47;Artikel&#47;Das-Recht-am-eigenen-Bild" target="_new">Photoscala: Das Recht am eigenen Bild<&#47;a><br />
-<a href="http:&#47;&#47;www.photoscala.de&#47;Artikel&#47;Fotografieren-verboten" target="_new">Photoscala: Fotografieren verboten<&#47;a></p>
-<p>Das Copyright verbleibt bei Ronny Hartenstein.</p>
-<p>Die Durchf&uuml;hrung des zulassungfreies Handwerks "Fotografie" ist durch &sect; 18 des Gesetzes zur Ordnung des Handwerks (HwO)<br />
-legitimiert.</p>
+
 <h2>Weitere rechtliche Hinweise<&#47;h2></p>
 <h3>Externe Inhalte und Links<&#47;h3><br />
 Trotz sorgf&auml;ltiger inhaltlicher Kontrolle &uuml;bernehmen wir keine Haftung f&uuml;r die Inhalte externer Links.<br />
