@@ -9,9 +9,9 @@ author:
   email: ''
   url: ''
 excerpt: |-
-  <p>Schon mit dem Update auf Maverick durfte ich meinen gesamten MacPort <a href="http:&#47;&#47;en.wikipedia.org&#47;wiki&#47;MAMP">MAMP-Stack<&#47;a> neubauen, mich wieder in die <code>&#47;usr&#47;opt&#47;irgendwas<&#47;code> Ubuntu-fremde Pfadstruktur einarbeiten. Jetzt nach Yosemite war wieder ein Komplettupdate n&ouml;tig. Da ich zunehmend seltener lokal entwickle, sollte der Stack schon irgendwie bekannten Mustern folgen, also Configs in <code>&#47;etc<&#47;code>, Webkram in <code>&#47;var&#47;www<&#47;code> usw. Lokal l&auml;uft ja alles &uuml;ber VHosts, und eine <code>&#47;vhosts<&#47;code> Verzeichnis, das sind recht viele.<&#47;p>
+  Schon mit dem Update auf Maverick durfte ich meinen gesamten MacPort MAMP-Stack neubauen, mich wieder in die /usr/opt/irgendwas Ubuntu-fremde Pfadstruktur einarbeiten. Jetzt nach Yosemite war wieder ein Komplettupdate n&ouml;tig. Da ich zunehmend seltener lokal entwickle, sollte der Stack schon irgendwie bekannten Mustern folgen, also Configs in /etc, Webkram in /var/www usw. Lokal l&auml;uft ja alles &uuml;ber VHosts, und eine /vhosts Verzeichnis, das sind recht viele.
 
-  <p>Da stolpere ich &uuml;ber die Unterst&uuml;tzung von Vagrant in PHPStorm. Was ist das? Automatisch konfigurierte VirtualBoxen, extern konfigurierbar? Und das noch Quellcode-verwaltbar ohne GUI? Das ist doch bestimmt ganz sch&ouml;n komplex? Ja und nein. Ein Erfahrungsbericht mit Versuch und viel Irrtum.
+  Da stolpere ich &uuml;ber die Unterst&uuml;tzung von Vagrant in PHPStorm. Was ist das? Automatisch konfigurierte VirtualBoxen, extern konfigurierbar? Und das noch Quellcode-verwaltbar ohne GUI? Das ist doch bestimmt ganz sch&ouml;n komplex? Ja und nein. Ein Erfahrungsbericht mit Versuch und viel Irrtum.
 wordpress_id: 463
 wordpress_url: http://rhflow.wp-root.rh-flow.de/?p=463
 date: '2014-11-11 11:52:24 +0100'

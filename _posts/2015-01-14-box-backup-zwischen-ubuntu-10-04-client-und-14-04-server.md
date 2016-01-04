@@ -8,11 +8,11 @@ author:
   login: ''
   email: ''
   url: ''
-excerpt: '<p>Da ich so ein bisschen von <a href="http:&#47;&#47;duplicity.nongnu.org&#47;">Duplicity<&#47;a>
+excerpt: 'Da ich so ein bisschen von Duplicity
   die Nase voll hatte musste eine modernere L&ouml;sung her. Nach Pr&uuml;fung aller
-  M&ouml;glichkeiten der <a href="http:&#47;&#47;wiki.ubuntuusers.de&#47;Datensicherung#Programme">Ubuntu
-  Datensicherung Programmliste<&#47;a> fiel die Wahl auf <a href="http:&#47;&#47;www.boxbackup.org&#47;">Box
-  Backup<&#47;a>. Das Setup verlief erstaunlich problemlos .. seht selbst. '
+  M&ouml;glichkeiten der Ubuntu
+  Datensicherung Programmliste fiel die Wahl auf Box
+  Backup. Das Setup verlief erstaunlich problemlos .. seht selbst. '
 wordpress_id: 543
 wordpress_url: http://rhflow.wp-root.rh-flow.de/?p=543
 date: '2015-01-14 21:49:52 +0100'

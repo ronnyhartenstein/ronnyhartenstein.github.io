@@ -14,8 +14,7 @@ wordpress_id: 764
 wordpress_url: http://blog.rh-flow.de/?p=764
 date: '2015-11-10 00:24:37 +0100'
 date_gmt: '2015-11-09 22:24:37 +0100'
-categories:
-- Allgemein
+categories: DevOp
 tags: []
 ---
 Fuck you fuckin spammer! Because of the arms race it started that getting those message some days ago:

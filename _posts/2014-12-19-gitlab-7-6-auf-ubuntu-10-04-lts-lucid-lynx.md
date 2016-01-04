@@ -9,7 +9,7 @@ author:
   email: ''
   url: ''
 excerpt: |+
-  <p>Inspiriert durch eine langsam Fahrt aufnehmende Umstellung meines Arbeitgebers hab ich dran gemacht, die Quellcode-Verwaltung meiner Nicht-Opensource-Projekte vom in die Jahre gekommenen Subversion zu Git zu migrieren. Erster Schritt: <a href="https:&#47;&#47;about.gitlab.com&#47;">GitLab<&#47;a> einrichten!<&#47;p>
+  Inspiriert durch eine langsam Fahrt aufnehmende Umstellung meines Arbeitgebers hab ich dran gemacht, die Quellcode-Verwaltung meiner Nicht-Opensource-Projekte vom in die Jahre gekommenen Subversion zu Git zu migrieren. Erster Schritt: GitLab einrichten!
 
 wordpress_id: 523
 wordpress_url: http://rhflow.wp-root.rh-flow.de/?p=523

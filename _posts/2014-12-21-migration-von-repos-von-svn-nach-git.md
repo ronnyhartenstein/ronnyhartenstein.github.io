@@ -8,10 +8,9 @@ author:
   login: ''
   email: ''
   url: ''
-excerpt: <p>Nachdem nun GitLab funktioniert muss der Git-Server gef&uuml;llt werden.
+excerpt: Nachdem nun GitLab funktioniert muss der Git-Server gef&uuml;llt werden.
   Dazu gibts die fantastische GIT-SVN-Bridge. Aber bevor es richtig los geht, sollte
-  bisschen <a href="http:&#47;&#47;git-scm.com&#47;book&#47;zh&#47;v2&#47;Git-and-Other-Systems-Git-as-a-Client">Vorgepl&auml;nkel<&#47;a>
-  gelesen werden. Dann gehts ans <a href="http:&#47;&#47;git-scm.com&#47;book&#47;zh&#47;v2&#47;Git-and-Other-Systems-Migrating-to-Git">Eingemachte<&#47;a>..
+  bisschen Vorgepl&auml;nkel gelesen werden. Dann gehts ans Eingemachte..
 wordpress_id: 530
 wordpress_url: http://rhflow.wp-root.rh-flow.de/?p=530
 date: '2014-12-21 00:23:59 +0100'

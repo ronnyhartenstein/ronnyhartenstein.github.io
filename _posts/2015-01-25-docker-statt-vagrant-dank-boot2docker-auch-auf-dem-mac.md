@@ -9,14 +9,15 @@ author:
   email: ''
   url: ''
 excerpt: Vagrant ist ja sowas von 2014. Naja, nicht wirklich, ist ja immernoch ein
-  sehr cooler Ansatz um eine VM versionierbar zu provisionieren. Dies ist auch <strong>kein
-  Rant gegen Vagrant<&#47;strong>! Ich habe ja selbst erst Ende letzten Jahres &uuml;ber
-  den <a title="Es hat sich ausgeMAMPft. Vagrant ist. [Update]" href="http:&#47;&#47;blog.rh-flow.de&#47;2014&#47;11&#47;11&#47;es-hat-sich-ausgemampft-vagrant-ist&#47;">Wechsel
-  von MAMP zu Vagrant<&#47;a> gebloggt. Aber wenn man lokal mehrere Projekte mit mehreren
+  sehr cooler Ansatz um eine VM versionierbar zu provisionieren. Dies ist auch kein
+  Rant gegen Vagrant! Ich habe ja selbst erst Ende letzten Jahres &uuml;ber
+  den Wechsel
+  von MAMP zu Vagrant gebloggt. Aber wenn man lokal mehrere Projekte mit mehreren
   verschieden best&uuml;ckten VMs aufzieht und miteinander reden l&auml;sst, ist fix
   auch 8 GB RAM verkonsumiert. Und da springt Docker durch den anderen Ansatz in die
-  Presche. Angefixt durch zwei Artikel im aktuellen <b>PHPMagazin 2&#47;2015<&#47;b>
-  hab ich das ganze auf meinen Mac mit Hilfe von <b>boot2docker<&#47;b> mal angetestet.
+  Presche. Angefixt durch zwei Artikel im aktuellen PHPMagazin 2/2015
+  hab ich das ganze auf meinen Mac mit Hilfe von boot2docker mal angetestet.
+  
 wordpress_id: 572
 wordpress_url: http://rhflow.wp-root.rh-flow.de/?p=572
 date: '2015-01-25 14:47:39 +0100'
@@ -45,7 +46,7 @@ Flux von <a href="http:&#47;&#47;boot2docker.io&#47;">boot2docker.io<&#47;a> her
 <li><i>You can upgrade your existing Boot2Docker VM without data loss by running: <&#47;i><i><code> boot2docker upgrade<&#47;code><&#47;i><&#47;li><br />
 <&#47;ul></p>
 <ul>
-<li><i>The <&#47;i><i>docker<&#47;i><i> and <&#47;i><i>boot2docker<&#47;i><i> binaries are in <&#47;i><i><code>&#47;usr&#47;local&#47;bin<&#47;code><&#47;i><i> which you can access from your terminal.  For further information, please see the <&#47;i><a href="http:&#47;&#47;docs.docker.com&#47;installation&#47;mac"><i>Docker OS X installation documentation<&#47;i><&#47;a><i>.<&#47;i><&#47;li><br />
+<li><i>The <&#47;i><i>docker<&#47;i><i> and <&#47;i><i>boot2docker<&#47;i><i> binaries are in <&#47;i><i><code>&#47;usr&#47;local&#47;bin<&#47;code><&#47;i><i> which you can access from your terminal. For further information, please see the <&#47;i><a href="http:&#47;&#47;docs.docker.com&#47;installation&#47;mac"><i>Docker OS X installation documentation<&#47;i><&#47;a><i>.<&#47;i><&#47;li><br />
 <&#47;ul></p>
 <h3><b>boot2docker intialisieren<&#47;b><&#47;h3><br />
 boot2docker gestartet gings dessen Initialisierung los.</p>

@@ -10,7 +10,7 @@ author:
   email: ''
   url: ''
 excerpt: |+
-  <p>Viele OXID eShops laufen mit auf Azure basierenden Templates. Dieses ist nicht responsive und sieht auf Smartphones nicht gut aus. Dieser Artikel erkl&auml;rt wie das CSS-Grid der Seite auf <a href="http:&#47;&#47;getbootstrap.com&#47;">Bootstrap<&#47;a> umgestellt werden kann, sowie gibt Tipps und Ausblicke f&uuml;r die Entwickler-TODOs. Der <a href="http:&#47;&#47;blog.rh-flow.de&#47;2015&#47;03&#47;03&#47;oxid-shop-module-per-bower-und-grunt-aktuell-automatisch-halten&#47;">hier<&#47;a> vorgestellte Grunt+Bower-Workflow wird durch <a href="http:&#47;&#47;sass-lang.com&#47;">Sass<&#47;a> erweitert zu einem modernen CSS-Workflow und bildet die Grundlage f&uuml;r die genannten Anpassungen.<&#47;p>
+  Viele OXID eShops laufen mit auf Azure basierenden Templates. Dieses ist nicht responsive und sieht auf Smartphones nicht gut aus. Dieser Artikel erkl&auml;rt wie das CSS-Grid der Seite auf Bootstrap umgestellt werden kann, sowie gibt Tipps und Ausblicke f&uuml;r die Entwickler-TODOs. Der hier vorgestellte Grunt+Bower-Workflow wird durch Sass erweitert zu einem modernen CSS-Workflow und bildet die Grundlage f&uuml;r die genannten Anpassungen.
 
 wordpress_id: 626
 wordpress_url: http://rhflow.wp-root.rh-flow.de/?p=626
