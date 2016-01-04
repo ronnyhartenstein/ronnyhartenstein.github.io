@@ -1,12 +1,40 @@
 ---
-layout: default
+layout: category
 ---
 
-<h1 class="category">{{ page.title }}</h1>
-<ul class="posts">
-{% for category in categories %}
-    <div>{{ post.date | date_to_html_string }}</div>
-    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-    <div class="categories">Filed under {{ post.categories | category_links }}</div>
+
+{% assign cat = page.category %}
+{% capture catl %}{{ cat | downcase }}{% endcapture %}
+<header class="page-header">
+  <h1 class="page-title">Category: <span>{{ cat }}</span></h1>
+</header><!-- .page-header -->
+{% for post in site.posts %}
+  {% for pcat in post.categories %}
+    {% if pcat == catl %}
+    <article class="post type-post status-publish format-standard has-post-thumbnail hentry post-bright has-post-thumb">
+    	<header class="entry-header">
+      	{% comment %}
+        <div class="post-thumb">
+  				<a href="{{ post.url }}" title="{{ post.title }}<"><img width="960" height="360" src="{{ site.baseurl }}/??.jpg" class="attachment-post-thumbnail wp-post-image" /></a>
+  			</div>
+        {% endcomment %}
+  			<h1 class="entry-title"><a href="{{ post.url }}" rel="bookmark">{{ post.title }}</a></h1>
+			</header><!-- .entry-header -->
+
+      <div class="entry-content">
+    		{{ post.excerpt }}
+        <p> <a href="{{ post.url }}#more" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+    	</div><!-- .entry-content -->
+
+      <footer class="entry-meta">
+        <div class="posted-on icon icon-month">
+          Posted on <time class="entry-date" datetime="{{ page.date }}">{{ post.date | date_to_string }}</time></a>
+        </div>
+        <div class="byline icon icon-user">
+          By <span class="author vcard">{{ post.author }}</span>
+        </div>
+      </footer>
+    </article>
+    {% endif %}
+  {% endfor %}
 {% endfor %}
-</ul>

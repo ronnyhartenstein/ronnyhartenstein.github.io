@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+<meta charset="UTF-8" />
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<title>{{ page.title }} - {{ site.name}}</title>
+{% include header-assets.html %}
+{% include header-opengraph.html %}
+{% include header-googleanalytics.html %}
+
+</head>
+<body class="archive category group-blog comment-avatars dark">
+<div id="page" class="hfeed site">
+  {% include site-header.html %}
+
+  <main id="content" class="site-content" role="main">
+    {{ content }}
+	</main><!-- #content .site-content -->
+
+  {% include sidebar.html %}
+  {% include site-footer.html %}
+</div><!-- #page .hfeed .site -->
+
+	{% include cookiebar.html %}
+  {% include footer-assets.html %}
+
+</body>
+</html>
