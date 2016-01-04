@@ -1,6 +1,6 @@
 <!-- SIDEBAR -->
 <aside id="sidebar" class="widget-area" role="complementary">
-	{% include sidebar-search.html %}
+	{% comment %}{% include sidebar-search.html %}{% endcomment %}
 	{% include sidebar-socialmedia.html %}
 	{% include sidebar-categories.html %}
 
@@ -8,8 +8,8 @@
 		Text and source licensed by <a href="https://creativecommons.org/licenses/by-sa/3.0/de/" target="_blank">CC BY-SA 3.0 DE</a></div>
 	</aside>
 	<aside class="widget widget_nav_menu"><div class="menu-impressum-container">
-		<ul id="menu-impressum" class="menu"><li id="menu-item-428" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-428">
-			<a href="http://blog.rh-flow.de/impressum/">Impressum</a>
+		<ul id="menu-impressum" class="menu"><li id="menu-item-428" class="menu-item menu-item-type-post_type menu-item-object-page">
+			<a href="{{ site.baseurl }}/impressum/">Impressum</a>
 		</li></ul>
 	</div></aside>
 </aside><!-- #sidebar .widget-area -->
