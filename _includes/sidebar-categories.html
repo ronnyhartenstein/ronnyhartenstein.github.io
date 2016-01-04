@@ -1,7 +1,9 @@
 <aside class="widget widget_categories"><h1 class="widget-title">Kategorien</h1>
 	<ul>
-		{% for cat in site.categories %}
-			<li class="cat-item"><a href="http://blog.rh-flow.de/category/allgemein/" >{{ cat }}</a></li>
+		{% for category in site.categories %}
+			<li class="cat-item">
+				<a href="{{ site.baseurl }}/category/{{ category | first }}/" >{{ category | first }}</a>
+				<span class="my-badge">{{ category | last | size }}</span></li>
 		{% endfor %}
 	</ul>
 </aside>
