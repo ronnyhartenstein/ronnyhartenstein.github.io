@@ -1,9 +1,10 @@
 <aside class="widget widget_categories"><h1 class="widget-title">Kategorien</h1>
 	<ul>
-		{% for category in site.categories %}
+		{% assign cats = "php|elixir|devop|opendata|tests|oxid" | split: "|" %}
+		{% for cat in cats %}
+		  {% assign category = site.categories[cat] %}
 			<li class="cat-item">
-				<a href="{{ site.baseurl }}/category/{{ category | first }}/" >{{ category | first }}</a>
-				<span class="my-badge">{{ category | last | size }}</span></li>
+				<a href="{{ site.baseurl }}/category/{{ cat }}/" >{{ cat }}</a></li>
 		{% endfor %}
 	</ul>
 </aside>
