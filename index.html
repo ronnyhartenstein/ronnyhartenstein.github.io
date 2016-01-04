@@ -1,9 +1,8 @@
 ---
 layout: home
 ---
-{% assign loop_index = 0 %}
 {% for post in site.posts %}
-  {% if loop_index <= 6 %}
+  {% if forloop.index <= 6 %}
   <article class="post type-post status-publish format-standard hentry post-bright">
   	<header class="entry-header">
 				<h1 class="entry-title"><a href="{{ post.url }}" rel="bookmark">{{ post.title }}</a></h1>
@@ -24,5 +23,4 @@ layout: home
     </footer>
   </article>
   {% endif %}
-  {% assign loop_index = loop_index | plus:1 %}
 {% endfor %}
