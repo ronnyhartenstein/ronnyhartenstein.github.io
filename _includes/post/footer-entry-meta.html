@@ -7,7 +7,10 @@
   </div>
   <div class="cat-links icon icon-category">
     <ul class="post-categories">
-      <li><a rel="category tag" href="http://blog.rh-flow.de/category/allgemein/" title="View all posts in Allgemein" >Allgemein</a></li>
+      {% for category in page.category %}
+        <li><a rel="category tag" href="{{ site.baseurl }}/category/{{ category | first }}" title="View all posts in {{ category[1] }}">
+            {{ category[1] }}</a></li>
+      {% endfor %}
     </ul>
   </div>
 </footer><!-- .entry-meta -->
