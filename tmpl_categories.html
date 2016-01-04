@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+<meta charset="UTF-8" />
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<title>Vagrant &bull; alles im fluss...</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="http://blog.rh-flow.de/xmlrpc.php" />
+<!--[if lt IE 10]>
+<script src="http://blog.rh-flow.de/wp-content/themes/displace/js/html5.js"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="alles im fluss... &raquo; Feed" href="http://blog.rh-flow.de/feed/" />
+<link rel="alternate" type="application/rss+xml" title="alles im fluss... &raquo; Kommentar-Feed" href="http://blog.rh-flow.de/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="alles im fluss... &raquo; Vagrant Kategorie-Feed" href="http://blog.rh-flow.de/category/devop/vagrant/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/blog.rh-flow.de\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.3.1"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='prism-css'  href='http://blog.rh-flow.de/wp-content/plugins/easy-prism-syntax-highlighter/css/prism.css?ver=1.0.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-pagenavi-css'  href='http://blog.rh-flow.de/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://blog.rh-flow.de/wp-content/plugins/jetpack/_inc/genericons/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='roboto-slab-css'  href='//fonts.googleapis.com/css?family=Roboto+Slab:400,700,300&#038;subset=latin,cyrillic' type='text/css' media='all' />
+<link rel='stylesheet' id='displace-style-css'  href='http://blog.rh-flow.de/wp-content/themes/displace/style.css?ver=4.3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='http://blog.rh-flow.de/wp-content/plugins/jetpack/css/jetpack.css?ver=3.8.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://blog.rh-flow.de/wp-includes/js/jquery/jquery.js?ver=1.11.3'></script>
+<script type='text/javascript' src='http://blog.rh-flow.de/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://blog.rh-flow.de/wp-content/plugins/easy-prism-syntax-highlighter/js/prism.js?ver=1.0.2'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.rh-flow.de/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blog.rh-flow.de/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.3.1" />
+<script src='http://wp-root.rh-flow.de/?dm=6e8798aa435e985a44fe89a2beb060e0&amp;action=load&amp;blogid=5&amp;siteid=1&amp;t=790242529&amp;back=http%3A%2F%2Fblog.rh-flow.de%2Fcategory%2Fdevop%2Fvagrant%2F' type='text/javascript'></script><style type='text/css'>img#wpstats{display:none}</style>
+<!-- BEGIN GADWP v4.8.3 Universal Tracking - https://deconf.com/google-analytics-dashboard-wordpress/ -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-9997344-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- END GADWP Universal Tracking -->
+
+</head>
+<body class="archive category category-vagrant category-30 group-blog comment-avatars dark">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header" role="banner">
+					<div>
+									<h1 class="site-title"><a href="http://blog.rh-flow.de/" title="alles im fluss&#8230;" rel="home">alles im fluss&#8230;</a></h1>
+									<h2 class="site-description">bleibt neugierig!</h2>
+							</div>
+			</header><!-- #masthead .site-header -->
+
+	<main id="content" class="site-content" role="main">
+
+	
+		<header class="page-header">
+			<h1 class="page-title">Category: <span>Vagrant</span></h1>
+					</header><!-- .page-header -->
+
+		
+				
+			
+<article id="post-572" class="post-572 post type-post status-publish format-standard has-post-thumbnail hentry category-devop category-docker category-php-entwicklung category-vagrant post-bright has-post-thumb">
+	<header class="entry-header">
+				<div class="post-thumb">
+							<a href="http://blog.rh-flow.de/2015/01/25/docker-statt-vagrant-dank-boot2docker-auch-auf-dem-mac/" title="Permalink to Docker statt Vagrant: dank Boot2docker auch auf dem Mac"><img width="960" height="360" src="http://blog.rh-flow.de/files/2015/01/docker_vagrant-960x360.jpg" class="attachment-post-thumbnail wp-post-image" alt="docker_vagrant" /></a>
+					</div>
+					<h1 class="entry-title"><a href="http://blog.rh-flow.de/2015/01/25/docker-statt-vagrant-dank-boot2docker-auch-auf-dem-mac/" title="Permalink to Docker statt Vagrant: dank Boot2docker auch auf dem Mac" rel="bookmark">Docker statt Vagrant: dank Boot2docker auch auf dem Mac</a></h1>
+				</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p>Vagrant ist ja sowas von 2014. Naja, nicht wirklich, ist ja immernoch ein sehr cooler Ansatz um eine VM versionierbar zu provisionieren. Dies ist auch <strong>kein Rant gegen Vagrant</strong>! Ich habe ja selbst erst Ende letzten Jahres über den <a title="Es hat sich ausgeMAMPft. Vagrant ist. [Update]" href="http://blog.rh-flow.de/2014/11/11/es-hat-sich-ausgemampft-vagrant-ist/">Wechsel von MAMP zu Vagrant</a> gebloggt. Aber wenn man lokal mehrere Projekte mit mehreren verschieden bestückten VMs aufzieht und miteinander reden lässt, ist fix auch 8 GB RAM verkonsumiert. Und da springt Docker durch den anderen Ansatz in die Presche. Angefixt durch zwei Artikel im aktuellen <b>PHPMagazin 2/2015</b> hab ich das ganze auf meinen Mac mit Hilfe von <b>boot2docker</b> mal angetestet. <a href="http://blog.rh-flow.de/2015/01/25/docker-statt-vagrant-dank-boot2docker-auch-auf-dem-mac/#more-572" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+	</div><!-- .entry-content -->
+	
+	<footer class="entry-meta">
+		<div class="comments-link icon icon-comment"><a href="http://blog.rh-flow.de/2015/01/25/docker-statt-vagrant-dank-boot2docker-auch-auf-dem-mac/#respond" title="Comment on Docker statt Vagrant: dank Boot2docker auch auf dem Mac">Leave a comment</a></div><div class="posted-on icon icon-month">Posted on <a href="http://blog.rh-flow.de/2015/01/25/docker-statt-vagrant-dank-boot2docker-auch-auf-dem-mac/" title="Permalink to Docker statt Vagrant: dank Boot2docker auch auf dem Mac" rel="bookmark"><time class="entry-date" datetime="2015-01-25T14:47:39+00:00">25. Januar 2015</time></a></div><div class="byline icon icon-user">By <span class="author vcard"><a class="url fn n" href="http://blog.rh-flow.de/author/ronny/" title="View all posts by Ronny Hartenstein" rel="author">Ronny Hartenstein</a></span></div><div class="cat-links icon icon-category"><ul class="post-categories"><li><a rel="category tag" href="http://blog.rh-flow.de/category/devop/" title="View all posts in DevOp" >DevOp</a></li><li><a rel="category tag" href="http://blog.rh-flow.de/category/devop/docker/" title="View all posts in Docker" >Docker</a></li><li><a rel="category tag" href="http://blog.rh-flow.de/category/entwicklung/php-entwicklung/" title="View all posts in PHP" >PHP</a></li><li><a rel="category tag" href="http://blog.rh-flow.de/category/devop/vagrant/" title="View all posts in Vagrant" >Vagrant</a></li></ul></div>	</footer><!-- .entry-meta -->
+</article><!-- #post-572 -->
+
+		
+			
+<article id="post-463" class="post-463 post type-post status-publish format-standard has-post-thumbnail hentry category-devop category-vagrant post-bright has-post-thumb">
+	<header class="entry-header">
+				<div class="post-thumb">
+							<a href="http://blog.rh-flow.de/2014/11/11/es-hat-sich-ausgemampft-vagrant-ist/" title="Permalink to Es hat sich ausgeMAMPft. Vagrant ist. [Update]"><img width="960" height="360" src="http://blog.rh-flow.de/files/2014/11/vagrant-960x360.png" class="attachment-post-thumbnail wp-post-image" alt="vagrant" /></a>
+					</div>
+					<h1 class="entry-title"><a href="http://blog.rh-flow.de/2014/11/11/es-hat-sich-ausgemampft-vagrant-ist/" title="Permalink to Es hat sich ausgeMAMPft. Vagrant ist. [Update]" rel="bookmark">Es hat sich ausgeMAMPft. Vagrant ist. [Update]</a></h1>
+				</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p>Schon mit dem Update auf Maverick durfte ich meinen gesamten MacPort <a href="http://en.wikipedia.org/wiki/MAMP">MAMP-Stack</a> neubauen, mich wieder in die <code>/usr/opt/irgendwas</code> Ubuntu-fremde Pfadstruktur einarbeiten. Jetzt nach Yosemite war wieder ein Komplettupdate nötig. Da ich zunehmend seltener lokal entwickle, sollte der Stack schon irgendwie bekannten Mustern folgen, also Configs in <code>/etc</code>, Webkram in <code>/var/www</code> usw. Lokal läuft ja alles über VHosts, und eine <code>/vhosts</code> Verzeichnis, das sind recht viele.</p>
+<p>Da stolpere ich über die Unterstützung von Vagrant in PHPStorm. Was ist das? Automatisch konfigurierte VirtualBoxen, extern konfigurierbar? Und das noch Quellcode-verwaltbar ohne GUI? Das ist doch bestimmt ganz schön komplex? Ja und nein. Ein Erfahrungsbericht mit Versuch und viel Irrtum. <a href="http://blog.rh-flow.de/2014/11/11/es-hat-sich-ausgemampft-vagrant-ist/#more-463" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+	</div><!-- .entry-content -->
+	
+	<footer class="entry-meta">
+		<div class="comments-link icon icon-comment"><a href="http://blog.rh-flow.de/2014/11/11/es-hat-sich-ausgemampft-vagrant-ist/#respond" title="Comment on Es hat sich ausgeMAMPft. Vagrant ist. [Update]">Leave a comment</a></div><div class="posted-on icon icon-month">Posted on <a href="http://blog.rh-flow.de/2014/11/11/es-hat-sich-ausgemampft-vagrant-ist/" title="Permalink to Es hat sich ausgeMAMPft. Vagrant ist. [Update]" rel="bookmark"><time class="entry-date" datetime="2014-11-11T11:52:24+00:00">11. November 2014</time></a></div><div class="byline icon icon-user">By <span class="author vcard"><a class="url fn n" href="http://blog.rh-flow.de/author/ronny/" title="View all posts by Ronny Hartenstein" rel="author">Ronny Hartenstein</a></span></div><div class="cat-links icon icon-category"><ul class="post-categories"><li><a rel="category tag" href="http://blog.rh-flow.de/category/devop/" title="View all posts in DevOp" >DevOp</a></li><li><a rel="category tag" href="http://blog.rh-flow.de/category/devop/vagrant/" title="View all posts in Vagrant" >Vagrant</a></li></ul></div>	</footer><!-- .entry-meta -->
+</article><!-- #post-463 -->
+
+		
+		
+	
+	</main><!-- #content .site-content -->
+
+		<aside id="sidebar" class="widget-area" role="complementary">
+						<aside id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="http://blog.rh-flow.de/">
+				<label>
+					<span class="screen-reader-text">Suche nach:</span>
+					<input type="search" class="search-field" placeholder="Suche&#160;&hellip;" value="" name="s" title="Suche nach:" />
+				</label>
+				<input type="submit" class="search-submit" value="Suche" />
+			</form></aside><aside id="text-4" class="widget widget_text">			<div class="textwidget"><a href="https://twitter.com/rhflow_de" title="Twitter"><img src="http://rhflow.wp-root.rh-flow.de/files/2015/03/twitter.png" width="50" height="50"></a> &nbsp;
+<a href="https://www.facebook.com/ronny.hartenstein" title="Facebook"><img src="http://rhflow.wp-root.rh-flow.de/files/2015/03/facebook.png" width="50" height="50"></a> &nbsp;
+<a href="https://plus.google.com/+RonnyHartenstein/posts" title="Google+"><img src="http://rhflow.wp-root.rh-flow.de/files/2015/03/googleplus.png" width="50" height="50"></a></div>
+		</aside><aside id="categories-3" class="widget widget_categories"><h1 class="widget-title">Kategorien</h1>		<ul>
+	<li class="cat-item cat-item-1"><a href="http://blog.rh-flow.de/category/allgemein/" >Allgemein</a> (13)
+</li>
+	<li class="cat-item cat-item-28 current-cat-parent"><a href="http://blog.rh-flow.de/category/devop/" >DevOp</a> (12)
+<ul class='children'>
+	<li class="cat-item cat-item-32"><a href="http://blog.rh-flow.de/category/devop/bower/" >Bower</a> (2)
+</li>
+	<li class="cat-item cat-item-29"><a href="http://blog.rh-flow.de/category/devop/docker/" >Docker</a> (2)
+</li>
+	<li class="cat-item cat-item-34"><a href="http://blog.rh-flow.de/category/devop/git/" >Git</a> (3)
+</li>
+	<li class="cat-item cat-item-31"><a href="http://blog.rh-flow.de/category/devop/grunt/" >Grunt</a> (3)
+</li>
+	<li class="cat-item cat-item-30 current-cat"><a href="http://blog.rh-flow.de/category/devop/vagrant/" >Vagrant</a> (2)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-12"><a href="http://blog.rh-flow.de/category/entwicklung/" >Entwicklung</a> (14)
+<ul class='children'>
+	<li class="cat-item cat-item-37"><a href="http://blog.rh-flow.de/category/entwicklung/elixir/" >Elixir</a> (2)
+</li>
+	<li class="cat-item cat-item-13"><a href="http://blog.rh-flow.de/category/entwicklung/javascript/" >Javascript</a> (2)
+</li>
+	<li class="cat-item cat-item-35"><a href="http://blog.rh-flow.de/category/entwicklung/opendata/" >OpenData</a> (1)
+</li>
+	<li class="cat-item cat-item-20"><a href="http://blog.rh-flow.de/category/entwicklung/oxid/" >OXID</a> (4)
+</li>
+	<li class="cat-item cat-item-15"><a href="http://blog.rh-flow.de/category/entwicklung/paradigmen-entwicklung/" >Paradigmen</a> (3)
+</li>
+	<li class="cat-item cat-item-42"><a href="http://blog.rh-flow.de/category/entwicklung/phoenix/" >Phoenix</a> (1)
+</li>
+	<li class="cat-item cat-item-27"><a href="http://blog.rh-flow.de/category/entwicklung/php-entwicklung/" >PHP</a> (5)
+</li>
+	<li class="cat-item cat-item-33"><a href="http://blog.rh-flow.de/category/entwicklung/sass/" >Sass</a> (2)
+</li>
+	<li class="cat-item cat-item-36"><a href="http://blog.rh-flow.de/category/entwicklung/tests/" >Tests</a> (1)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://blog.rh-flow.de/category/fotografie/" >Fotografie</a> (3)
+<ul class='children'>
+	<li class="cat-item cat-item-25"><a href="http://blog.rh-flow.de/category/fotografie/agility-fotografie/" >Agility Fotografie</a> (2)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://blog.rh-flow.de/category/internetdienstleistungen/" >Internetdienstleistungen</a> (1)
+<ul class='children'>
+	<li class="cat-item cat-item-6"><a href="http://blog.rh-flow.de/category/internetdienstleistungen/php/" >PHP</a> (1)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://blog.rh-flow.de/category/ueberblick/" >Überblick</a> (16)
+<ul class='children'>
+	<li class="cat-item cat-item-9"><a href="http://blog.rh-flow.de/category/ueberblick/agility/" >Agility Turniere</a> (16)
+</li>
+</ul>
+</li>
+		</ul>
+</aside><aside id="text-5" class="widget widget_text">			<div class="textwidget">aller Text und Quellcode ist lizensiert unter <a href="https://creativecommons.org/licenses/by-sa/3.0/de/" target="_blank">CC BY-SA 3.0 DE</a></div>
+		</aside><aside id="nav_menu-3" class="widget widget_nav_menu"><div class="menu-impressum-container"><ul id="menu-impressum" class="menu"><li id="menu-item-428" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-428"><a href="http://blog.rh-flow.de/impressum/">Impressum</a></li>
+</ul></div></aside>		</aside><!-- #sidebar .widget-area -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+			<a href="http://wordpress.org/" title="A Semantic Personal Publishing Platform" rel="generator">Proudly powered by WordPress</a>
+			<span class="sep"> &bull; </span>
+			Displace theme by <a href="http://profiles.wordpress.org/awesome110/">Anton Kulakov</a>		</div><!-- .site-info -->
+	</footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+	<script type="text/javascript">
+
+		(function(){
+
+			var cookieBar = function() { cookieChoices.showCookieBar({ linkHref: '', dismissText: '', position: '', cookieText:'', linkText: '', language: 'de'}) };
+
+			if(document.addEventListener) {
+				document.addEventListener('DOMContentLoaded', cookieBar);
+			}
+			else {
+				document.attachEvent('onreadystatechange', function(event) { 
+		            if ( document.readyState === "complete" ) {
+		            	cookieBar();
+					}
+				});
+			}
+		})();
+
+	</script>
+<link rel='stylesheet' id='wp-markdown-prettify-css'  href='http://blog.rh-flow.de/wp-content/plugins/wp-markdown/css/prettify.css?ver=1.5.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://blog.rh-flow.de/wp-content/plugins/wf-cookie-consent/js/cookiechoices.js?ver=0.0.4'></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201601'></script>
+<script type='text/javascript' src='http://blog.rh-flow.de/wp-content/plugins/wp-markdown/js/prettify.min.js?ver=1.5.1'></script>
+<script type='text/javascript' src='http://blog.rh-flow.de/wp-content/plugins/wp-markdown/js/markdown.min.js?ver=1.5.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"rhflow"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.rh-flow.de/wp-content/plugins/disqus-conditional-load/disqus-core/media/js/count.js?ver=4.3.1'></script>
+<script type='text/javascript' src='http://stats.wp.com/e-201601.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:3.8.1',blog:'60962924',post:'0',tz:'2',srv:'blog.rh-flow.de'} ]);
+	_stq.push([ 'clickTrackerInit', '60962924', '0' ]);
+</script>
+
+</body>
+</html>
