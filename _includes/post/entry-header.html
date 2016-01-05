@@ -1,3 +1,8 @@
 <header class="entry-header">
-    <h1 class="entry-title">{{ page.title }}</h1>
+  {% if page.thumb %}
+  <div class="post-thumb">
+			<img width="889" height="346" src="{{ site.url }}{{ page.thumb }}" class="attachment-post-thumbnail wp-post-image">
+	</div>
+  {% endif %}
+  <h1 class="entry-title">{{ page.title }}</h1>
 </header><!-- .entry-header -->
