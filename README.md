@@ -32,12 +32,16 @@
 
 - [x] RSS-Feed OXID http://blog.rh-flow.de/category/entwicklung/oxid/feed/ (static?)
 
-- [ ] (later) Post: more articles of category of Post
-  - http://stackoverflow.com/questions/22441281/jekyll-site-categories-variable
-
 - [ ] move all drafts from Repo `_blog`
   - some docs on Google Docs?
   - http://jekyllrb.com/docs/drafts/
+
+- BLOG!
+
+Ideas - later:
+
+- [ ] (later) Post: more articles of category of Post
+  - http://stackoverflow.com/questions/22441281/jekyll-site-categories-variable
 
 ## Jekyll Docs
 
