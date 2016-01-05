@@ -19,6 +19,7 @@ categories:
 - Grunt
 - Bower
 tags: []
+thumb: /files/2015/03/oxid_module_grunt_bower-960x360.jpg
 ---
 [OXID eShop CE][1] ist an sich ja ein tolles System out-of-the-box. Wie jedes moderne System bietet auch OXID Drittanbietern die Möglichkeit, dieses mit **Modulen** zu erweitern. Mittlerweile gibt es auch einige Module auf GitHub unter OpenSource-Lizenz. Mit Node.js, Bower und Grunt lässt sich ein automatischer Workflow etablieren, der Installation und Aktualisierung erleichtert.
 

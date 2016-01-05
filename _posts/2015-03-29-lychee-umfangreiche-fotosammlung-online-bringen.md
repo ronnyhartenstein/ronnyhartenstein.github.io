@@ -18,6 +18,7 @@ categories:
 - Fotografie
 - DevOp
 tags: []
+thumb: /files/2015/03/lychee-960x360.jpg
 ---
 
 Schon Jahre habe ich das Problem, dass ich meine sehr umfangreiche Fotosammlung gerne auf Smartphone, iPad und Computer online abrufen möchten. Und das bitte selbst gehostet. Diese umfasst mittlerweile rund **61\.000 Bilder** in rd. **1500 Alben** und bringt in der Die Thumbnail-Version (runterskaliert auf max. 2048x2048) immerhin rund **13 GB** auf die Waage.

@@ -16,6 +16,6 @@ categories:
 - Allgemein
 tags: []
 ---
-<p>Ein <a href="http:&#47;&#47;jaxenter.de&#47;news&#47;Kunst-des-Programmierens-oder-wie-gut-ein-Entwickler-wirklich-ist">Online-Artikel auf JAXcenter<&#47;a> greift einen interessanten Punkt auf..</p>
-<p><em>Stellen Sie sich vor, Sie engagieren einen Klempner, um Ihre Rohre im Keller verlegen zu lassen. Vor, w&auml;hrend und nach der Arbeit h&ouml;rt der gute Mann nicht auf, von der &auml;sthetischen Sch&ouml;nheit seiner Rohrverlegerkunst zu schw&auml;rmen und zu erkl&auml;ren, warum er gerade dieses eine Rohr in diesem bestimmten Winkel zum anderen gesetzt hat.<&#47;em></p>
-<p>Gute und weniger gute Entwickler zu unterscheiden ist vermeindlich einfach am Ende des Tages: Gut ist schnell, gr&uuml;ndlich, ohne grobe Schnitzer und in der Zeit. Gut ist gut genug. &Auml;stethik und Struktur im Code braucht nur die k&uuml;nftige Wartungsf&auml;higkeit unterst&uuml;tzen, nicht mehr und definitiv nicht weniger.</p>
+<p>Ein <a href="http://jaxenter.de/news/Kunst-des-Programmierens-oder-wie-gut-ein-Entwickler-wirklich-ist">Online-Artikel auf JAXcenter</a> greift einen interessanten Punkt auf..</p>
+<p><em>Stellen Sie sich vor, Sie engagieren einen Klempner, um Ihre Rohre im Keller verlegen zu lassen. Vor, während und nach der Arbeit hört der gute Mann nicht auf, von der ästhetischen Schönheit seiner Rohrverlegerkunst zu schwärmen und zu erklären, warum er gerade dieses eine Rohr in diesem bestimmten Winkel zum anderen gesetzt hat.</em></p>
+<p>Gute und weniger gute Entwickler zu unterscheiden ist vermeindlich einfach am Ende des Tages: Gut ist schnell, gründlich, ohne grobe Schnitzer und in der Zeit. Gut ist gut genug. Ästethik und Struktur im Code braucht nur die künftige Wartungsfähigkeit unterstützen, nicht mehr und definitiv nicht weniger.</p>

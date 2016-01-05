@@ -8,12 +8,6 @@ author:
   login: ''
   email: ''
   url: ''
-excerpt: "<p dir=\"ltr\">Funktionale Programmierung war mir bislang eher nicht gel&auml;ufig.
-  OOP ist ja das bekannte Allheilmittel, richtig? Haskell, Scala und Lisp sind ja
-  abgefahrene Sprachen, die nur Wissenschaftler nutzen&hellip; Aber ein Vortrag auf
-  DCHH 2013 der&nbsp; haben mich mir dann doch die Augen ge&ouml;ffnet: <a href=\"http:&#47;&#47;qafoo.com&#47;talks&#47;13_11_dc13_pure_and_functional_javascript.pdf\">Jacob
-  Westhoffs \"Pure and functional Javascript\" <&#47;a>- &nbsp; <strong>JS ist auch
-  funktional programmierbar!<&#47;strong><&#47;p>\r\n<p dir=\"ltr\">"
 wordpress_id: 372
 wordpress_url: http://rhflow.wp-root.rh-flow.de/?p=372
 date: '2013-11-25 22:28:00 +0100'
@@ -29,218 +23,254 @@ tags:
 - Pure Funktion
 - Map Reduce
 ---
-<p dir="ltr">Funktionale Programmierung war mir bislang eher nicht gel&auml;ufig. OOP ist ja das bekannte Allheilmittel, richtig? Haskell, Scala und Lisp sind ja abgefahrene Sprachen, die nur Wissenschaftler nutzen&hellip; Aber ein Vortrag auf DCHH 2013 der&nbsp; haben mich mir dann doch die Augen ge&ouml;ffnet: <a href="http:&#47;&#47;qafoo.com&#47;talks&#47;13_11_dc13_pure_and_functional_javascript.pdf">Jacob Westhoffs "Pure and functional Javascript" <&#47;a>- &nbsp; <strong>JS ist auch funktional programmierbar!<&#47;strong><&#47;p></p>
-<p dir="ltr"><a id="more"></a><a id="more-372"></a><&#47;p></p>
-<p dir="ltr">Eine sehr gute Einf&uuml;hrung gibt es hier im ersten und bislang einzigen Javascript Onlinemagazin Mag.JS <a href="http:&#47;&#47;www.magjs.de&#47;2012-01&#47;strehl&#47;strehl.html">Funktionales Programmieren: das vernachl&auml;ssigte Paradigma<&#47;a><&#47;p><br />
-Kurze Zusammenfassung der Kerngedanken:</p>
+<p dir="ltr">Funktionale Programmierung war mir bislang eher nicht geläufig. OOP ist ja das bekannte Allheilmittel, richtig? Haskell, Scala und Lisp sind ja abgefahrene Sprachen, die nur Wissenschaftler nutzen… Aber ein Vortrag auf DCHH 2013 der&nbsp; haben mich mir dann doch die Augen geöffnet: <a href="http://qafoo.com/talks/13_11_dc13_pure_and_functional_javascript.pdf">Jacob Westhoffs „Pure and functional Javascript“ </a>– &nbsp; <strong>JS ist auch funktional programmierbar!</strong></p>
+
+<!--more-->
+
+<p dir="ltr">Eine sehr gute Einführung gibt es hier im ersten und bislang einzigen Javascript Onlinemagazin Mag.JS <a href="http://www.magjs.de/2012-01/strehl/strehl.html">Funktionales Programmieren: das vernachlässigte Paradigma</a></p>
+<p>Kurze Zusammenfassung der Kerngedanken:</p>
 <ul>
-<li>FP als Paradigma passt wunderbar zur Ablaufsteuerung<&#47;li>
-<li>FP l&auml;sst eleganten Code entstehen, in JS auch durch map und reduce<&#47;li><br />
-<&#47;ul></p>
-<h2>Einfaches Beispiel<&#47;h2><br />
-Dieses und die nachfolgenden Beispiele entstammen Jacobs Vortrag und zeigen m.E. gut und deutlich die M&auml;chtigkeit des Paradigmas.</p>
-<pre>
-<h1>Funktionale Programmierung: Einfaches Beispiel<&#47;h1></p>
-<div id="ausgabe"><&#47;div></p>
-<p><script></p>
-<p>var sessions = [<br />
-&nbsp;&nbsp;&nbsp; { title: 'HTML und so', speaker: 'Hans Musterfrau', description: 'Kleine Einf&uuml;hrung in HTML5' },<br />
-&nbsp;&nbsp;&nbsp; { title: 'Javascript und so', speaker: 'Eva Maria Blankofix', description: 'Ausf&uuml;hrliche Einf&uuml;gung in JavaScript' },<br />
-&nbsp;&nbsp;&nbsp; { title: 'PHP und so', speaker: 'Max Musterhauser', description: 'Vorlesung zum Handbuch' }<br />
-];&nbsp;&nbsp; &nbsp;</p>
-<p>var extract = function(property) {<br />
-&nbsp;&nbsp;&nbsp; return function(object) {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return object[property];<br />
-&nbsp;&nbsp;&nbsp; };<br />
-};</p>
-<p>var wrapIn = function(element) {<br />
-&nbsp;&nbsp;&nbsp; return function(input) {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return "<" + element + ">" + input + "<&#47;" + element + ">";<br />
-&nbsp;&nbsp;&nbsp; };<br />
-};</p>
-<p>var concatenate = function(accumulation, next ) {<br />
-&nbsp;&nbsp;&nbsp; return accumulation + next;<br />
-};</p>
-<p>&#47;&#47; BISHER<br />
-&#47;*<br />
-var sessionList = "";<br />
-var i, len ;<br />
-for (i=0, len = sessions.length; i < len; i ++) {<br />
-&nbsp;&nbsp;&nbsp; sessionList += "
-<li>" + sessions[i].title + "<&#47;li>";<br />
-}<br />
-*&#47;<br />
-&#47;&#47; FUNKTIONAL</p>
-<p><strong>var sessionList = sessions<&#47;strong><br />
-<strong>&nbsp;&nbsp;&nbsp; .map( extract("title") )<&#47;strong><br />
-<strong>&nbsp;&nbsp;&nbsp; .map( wrapIn("li") )<&#47;strong><br />
-<strong>&nbsp;&nbsp;&nbsp; .reduce( concatenate, " " ) ;<&#47;strong></p>
-<p>document.getElementById('ausgabe').innerHTML = "
-<ul>" + sessionList + "<&#47;ul>";</p>
-<p><&#47;script><&#47;pre><br />
-&nbsp;</p>
-<h2>und nun noch in PHP<&#47;h2></p>
-<pre>&nbsp;<br />
-<h1>Funktionale Programmierung in PHP: Einfaches Beispiel<&#47;h1><br />
-<?php<br />
-error_reporting(E_ALL);<br />
-ini_set('display_errors',1);</p>
-<p>$sessions = array(<br />
- &nbsp;&nbsp;&nbsp;array( 'title' => 'HTML und so', 'speaker' => 'Hans Musterfrau', 'description' => 'Kleine Einf&uuml;hrung in HTML5' ),<br />
- &nbsp;&nbsp;&nbsp;array( 'title' => 'Javascript und so', 'speaker' => 'Eva Maria Blankofix', 'description' => 'Ausf&uuml;hrliche Einf&uuml;gung in JavaScript' ),<br />
- &nbsp;&nbsp;&nbsp;array( 'title' => 'PHP und so', 'speaker' => 'Max Musterhauser', 'description' => 'Vorlesung zum Handbuch' )<br />
-);</p>
-<p>function extractItm($property) {<br />
- &nbsp;&nbsp;&nbsp;return function($object) use ($property) {<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;return $object[$property];<br />
- &nbsp;&nbsp;&nbsp;};<br />
-}</p>
-<p>function wrapIn($element) {<br />
- &nbsp;&nbsp;&nbsp;return function($input) use ($element) {<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;return "<" . $element . ">" . $input . "<&#47;" . $element . ">";<br />
- &nbsp;&nbsp;&nbsp;};<br />
-}</p>
-<p>function concatenate($accumulation, $next) {<br />
- &nbsp;&nbsp;&nbsp;return $accumulation . $next;<br />
-};</p>
-<p>&#47;&#47; FUNKTIONAL</p>
-<p>$sessionExtract = array_map(extractItm("title"), $sessions);<br />
-$sessionLi = array_map(wrapIn("li"), &nbsp;$sessionExtract);<br />
-$sessionList = array_reduce($sessionLi, "concatenate", " ");</p>
-<p>print "
-<ul>" . $sessionList . "<&#47;ul>";<br />
-?><&#47;pre><br />
-&nbsp;</p>
-<h2>Komplexes Beispiel<&#47;h2></p>
-<pre>
-<h1>Funktionale Programmierung: Komplexes Beispiel<&#47;h1></p>
-<div id="ausgabe"><&#47;div></p>
-<p><script><br />
-var sessions = [<br />
- &nbsp;&nbsp;&nbsp;{ title: 'HTML und so', speaker: 'Hans Musterfrau', description: 'Kleine Einf&uuml;hrung in HTML5' },<br />
- &nbsp;&nbsp;&nbsp;{ title: 'Javascript und so', speaker: 'Eva Maria Blankofix', description: 'Ausf&uuml;hrliche Einf&uuml;gung in JavaScript' },<br />
- &nbsp;&nbsp;&nbsp;{ title: 'PHP und so', speaker: 'Max Musterhauser', description: 'Vorlesung zum Handbuch' }<br />
-]; &nbsp;&nbsp;&nbsp;</p>
-<p>&#47;&#47; ----------------------------------------<br />
-&#47;&#47; Pure Funktionen</p>
-<p>var extract = function(property) {<br />
- &nbsp;&nbsp;&nbsp;return function(object) {<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;return object[property];<br />
- &nbsp;&nbsp;&nbsp;}<br />
-}</p>
-<p>var wrapIn = function(element) {<br />
- &nbsp;&nbsp;&nbsp;return function(input) {<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;return "<" + element + ">" + input + "<&#47;" + element + ">";<br />
- &nbsp;&nbsp;&nbsp;}<br />
-}</p>
-<p>var concatenate = function(accumulation, next) {<br />
- &nbsp;&nbsp;&nbsp;return accumulation + next;<br />
-}</p>
-<p>var highlight = function(&#47;* argumente... *&#47;) {<br />
- &nbsp;&nbsp;&nbsp;var args = Array.prototype.slice.call(arguments);<br />
- &nbsp;&nbsp;&nbsp;return function (input) {<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;args.forEach(function(replacement) {<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;input = input.replace (<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;new RegExp("\\b" + replacement + "\\b"),<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;"<em>" + replacement + "<&#47;em>"<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;);<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;});<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;return input;<br />
- &nbsp;&nbsp;&nbsp;}<br />
-}</p>
-<p>var ellipsis = function(maxLength) {<br />
- &nbsp;&nbsp;&nbsp;return function(input) {<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;if ( input.length <= maxLength ) {<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return input ;<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;}<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;return input.substring(0, maxLength - 1) + "... ";<br />
- &nbsp;&nbsp;&nbsp;}<br />
-}</p>
-<p>var prefix = function(prefix) {<br />
- &nbsp;&nbsp;&nbsp;return function(input) {<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;return prefix + input ;<br />
- &nbsp;&nbsp;&nbsp;}<br />
-} </p>
-<p>var uppercaseEveryFirst = function() {<br />
- &nbsp;&nbsp;&nbsp;return function(input) {<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;return input<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;.split(" ")<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;.map( uppercaseFirst() )<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;.join(" ") ;<br />
- &nbsp;&nbsp;&nbsp;}<br />
-}</p>
-<p>var uppercaseFirst = function() {<br />
- &nbsp;&nbsp;&nbsp;return function(input) {<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;return input.charAt(0).toUpperCase ( )<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;+ input.substring(1) ;<br />
- &nbsp;&nbsp;&nbsp;}<br />
-}</p>
-<p>var join = function(delimiter) {<br />
- &nbsp;&nbsp;&nbsp;return function(input) {<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;return input.join(delimiter);<br />
- &nbsp;&nbsp;&nbsp;}<br />
-}</p>
-<p>var weave = function(a, b, c) {<br />
- &nbsp;&nbsp;&nbsp;var arr = [];<br />
- &nbsp;&nbsp;&nbsp;for (var i=0; i<a.length; i++) {<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;arr.push([ a[i], b[i], c[i] ]);<br />
- &nbsp;&nbsp;&nbsp;}<br />
- &nbsp;&nbsp;&nbsp;return arr;<br />
-}</p>
-<p>&#47;&#47; -------------------------------------------------<br />
-&#47;&#47; Map und Reduce</p>
-<p><strong>var titles = sessions<&#47;strong><br />
-<strong> &nbsp;&nbsp;&nbsp;.map( extract("title") )<&#47;strong><br />
-<strong> &nbsp;&nbsp;&nbsp;.map( wrapIn("h2") );<&#47;strong></p>
-<p><strong>var speakers = sessions<&#47;strong><br />
-<strong> &nbsp;&nbsp;&nbsp;.map( extract("speaker") )<&#47;strong><br />
-<strong> &nbsp;&nbsp;&nbsp;.map( uppercaseEveryFirst() )<&#47;strong><br />
-<strong> &nbsp;&nbsp;&nbsp;.map( prefix("Speaker: ") )<&#47;strong><br />
-<strong> &nbsp;&nbsp;&nbsp;.map( wrapIn("h3") ) ;<&#47;strong></p>
-<p><strong>var descriptions = sessions<&#47;strong><br />
-<strong> &nbsp;&nbsp;&nbsp;.map( extract("description") )<&#47;strong><br />
-<strong> &nbsp;&nbsp;&nbsp;.map( ellipsis(160) )<&#47;strong><br />
-<strong> &nbsp;&nbsp;&nbsp;.map( highlight("JavaScript", "HTML5") )<&#47;strong><br />
-<strong> &nbsp;&nbsp;&nbsp;.map( wrapIn("p") ) ;<&#47;strong></p>
-<p><strong>var result = weave(titles, speakers, descriptions)<&#47;strong><br />
-<strong> &nbsp;&nbsp;&nbsp;.map( join() )<&#47;strong><br />
-<strong> &nbsp;&nbsp;&nbsp;.map( wrapIn("div") )<&#47;strong><br />
-<strong> &nbsp;&nbsp;&nbsp;.reduce( concatenate );<&#47;strong></p>
-<p>document.getElementById('ausgabe').innerHTML = result;</p>
-<p><&#47;script><&#47;pre></p>
-<h2>Geht auch asyncron!<&#47;h2></p>
-<p dir="ltr">Mit Hilfe der<a href="https:&#47;&#47;github.com&#47;caolan&#47;async"> Async.js<&#47;a> Bibliothek funktioniert das ganze auch asynchron:<&#47;p></p>
-<pre>&nbsp;<html><br />
-<script src="http:&#47;&#47;ajax.googleapis.com&#47;ajax&#47;libs&#47;jquery&#47;1.9.1&#47;jquery.min.js"><&#47;script><br />
-<script src="async.js"><&#47;script><br />
-<body><br />
-<script><br />
-&#47;&#47; Asynchronous map&#47;reduce to the rescue</p>
-<p>&#47;&#47; https:&#47;&#47;github.com&#47;caolan&#47;async</p>
-<p>var ajax = function ( url , done ) {<br />
- &nbsp;&nbsp;&nbsp;$.ajax({<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;url : url ,<br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;success : done<br />
- &nbsp;&nbsp;&nbsp;});<br />
-} </p>
-<p><strong>var fetch = function ( urls , done ) {<&#47;strong><br />
-<strong> &nbsp;&nbsp;&nbsp;async.map( urls , ajax , done );<&#47;strong><br />
-<strong>}<&#47;strong></p>
-<p>var urls = [<br />
- &nbsp;&nbsp;&nbsp;'http:&#47;&#47;heise.de&#47;',<br />
- &nbsp;&nbsp;&nbsp;'http:&#47;&#47;t3n.de&#47;',<br />
- &nbsp;&nbsp;&nbsp;'http:&#47;&#47;tagesschau.de&#47;'<br />
-];</p>
-<p>fetch(urls);<br />
-<&#47;script><&#47;pre></p>
-<p dir="ltr"><em>BTW:<&#47;em> Async.js hat noch einen ganzen Sack voll Funktionen mehr im Bauch...<&#47;p><br />
-&nbsp;</p>
-<h2>Fazit<&#47;h2></p>
-<p dir="ltr">Meine Meinung dazu? Es ist ein Paradigma, was man kennen sollte um es bei passender Gelegenheit einzusetzen.<&#47;p><br />
-&nbsp;</p>
-<p dir="ltr">Manuel Strehl schreibt passend dazu:<&#47;p></p>
+<li>FP als Paradigma passt wunderbar zur Ablaufsteuerung</li>
+<li>FP lässt eleganten Code entstehen, in JS auch durch map und reduce</li>
+</ul>
+<h2>Einfaches Beispiel</h2>
+<p>Dieses und die nachfolgenden Beispiele entstammen Jacobs Vortrag und zeigen m.E. gut und deutlich die Mächtigkeit des Paradigmas.</p>
+<pre class="prettyprint prettyprinted" style=""><span class="tag">&lt;h1&gt;</span><span class="pln">Funktionale Programmierung: Einfaches Beispiel</span><span class="tag">&lt;/h1&gt;</span><span class="pln">
+</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"ausgabe"</span><span class="tag">&gt;&lt;/div&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;script&gt;</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> sessions </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+&nbsp;&nbsp;&nbsp; </span><span class="pun">{</span><span class="pln"> title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'HTML und so'</span><span class="pun">,</span><span class="pln"> speaker</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Hans Musterfrau'</span><span class="pun">,</span><span class="pln"> description</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Kleine Einführung in HTML5'</span><span class="pln"> </span><span class="pun">},</span><span class="pln">
+&nbsp;&nbsp;&nbsp; </span><span class="pun">{</span><span class="pln"> title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Javascript und so'</span><span class="pun">,</span><span class="pln"> speaker</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Eva Maria Blankofix'</span><span class="pun">,</span><span class="pln"> description</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Ausführliche Einfügung in JavaScript'</span><span class="pln"> </span><span class="pun">},</span><span class="pln">
+&nbsp;&nbsp;&nbsp; </span><span class="pun">{</span><span class="pln"> title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'PHP und so'</span><span class="pun">,</span><span class="pln"> speaker</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Max Musterhauser'</span><span class="pun">,</span><span class="pln"> description</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Vorlesung zum Handbuch'</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">];</span><span class="pln">&nbsp;&nbsp; &nbsp;
+
+</span><span class="kwd">var</span><span class="pln"> extract </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">property</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+&nbsp;&nbsp;&nbsp; </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">object</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">return</span><span class="pln"> object</span><span class="pun">[</span><span class="pln">property</span><span class="pun">];</span><span class="pln">
+&nbsp;&nbsp;&nbsp; </span><span class="pun">};</span><span class="pln">
+</span><span class="pun">};</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> wrapIn </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">element</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+&nbsp;&nbsp;&nbsp; </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">input</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">return</span><span class="pln"> </span><span class="str">"&lt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> element </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> input </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> element </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&gt;"</span><span class="pun">;</span><span class="pln">
+&nbsp;&nbsp;&nbsp; </span><span class="pun">};</span><span class="pln">
+</span><span class="pun">};</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> concatenate </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">accumulation</span><span class="pun">,</span><span class="pln"> next </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+&nbsp;&nbsp;&nbsp; </span><span class="kwd">return</span><span class="pln"> accumulation </span><span class="pun">+</span><span class="pln"> next</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">};</span><span class="pln">
+
+</span><span class="com">// BISHER</span><span class="pln">
+</span><span class="com">/*
+var sessionList = "";
+var i, len ;
+for (i=0, len = sessions.length; i &lt; len; i ++) {
+&nbsp;&nbsp;&nbsp; sessionList += "&lt;li&gt;" + sessions[i].title + "&lt;/li&gt;";
+}
+*/</span><span class="pln">
+</span><span class="com">// FUNKTIONAL</span><span class="pln">
+
+</span><strong><span class="kwd">var</span><span class="pln"> sessionList </span><span class="pun">=</span><span class="pln"> sessions</span></strong><span class="pln">
+</span><strong><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> extract</span><span class="pun">(</span><span class="str">"title"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span></strong><span class="pln">
+</span><strong><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> wrapIn</span><span class="pun">(</span><span class="str">"li"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span></strong><span class="pln">
+</span><strong><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">.</span><span class="pln">reduce</span><span class="pun">(</span><span class="pln"> concatenate</span><span class="pun">,</span><span class="pln"> </span><span class="str">" "</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">;</span></strong><span class="pln">
+
+document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'ausgabe'</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;ul&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> sessionList </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/ul&gt;"</span><span class="pun">;</span><span class="pln">
+
+</span><span class="tag">&lt;/script&gt;</span></pre>
+<p>&nbsp;</p>
+<h2>und nun noch in PHP</h2>
+<pre class="prettyprint prettyprinted" style=""><span class="pln">&nbsp;</span><span class="tag">&lt;h1&gt;</span><span class="pln">Funktionale Programmierung in PHP: Einfaches Beispiel</span><span class="tag">&lt;/h1&gt;</span><span class="pln">
+</span><span class="pun">&lt;?</span><span class="pln">php
+error_reporting</span><span class="pun">(</span><span class="pln">E_ALL</span><span class="pun">);</span><span class="pln">
+ini_set</span><span class="pun">(</span><span class="str">'display_errors'</span><span class="pun">,</span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+
+$sessions </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">(</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;array</span><span class="pun">(</span><span class="pln"> </span><span class="str">'title'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'HTML und so'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'speaker'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'Hans Musterfrau'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'description'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'Kleine Einführung in HTML5'</span><span class="pln"> </span><span class="pun">),</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;array</span><span class="pun">(</span><span class="pln"> </span><span class="str">'title'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'Javascript und so'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'speaker'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'Eva Maria Blankofix'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'description'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'Ausführliche Einfügung in JavaScript'</span><span class="pln"> </span><span class="pun">),</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;array</span><span class="pun">(</span><span class="pln"> </span><span class="str">'title'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'PHP und so'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'speaker'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'Max Musterhauser'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'description'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'Vorlesung zum Handbuch'</span><span class="pln"> </span><span class="pun">)</span><span class="pln">
+</span><span class="pun">);</span><span class="pln">
+
+</span><span class="kwd">function</span><span class="pln"> extractItm</span><span class="pun">(</span><span class="pln">$property</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$object</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">use</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$property</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> $object</span><span class="pun">[</span><span class="pln">$property</span><span class="pun">];</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="pun">};</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">function</span><span class="pln"> wrapIn</span><span class="pun">(</span><span class="pln">$element</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$input</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">use</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$element</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="str">"&lt;"</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> $element </span><span class="pun">.</span><span class="pln"> </span><span class="str">"&gt;"</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> $input </span><span class="pun">.</span><span class="pln"> </span><span class="str">"&lt;/"</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> $element </span><span class="pun">.</span><span class="pln"> </span><span class="str">"&gt;"</span><span class="pun">;</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="pun">};</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">function</span><span class="pln"> concatenate</span><span class="pun">(</span><span class="pln">$accumulation</span><span class="pun">,</span><span class="pln"> $next</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> $accumulation </span><span class="pun">.</span><span class="pln"> $next</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">};</span><span class="pln">
+
+</span><span class="com">// FUNKTIONAL</span><span class="pln">
+
+$sessionExtract </span><span class="pun">=</span><span class="pln"> array_map</span><span class="pun">(</span><span class="pln">extractItm</span><span class="pun">(</span><span class="str">"title"</span><span class="pun">),</span><span class="pln"> $sessions</span><span class="pun">);</span><span class="pln">
+$sessionLi </span><span class="pun">=</span><span class="pln"> array_map</span><span class="pun">(</span><span class="pln">wrapIn</span><span class="pun">(</span><span class="str">"li"</span><span class="pun">),</span><span class="pln"> &nbsp;$sessionExtract</span><span class="pun">);</span><span class="pln">
+$sessionList </span><span class="pun">=</span><span class="pln"> array_reduce</span><span class="pun">(</span><span class="pln">$sessionLi</span><span class="pun">,</span><span class="pln"> </span><span class="str">"concatenate"</span><span class="pun">,</span><span class="pln"> </span><span class="str">" "</span><span class="pun">);</span><span class="pln">
+
+</span><span class="kwd">print</span><span class="pln"> </span><span class="str">"&lt;ul&gt;"</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> $sessionList </span><span class="pun">.</span><span class="pln"> </span><span class="str">"&lt;/ul&gt;"</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">?&gt;</span></pre>
+<p>&nbsp;</p>
+<h2>Komplexes Beispiel</h2>
+<pre class="prettyprint prettyprinted" style=""><span class="tag">&lt;h1&gt;</span><span class="pln">Funktionale Programmierung: Komplexes Beispiel</span><span class="tag">&lt;/h1&gt;</span><span class="pln">
+</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"ausgabe"</span><span class="tag">&gt;&lt;/div&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;script&gt;</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> sessions </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="pun">{</span><span class="pln"> title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'HTML und so'</span><span class="pun">,</span><span class="pln"> speaker</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Hans Musterfrau'</span><span class="pun">,</span><span class="pln"> description</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Kleine Einführung in HTML5'</span><span class="pln"> </span><span class="pun">},</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="pun">{</span><span class="pln"> title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Javascript und so'</span><span class="pun">,</span><span class="pln"> speaker</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Eva Maria Blankofix'</span><span class="pun">,</span><span class="pln"> description</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Ausführliche Einfügung in JavaScript'</span><span class="pln"> </span><span class="pun">},</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="pun">{</span><span class="pln"> title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'PHP und so'</span><span class="pun">,</span><span class="pln"> speaker</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Max Musterhauser'</span><span class="pun">,</span><span class="pln"> description</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Vorlesung zum Handbuch'</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">];</span><span class="pln"> &nbsp;&nbsp;&nbsp;
+
+</span><span class="com">// ----------------------------------------</span><span class="pln">
+</span><span class="com">// Pure Funktionen</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> extract </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">property</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">object</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> object</span><span class="pun">[</span><span class="pln">property</span><span class="pun">];</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> wrapIn </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">element</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">input</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="str">"&lt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> element </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> input </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> element </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&gt;"</span><span class="pun">;</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> concatenate </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">accumulation</span><span class="pun">,</span><span class="pln"> next</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> accumulation </span><span class="pun">+</span><span class="pln"> next</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> highlight </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="com">/* argumente... */</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> args </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Array</span><span class="pun">.</span><span class="pln">prototype</span><span class="pun">.</span><span class="pln">slice</span><span class="pun">.</span><span class="pln">call</span><span class="pun">(</span><span class="pln">arguments</span><span class="pun">);</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">input</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;args</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">replacement</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;input </span><span class="pun">=</span><span class="pln"> input</span><span class="pun">.</span><span class="pln">replace </span><span class="pun">(</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">RegExp</span><span class="pun">(</span><span class="str">"\\b"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> replacement </span><span class="pun">+</span><span class="pln"> </span><span class="str">"\\b"</span><span class="pun">),</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="str">"&lt;em&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> replacement </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/em&gt;"</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="pun">);</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span class="pun">});</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> input</span><span class="pun">;</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> ellipsis </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">maxLength</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">input</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> input</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&lt;=</span><span class="pln"> maxLength </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> input </span><span class="pun">;</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> input</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> maxLength </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"... "</span><span class="pun">;</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> prefix </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">prefix</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">input</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> prefix </span><span class="pun">+</span><span class="pln"> input </span><span class="pun">;</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> uppercaseEveryFirst </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">input</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> input
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="str">" "</span><span class="pun">)</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> uppercaseFirst</span><span class="pun">()</span><span class="pln"> </span><span class="pun">)</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">join</span><span class="pun">(</span><span class="str">" "</span><span class="pun">)</span><span class="pln"> </span><span class="pun">;</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> uppercaseFirst </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">input</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> input</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="lit">0</span><span class="pun">).</span><span class="pln">toUpperCase </span><span class="pun">(</span><span class="pln"> </span><span class="pun">)</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="pun">+</span><span class="pln"> input</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">;</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> join </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">delimiter</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">input</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> input</span><span class="pun">.</span><span class="pln">join</span><span class="pun">(</span><span class="pln">delimiter</span><span class="pun">);</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> weave </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> arr </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="pln">a</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;arr</span><span class="pun">.</span><span class="pln">push</span><span class="pun">([</span><span class="pln"> a</span><span class="pun">[</span><span class="pln">i</span><span class="pun">],</span><span class="pln"> b</span><span class="pun">[</span><span class="pln">i</span><span class="pun">],</span><span class="pln"> c</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">]);</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> arr</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// -------------------------------------------------</span><span class="pln">
+</span><span class="com">// Map und Reduce</span><span class="pln">
+
+</span><strong><span class="kwd">var</span><span class="pln"> titles </span><span class="pun">=</span><span class="pln"> sessions</span></strong><span class="pln">
+</span><strong><span class="pln"> &nbsp;&nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> extract</span><span class="pun">(</span><span class="str">"title"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span></strong><span class="pln">
+</span><strong><span class="pln"> &nbsp;&nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> wrapIn</span><span class="pun">(</span><span class="str">"h2"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">);</span></strong><span class="pln">
+
+</span><strong><span class="kwd">var</span><span class="pln"> speakers </span><span class="pun">=</span><span class="pln"> sessions</span></strong><span class="pln">
+</span><strong><span class="pln"> &nbsp;&nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> extract</span><span class="pun">(</span><span class="str">"speaker"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span></strong><span class="pln">
+</span><strong><span class="pln"> &nbsp;&nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> uppercaseEveryFirst</span><span class="pun">()</span><span class="pln"> </span><span class="pun">)</span></strong><span class="pln">
+</span><strong><span class="pln"> &nbsp;&nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> prefix</span><span class="pun">(</span><span class="str">"Speaker: "</span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span></strong><span class="pln">
+</span><strong><span class="pln"> &nbsp;&nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> wrapIn</span><span class="pun">(</span><span class="str">"h3"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">;</span></strong><span class="pln">
+
+</span><strong><span class="kwd">var</span><span class="pln"> descriptions </span><span class="pun">=</span><span class="pln"> sessions</span></strong><span class="pln">
+</span><strong><span class="pln"> &nbsp;&nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> extract</span><span class="pun">(</span><span class="str">"description"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span></strong><span class="pln">
+</span><strong><span class="pln"> &nbsp;&nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> ellipsis</span><span class="pun">(</span><span class="lit">160</span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span></strong><span class="pln">
+</span><strong><span class="pln"> &nbsp;&nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> highlight</span><span class="pun">(</span><span class="str">"JavaScript"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"HTML5"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span></strong><span class="pln">
+</span><strong><span class="pln"> &nbsp;&nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> wrapIn</span><span class="pun">(</span><span class="str">"p"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">;</span></strong><span class="pln">
+
+</span><strong><span class="kwd">var</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> weave</span><span class="pun">(</span><span class="pln">titles</span><span class="pun">,</span><span class="pln"> speakers</span><span class="pun">,</span><span class="pln"> descriptions</span><span class="pun">)</span></strong><span class="pln">
+</span><strong><span class="pln"> &nbsp;&nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> join</span><span class="pun">()</span><span class="pln"> </span><span class="pun">)</span></strong><span class="pln">
+</span><strong><span class="pln"> &nbsp;&nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> wrapIn</span><span class="pun">(</span><span class="str">"div"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span></strong><span class="pln">
+</span><strong><span class="pln"> &nbsp;&nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">reduce</span><span class="pun">(</span><span class="pln"> concatenate </span><span class="pun">);</span></strong><span class="pln">
+
+document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'ausgabe'</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> result</span><span class="pun">;</span><span class="pln">
+
+</span><span class="tag">&lt;/script&gt;</span></pre>
+<h2>Geht auch asyncron!</h2>
+<p dir="ltr">Mit Hilfe der<a href="https://github.com/caolan/async"> Async.js</a> Bibliothek funktioniert das ganze auch asynchron:</p>
+<pre class="prettyprint prettyprinted" style=""><span class="pln">&nbsp;</span><span class="tag">&lt;html&gt;</span><span class="pln">
+</span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln">
+</span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"async.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln">
+</span><span class="tag">&lt;body&gt;</span><span class="pln">
+</span><span class="tag">&lt;script&gt;</span><span class="pln">
+</span><span class="com">// Asynchronous map/reduce to the rescue</span><span class="pln">
+
+</span><span class="com">// https://github.com/caolan/async</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> ajax </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> url </span><span class="pun">,</span><span class="pln"> done </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;$</span><span class="pun">.</span><span class="pln">ajax</span><span class="pun">({</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;url </span><span class="pun">:</span><span class="pln"> url </span><span class="pun">,</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;success </span><span class="pun">:</span><span class="pln"> done
+ &nbsp;&nbsp;&nbsp;</span><span class="pun">});</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><strong><span class="kwd">var</span><span class="pln"> fetch </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> urls </span><span class="pun">,</span><span class="pln"> done </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong><span class="pln">
+</span><strong><span class="pln"> &nbsp;&nbsp;&nbsp;async</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> urls </span><span class="pun">,</span><span class="pln"> ajax </span><span class="pun">,</span><span class="pln"> done </span><span class="pun">);</span></strong><span class="pln">
+</span><strong><span class="pun">}</span></strong><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> urls </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="str">'http://heise.de/'</span><span class="pun">,</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="str">'http://t3n.de/'</span><span class="pun">,</span><span class="pln">
+ &nbsp;&nbsp;&nbsp;</span><span class="str">'http://tagesschau.de/'</span><span class="pln">
+</span><span class="pun">];</span><span class="pln">
+
+fetch</span><span class="pun">(</span><span class="pln">urls</span><span class="pun">);</span><span class="pln">
+</span><span class="tag">&lt;/script&gt;</span></pre>
+<p dir="ltr"><em>BTW:</em> Async.js hat noch einen ganzen Sack voll Funktionen mehr im Bauch…</p>
+<p>&nbsp;</p>
+<h2>Fazit</h2>
+<p dir="ltr">Meine Meinung dazu? Es ist ein Paradigma, was man kennen sollte um es bei passender Gelegenheit einzusetzen.</p>
+<p>&nbsp;</p>
+<p dir="ltr">Manuel Strehl schreibt passend dazu:</p>
 <blockquote>
-<p dir="ltr">Unter JavaScript-Programmierern mit OOP-Hintergrund erfreut sich backbone.js als Quasi-MVC-Framework steigender Beliebtheit. Es ist nicht ohne ein bisschen Ironie, dass dessen einzige harte Abh&auml;ngigkeit das gerade erw&auml;hnte underscore.js ist, eine Bibliothek, die fehlende Elemente anderer funktionaler Sprachen in JavaScript umsetzt.<&#47;p></p>
-<p dir="ltr">Andererseits zeigt diese Symbiose sehr sch&ouml;n die Flexibilit&auml;t von JavaScript und die Vielseitigkeit und M&auml;chtigkeit, die sich aus dem Mischen verschiedener Paradigmen ergibt. Wenn man einmal angefangen hat, funktionale Features zu verwenden, wird man Sprachen verfluchen, die Funktionen nicht als Objekte erster Klasse behandeln. Es wird sich anf&uuml;hlen wie ein Werkzeugkasten, aus dem jemand alle Schraubenzieher gestohlen hat.<&#47;p><br />
-<&#47;blockquote></p>
-<p dir="ltr">In dem Sinne: <strong>Happy Coding<&#47;strong> &ndash; habt Spa&szlig; daran!<&#47;p></p>
+<p dir="ltr">Unter JavaScript-Programmierern mit OOP-Hintergrund erfreut sich backbone.js als Quasi-MVC-Framework steigender Beliebtheit. Es ist nicht ohne ein bisschen Ironie, dass dessen einzige harte Abhängigkeit das gerade erwähnte underscore.js ist, eine Bibliothek, die fehlende Elemente anderer funktionaler Sprachen in JavaScript umsetzt.</p>
+<p dir="ltr">Andererseits zeigt diese Symbiose sehr schön die Flexibilität von JavaScript und die Vielseitigkeit und Mächtigkeit, die sich aus dem Mischen verschiedener Paradigmen ergibt. Wenn man einmal angefangen hat, funktionale Features zu verwenden, wird man Sprachen verfluchen, die Funktionen nicht als Objekte erster Klasse behandeln. Es wird sich anfühlen wie ein Werkzeugkasten, aus dem jemand alle Schraubenzieher gestohlen hat.</p>
+</blockquote>
+<p dir="ltr">In dem Sinne: <strong>Happy Coding</strong> – habt Spaß daran!</p>

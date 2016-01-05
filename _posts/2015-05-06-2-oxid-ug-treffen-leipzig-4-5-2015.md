@@ -17,6 +17,7 @@ categories:
 - PHP
 - Docker
 tags: []
+thumb: /files/2015/05/oxid-ug-treffen-960x360.jpg
 ---
 
 Das 2. OXID UG Treffen war mein Erstes. In der heimeligen Atmosphäre des neuen pixi* Büro-Dachstuhls fand dieses statt. Mit dabei waren sogar zwei Hunde, ein Blindenhund und meine Tammi. Als Agenturen waren D3 und Marmalade vor Ort und haben jeweils zwei ihrer Module vorgestellt. Ich hab zum Schluss noch ein kleines Azure-Responsive-Experiment und Docker vorgestellt. Da Marmalade u.a. neue Kollegen aus Litauen dabei wurde zum Teil auch Englisch gesprochen.

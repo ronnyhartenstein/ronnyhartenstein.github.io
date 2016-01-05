@@ -9,8 +9,6 @@ author:
   login: ''
   email: ''
   url: ''
-excerpt: |+
-  Viele OXID eShops laufen mit auf Azure basierenden Templates. Dieses ist nicht responsive und sieht auf Smartphones nicht gut aus. Dieser Artikel erkl&auml;rt wie das CSS-Grid der Seite auf Bootstrap umgestellt werden kann, sowie gibt Tipps und Ausblicke f&uuml;r die Entwickler-TODOs. Der hier vorgestellte Grunt+Bower-Workflow wird durch Sass erweitert zu einem modernen CSS-Workflow und bildet die Grundlage f&uuml;r die genannten Anpassungen.
 
 wordpress_id: 626
 wordpress_url: http://rhflow.wp-root.rh-flow.de/?p=626
@@ -23,164 +21,273 @@ categories:
 - Bower
 - Sass
 tags: []
+thumb: /files/2015/03/oxid_responsive-960x360.jpg
 ---
-<p>Viele OXID eShops laufen mit auf Azure basierenden Templates. Dieses ist nicht responsive und sieht auf Smartphones nicht gut aus. Dieser Artikel erkl&auml;rt wie das CSS-Grid der Seite auf <a href="http:&#47;&#47;getbootstrap.com&#47;">Bootstrap<&#47;a> umgestellt werden kann, sowie gibt Tipps und Ausblicke f&uuml;r die Entwickler-TODOs. Der <a href="http:&#47;&#47;blog.rh-flow.de&#47;2015&#47;03&#47;03&#47;oxid-shop-module-per-bower-und-grunt-aktuell-automatisch-halten&#47;">hier<&#47;a> vorgestellte Grunt+Bower-Workflow wird durch <a href="http:&#47;&#47;sass-lang.com&#47;">Sass<&#47;a> erweitert zu einem modernen CSS-Workflow und bildet die Grundlage f&uuml;r die genannten Anpassungen.<&#47;p></p>
-<p><a id="more"></a><a id="more-626"></a></p>
-<h2>Vorgeschichte<&#47;h2></p>
-<p>Da ist er also, der tolle OXID Shop in der CE-Edition, der jahrelang schon treu seinen Dienst verrichtet. Das Theme basiert auf Azure und biegt dieses an verschiedenen Stellen etwas zurecht. Leider ist Azure nicht responsive, weder progressive enhanced, noch mobile first oder sonstwas. OXID eShop CE bietet bringt von Haus aus ein <a href="https:&#47;&#47;exchange.oxid-esales.com&#47;Shopping-experience&#47;Mobile&#47;OXID-eShop-mobile-theme-1-3-0-for-5-2-0-Stable-EE-PE-4-7-x-5-2-x.html">Mobile Theme<&#47;a> an.<&#47;p></p>
-<p>Ich bin ehrlich, mir gef&auml;llt das Mobile Theme nicht. Auch m&uuml;sste ich ja auch in diesen Mobile Theme die paar Sonderlocken einbauen die es nunmal in einen leicht angepassten Shop so gibt. Doppelpflege, Device-Weiche, Nein danke!<&#47;p></p>
-<p>In 2015 ist schon l&auml;nger <strong>Responsive Webdesign<&#47;strong> Trend. Wobei man von Trend nicht mehr sprechen kann. Google hat unl&auml;ngst Warnungen herumgeschickt an Betreiber von Nicht-Smartphone-kompatiblen Webseiten. Man m&uuml;sste sich darauf einstellen, demn&auml;chst im Suchindex (auf Handys) kaum bis gar nicht mehr wiederzufinden. Nett formuliert hei&szlig;t das <em>"Beheben Sie Probleme der mobilen Nutzerfreundlichkeit"<&#47;em>.<&#47;p></p>
-<p><img src="http:&#47;&#47;rhflow.wp-root.rh-flow.de&#47;files&#47;2015&#47;03&#47;google_probleme_mobile_nutzerfreundlichkeit.png" alt="Google Mail Beispiel" &#47;><&#47;p></p>
-<p><strong>Zeit aktiv zu werden!<&#47;strong><&#47;p></p>
-<h2>Screenshots zum Warmwerden<&#47;h2></p>
-<p><strong>Flechtie vorher:<&#47;strong> <a href="http:&#47;&#47;rhflow.wp-root.rh-flow.de&#47;files&#47;2015&#47;03&#47;flechtie_alt.png"><img src="http:&#47;&#47;rhflow.wp-root.rh-flow.de&#47;files&#47;2015&#47;03&#47;flechtie_alt-1024x690.png" alt="flechtie_alt" width="820" height="553" class="alignnone size-large wp-image-656" &#47;><&#47;a><&#47;p></p>
-<p><strong>Flechtie nachher:<&#47;strong><&#47;p></p>
-<p>Desktop <a href="http:&#47;&#47;rhflow.wp-root.rh-flow.de&#47;files&#47;2015&#47;03&#47;flechtie_neu_desktop.png"><img src="http:&#47;&#47;rhflow.wp-root.rh-flow.de&#47;files&#47;2015&#47;03&#47;flechtie_neu_desktop-1024x631.png" alt="flechtie_neu_desktop" width="820" height="505" class="alignnone size-large wp-image-657" &#47;><&#47;a><&#47;p></p>
-<p>Smartphone <a href="http:&#47;&#47;rhflow.wp-root.rh-flow.de&#47;files&#47;2015&#47;03&#47;flechtie_neu_smartphone.png"><img src="http:&#47;&#47;rhflow.wp-root.rh-flow.de&#47;files&#47;2015&#47;03&#47;flechtie_neu_smartphone-133x300.png" alt="flechtie_neu_smartphone" width="133" height="300" class="alignnone size-medium wp-image-658" &#47;><&#47;a><&#47;p></p>
-<h2>Build Workflow in a nutshell<&#47;h2></p>
-<p><a href="http:&#47;&#47;bower.io&#47;"><strong>Bower<&#47;strong><&#47;a> besorgt alle im Frontend ben&ouml;tigen Komponenten: Bootstrap, JS-Libs, OXID-Module<br &#47;><br />
-<a href="http:&#47;&#47;gruntjs.com&#47;"><strong>Grunt<&#47;strong><&#47;a> kopiert OXID Azure CSS als SCSS in unser eigenes Theme-Verzeichnis<br &#47;><br />
-<a href="http:&#47;&#47;sass-lang.com&#47;"><strong>Sass<&#47;strong><&#47;a> baut alle in SCSS programmierten Styles zu <strong>einer<&#47;strong> CSS zusammen, inkl. adaptierter Bootstrap-Komponenten und Azure-Style<&#47;p></p>
-<h2>Node.js und Bower Pakete<&#47;h2></p>
-<p>Die ben&ouml;tigen Node.JS Module werden in der <code>.&#47;package.json<&#47;code> konfiguriert:<&#47;p></p>
-<pre>[gist id=1dae4330ae3bc1c237ae]<&#47;pre></p>
-<p><a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;1dae4330ae3bc1c237ae">(Gist)<&#47;a><&#47;p></p>
-<p>Die Bower-Komponenten in der <code>.&#47;bower.json<&#47;code>:<&#47;p></p>
-<pre>[gist id=ebf6b1b7d27a8b883161]<&#47;pre></p>
-<p><a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;ebf6b1b7d27a8b883161">(Gist)<&#47;a><&#47;p></p>
-<p>Und Install ..<&#47;p></p>
-<pre><code>npm install -g bower<br />
-npm install -g grunt-cli<br />
-npm install<br />
-<&#47;code><&#47;pre></p>
-<h2>Grunt Module<&#47;h2></p>
-<p>Insofern noch nie mit Grunt gearbeitet sei die <a href="http:&#47;&#47;gruntjs.com&#47;getting-started"><strong>Getting Started<&#47;strong><&#47;a> empfohlen. Grundlegend wird das <a href="http:&#47;&#47;blog.rh-flow.de&#47;2015&#47;03&#47;03&#47;oxid-shop-module-per-bower-und-grunt-aktuell-automatisch-halten&#47;">hier<&#47;a> beschriebene Setup erweitert.<&#47;p></p>
-<h3>Initfile <code>Gruntfile.js<&#47;code><&#47;h3></p>
-<p>Initial sucht sich Grunt die <code>Gruntfile.js<&#47;code>, wobei mittels des Moduls <code>load-grunt-config<&#47;code> bequem die Modulkonfigs in einzelne <code>.js<&#47;code>-Dateien im Unterverzeichnis <code>.&#47;grunt&#47;<&#47;code>.<&#47;p></p>
-<p><code>.&#47;Gruntfile.js<&#47;code><&#47;p></p>
-<pre>[gist id=d62f92fb1da1ec732566]<&#47;pre></p>
-<p><a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;d62f92fb1da1ec732566">(Gist)<&#47;a><&#47;p></p>
-<h3>Task-Liste <code>aliases.yaml<&#47;code><&#47;h3></p>
-<p>Darin werden alle Grunt-Tasks definiert. Sp&auml;ter gen&uuml;gt z.B. <code>grunt css<&#47;code> und es werden alle CSS gebaut. Sollen die Bower-Komponenten aktualisiert werden? <code>grunt update_components<&#47;code> und fertig.<&#47;p></p>
-<p><code>.&#47;grunt&#47;aliases.yaml<&#47;code><&#47;p></p>
-<pre>[gist id=c521d892dcaa207edd6e]<&#47;pre></p>
-<p><a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;c521d892dcaa207edd6e">(Gist)<&#47;a><&#47;p></p>
-<h3>Bower: JS-Komponenten einbinden mit <a href="https:&#47;&#47;www.npmjs.com&#47;package&#47;grunt-bower-concat"><code>grunt-bower-concat<&#47;code><&#47;a><&#47;h3></p>
-<p>Kopiert die n&ouml;tigen JS-Libs, welche als Bower-Komponenten vorliegen, zusammengefasst ins Theme-<code>src<&#47;code>-Verzeichnis. In <code>layout&#47;base.tpl<&#47;code> wird diese dann eingebunden. Vorteil vom Zusammenfassen ist, dass nur noch ein Request statt zig n&ouml;tig sind.<&#47;p></p>
-<p><code>.&#47;grunt&#47;bower_concat.js<&#47;code><&#47;p></p>
-<pre>[gist id=ba460dada2b16d812924]<&#47;pre></p>
-<p><a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;ba460dada2b16d812924">(Gist)<&#47;a><&#47;p></p>
-<h3>Dateien kopieren mit <a href="https:&#47;&#47;github.com&#47;gruntjs&#47;grunt-contrib-copy"><code>grunt-contrib-copy<&#47;code><&#47;a><&#47;h3></p>
-<p>Kopiert die Azure CSS als SCSS ins eigene Theme-Verzeichnis. Kopiert die Fontawesome-Schriften ins Theme-<code>src<&#47;code>-Verzeichnis f&uuml;r einfachen Include in <code>layout&#47;base.tpl<&#47;code>. Damit ist die Grundlage f&uuml;r die Sass-Integration gelegt.<&#47;p></p>
-<p>Weiterhin werden die OXID-Module wie bereits <a href="http:&#47;&#47;blog.rh-flow.de&#47;2015&#47;03&#47;03&#47;oxid-shop-module-per-bower-und-grunt-aktuell-automatisch-halten&#47;">hier<&#47;a> beschrieben ins Module-Verzeichnis kopiert.<&#47;p></p>
-<p><code>.&#47;grunt&#47;copy.js<&#47;code><&#47;p></p>
-<pre>[gist id=c46723fe0556397c8922]<&#47;pre></p>
-<p><a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;c46723fe0556397c8922">(Gist)<&#47;a><&#47;p></p>
-<h3>CSS zusammendampfen mit <a href="https:&#47;&#47;www.npmjs.com&#47;package&#47;grunt-csswring"><code>grunt-csswring<&#47;code><&#47;a><&#47;h3></p>
-<p>CSSwring entfernt Kommentare und Zeilenumbr&uuml;che, sodass am Ende ein einzeiliges CSS &uuml;brig bleibt. Wenn das der Webserver noch gzipped ausliefert ist die Optimierung perfekt. Zumindest technisch. Fachlich geht sicher noch so einiges ;)<&#47;p></p>
-<p><code>.&#47;grunt&#47;csswring.js<&#47;code><&#47;p></p>
-<pre>[gist id=7d592e9174a5ed412e15]<&#47;pre></p>
-<p><a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;7d592e9174a5ed412e15">(Gist)<&#47;a><&#47;p></p>
-<h3>Bower-Komponenten aktualisieren mit <a href="https:&#47;&#47;github.com&#47;jharding&#47;grunt-exec"><code>grunt-exec<&#47;code><&#47;a><&#47;h3></p>
-<p>Um die Bower-Aktualisierung anzustarten wird einfach <code>bower update<&#47;code> ausgef&uuml;hrt.<&#47;p></p>
-<p><code>.&#47;grunt&#47;exec.js<&#47;code><&#47;p></p>
-<pre>[gist id=b2173b5832aa645cbca8]<&#47;pre></p>
-<p><a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;b2173b5832aa645cbca8">(Gist)<&#47;a><&#47;p></p>
-<h3>Sass starten und CSS generieren mit <a href="https:&#47;&#47;github.com&#47;gruntjs&#47;grunt-contrib-sass"><code>grunt-contrib-sass<&#47;code><&#47;a><&#47;h3></p>
-<p>Die Generierung unseres Theme-CSS wird mittels Sass durchgef&uuml;hrt. Da Sass selbst in Ruby geschrieben ist, also kein natives Node.JS-Modul verf&uuml;gbar ist, ruft das Modul <code>sass<&#47;code> mit entsprechenden Parametern auf.<&#47;p></p>
-<p><code>.&#47;grunt&#47;sass.js<&#47;code><&#47;p></p>
-<pre>[gist id=ddab26eb08cc8577301a]<&#47;pre></p>
-<p><a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;ddab26eb08cc8577301a">(Gist)<&#47;a><&#47;p></p>
-<h3>Kontinuierlicher Sass-Build mit <a href="https:&#47;&#47;github.com&#47;gruntjs&#47;grunt-contrib-watch"><code>grunt-contrib-watch<&#47;code><&#47;a><&#47;h3></p>
-<p>Sobald mal in der IDE &#47; im Editor speichert, m&ouml;chte man nat&uuml;rlich dass das CSS neu gebaut wird, sodass man anschlie&szlig;end die &Auml;nderung sofort im Browser sieht. Durch die Trennung in <code>aliases.yaml<&#47;code> nach <code>css<&#47;code> f&uuml;r alle CSS und <code>css_sass<&#47;code> f&uuml;r das Theme-SCSS ist es m&ouml;glich, gezielt nur das eigene Theme-Style neuzubauen.<&#47;p></p>
-<p><code>.&#47;grunt&#47;watch.js<&#47;code><&#47;p></p>
-<pre>[gist id=aa7ffb3b3a1bbf690864]<&#47;pre></p>
-<p><a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;aa7ffb3b3a1bbf690864">(Gist)<&#47;a><&#47;p></p>
-<h2>Generierte Komponenten in <code>layout&#47;base.tpl<&#47;code> einbinden<&#47;h2></p>
-<p>In das im eigenen Theme-Verzeichnis liegende <code>base.tpl<&#47;code> werden die kombinierten CSS und JS nun eingebunden.<&#47;p></p>
-<p><strong>Vorher:<&#47;strong> (bei mir, kein Azure-Standard!)<&#47;p></p>
-<pre><code>[{block name="base_style"}]<br />
-    [{oxstyle include="css&#47;reset.css"}]<br />
-    [{oxstyle include="css&#47;oxid.css"}]<br />
-    [{oxstyle include="css&#47;ie7.css" if="IE 7"}]<br />
-    [{oxstyle include="css&#47;ie8.css" if="IE 8"}]<br />
-    [{oxstyle include="css&#47;libs&#47;jscrollpane.css"}]<br />
-[{&#47;block}]<br />
-...<br />
-[{oxstyle include="css&#47;flechtie.css"}]<br />
-...<br />
-[{oxscript include="js&#47;libs&#47;jquery.min.js" priority=1*}]<br />
-[{oxscript include="js&#47;libs&#47;jquery-ui.min.js" priority=1*}]<br />
-[{oxscript include="js&#47;libs&#47;cookie&#47;jquery.cookie.js" priority=2}]<br />
-...<br />
-[{block name="base_js"}]<br />
-    [{oxscript include="js&#47;libs&#47;es5-shim.min.js" priority=1}]<br />
-    [{oxscript include="js&#47;libs&#47;featuredetection.js"}]<br />
-    [{oxscript include='js&#47;libs&#47;superfish&#47;hoverIntent.js'}]<br />
-    [{oxscript include='js&#47;libs&#47;superfish&#47;supersubs.js'}]<br />
-    [{oxscript include='js&#47;libs&#47;superfish&#47;superfish.js'}]<br />
-[{&#47;block}]<br />
-<&#47;code><&#47;pre></p>
-<p><strong>Nachher:<&#47;strong><&#47;p></p>
-<pre><code>[{oxstyle include="css&#47;vendor.css"}]<br />
-[{oxstyle include="css&#47;meinshop.css"}]<br />
-...<br />
-[{oxscript include="js&#47;vendor-libs.min.js" priority=1}]<br />
-<&#47;code><&#47;pre></p>
-<p>Gut, die IE7+8 Hacks sind auch gleich &uuml;ber Bord geflogen, aber prinzipiell sollte die Entschlackung erkennbar sein. Das wichtigste ist mir aber, dass ich nicht mehr Azure <code>reset.css<&#47;code> und <code>oxid.css<&#47;code> <strong>vor<&#47;strong> den eigenen Theme-Styles einbinden muss, sondern dass es nur noch genau <strong>ein<&#47;strong> Customize-CSS gibt und ein geb&uuml;ndeltes Drittanbieter-CSS. Bei <strong>voller Update-F&auml;higkeit zum Azure-CSS<&#47;strong>.<&#47;p></p>
-<h2>Bootstrap Grid einbinden<&#47;h2></p>
-<p>Sp&auml;testens jetzt sollte man sich erstmal mit den Komponenten des Bootstrap-Frameworks vertraut machen. Dazu sollte man am besten <a href="http:&#47;&#47;getbootstrap.com&#47;getting-started&#47;"><strong>Getting Started<&#47;strong><&#47;a>, <a href="http:&#47;&#47;getbootstrap.com&#47;css&#47;"><strong>CSS<&#47;strong><&#47;a> (vor allem Grid, Forms, Buttons, Responsive Utilities) und <a href="http:&#47;&#47;getbootstrap.com&#47;components&#47;"><strong>Components<&#47;strong><&#47;a> (vor allem Navs, Badges, Jumbotrons, Wells) mindestens querlesen um die Begrifflichkeiten und Konzepte zu kennen.<&#47;p></p>
-<p>Prinzipiell sind die Bootstrap-CSS-Klassen und JS nun vorhanden. Um das Grundlayout auf das <a href="http:&#47;&#47;getbootstrap.com&#47;css&#47;#grid">Bootstrap-Grid<&#47;a> umzustellen, muss das Azure-Grundlayout auf die CSS-Klassen <code>container<&#47;code>, <code>row<&#47;code> und <code>col-*-*<&#47;code> umgestellt werden Dazu sind die Templates in <code>layout&#47;<&#47;code> komplett anzupassen. Hier die Gists am Beispiel von <a href="http:&#47;&#47;test.flechtie.de">Flechtie<&#47;a>:<&#47;p></p>
-<ul>
-<li><code>layout&#47;header.tpl<&#47;code>: Kopfbereich, Login, Kategorieliste &#47; Men&uuml; <a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;f490444b562dab19edca">(Gist)<&#47;a><&#47;li>
-<li><code>layout&#47;footer.tpl<&#47;code>: Service-Links, Impressum, Seitenabschluss <a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;d085ccdbc2d54169290a">(Gist)<&#47;a><&#47;li>
-<li><code>layout&#47;page.tpl<&#47;code>: Seiten-Grundlayout mit Sidebar-Ausrichtung <a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;a9581017121f88389612">(Gist)<&#47;a><&#47;li>
-<li><code>widget&#47;sidebar&#47;categorytree.tpl<&#47;code>: Kategorieliste in Artikelliste (u.a.) <a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;0e344335a332e135e966">(Gist)<&#47;a><&#47;li><br />
-<&#47;ul></p>
-<p>Damit ist der Grundstein f&uuml;r weitere Anpassungen gelegt.<&#47;p></p>
-<h2>Sass <code>meinshop.scss<&#47;code><&#47;h2></p>
-<p>Die zentrale Theme-SASS-Datei <code>out&#47;meinshop&#47;src&#47;css&#47;meinshop.scss<&#47;code> wird in einzelne Sass-Include-Dateien aufgegliedert, die g&uuml;nstigerweise mit der Tpl-Struktur korrelieren. Ein mittelschwer angepasster Shop schaut also z.B. so aus:<&#47;p></p>
-<pre>[gist id=40df7c5612a787588a3a]<&#47;pre></p>
-<p><a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;40df7c5612a787588a3a">(Gist)<&#47;a><&#47;p></p>
-<p>Am Anfang werden die Azure-CSS eingebunden (die ja mittels Grunt als SCSS vorliegen). Dann werden alle in den SCSS-Modulen angesprochenen Bootstrap-Module inkludiert. Kommt was neues hinzu muss man hier ggf. noch nachsteuern.<&#47;p></p>
-<p><strong>Halt moment,<&#47;strong> Boostrap wird doch schon in der <code>css&#47;vendor.css<&#47;code> eingebunden, die durch Grund <code>csswring:vendor<&#47;code> erstellt wird? Ja, sicher, hier wird es ein wenig kritisch. Prinzipiell m&uuml;sste man alle CSS aus der <code>vendor.css<&#47;code> gleich mit in die <code>meinshop.scss<&#47;code> aufnehmen und nur noch eine einzige <code>meinshop.css<&#47;code> haben. Aber dann dauert der Sass-Build ewig. F&uuml;r das entg&uuml;ltige Deployment-CSS kann man das machen, soll aber hier keine Ber&uuml;cksichtigung finden.<&#47;p></p>
-<p><strong>Warum muss Bootstrap &uuml;berhaupt in <code>meinshop.scss<&#47;code> eingebunden werden?<&#47;strong> Ha! Das ist der Trick!<&#47;p></p>
-<h3>DER TRICK! OXID-spezifische CSS-Klassen auf Bootstrap-Klassen umbiegen<&#47;h3></p>
-<p>Folgendes Beispiel:<&#47;p></p>
-<pre><code>.submitButton {<br />
-  @extend .btn;<br />
-  @extend .btn-primary;<br />
-  text-transform: none;<br />
-  text-shadow: none;<br />
-  height: auto;<br />
-}<br />
-<&#47;code><&#47;pre></p>
-<p>Mittels Sass <code>@extend<&#47;code> wird der OXID-&uuml;bliche Submit-Button auf Bootstrap umgebogen. Sass rechnet die Bootstrap-Klasse .btn mit der Klasse <code>.submitButton<&#47;code> zusammen. Da das ganze nach dem Azure-SCSS ausgef&uuml;hrt wird, &uuml;berschreibt dieses die CSS-Eigenschaften vom Original-<code>submitButton<&#47;code>. Dadurch muss man nicht jedes Template ableiten und <code>submitButton<&#47;code> in <code>btn btn-primary<&#47;code> umbauen.<&#47;p></p>
-<p>Ein weiteres Beispiel: Formular-Eingabefelder um <code>form-control<&#47;code> erweitern und so das Bootstrap-Layout f&uuml;r alle <code>.form<&#47;code> Felder ausrollen:<&#47;p></p>
-<pre><code>.form {<br />
-  input[type=password], input[type=text], select, textarea {<br />
-    @extend .form-control;<br />
-  }<br />
-  ..<br />
-}<br />
-<&#47;code><&#47;pre></p>
-<p>Und der oft verwendete <code>.largeButton<&#47;code>:<&#47;p></p>
-<pre><code>.largeButton {<br />
-  @extend .btn-lg;<br />
-  text-transform: none;<br />
-  text-shadow: none;<br />
-  height: auto;<br />
-}<br />
-<&#47;code><&#47;pre></p>
-<p>Ein <code>@extend .btn<&#47;code> ist hier nicht n&ouml;tig, da diese Klasse nur zusammen mit <code>.submitButton<&#47;code> verwendet.<&#47;p></p>
-<h3>Flei&szlig;arbeit: Anpassung des restlichen Layouts<&#47;h3></p>
-<p>Nachdem die Basics nun klar sind - <strong>a)<&#47;strong> Templates ableiten und anpassen und <strong>b)<&#47;strong> Bootstrap-Klassen per SCSS anflanschen - geht die Flei&szlig;arbeit los. Und die h&auml;ngt vom konkreten Layout ab, was der Shop f&auml;hrt. Hier noch ein paar Ausz&uuml;ge aus dem Flechtie-Layout:<&#47;p></p>
-<ul>
-<li><a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;f6b9b371d5e843238999">Formulare responsiv<&#47;a><&#47;li>
-<li><a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;d774bee8dbac81960322">Checkout responsiv<&#47;a><&#47;li>
-<li><a href="https:&#47;&#47;gist.github.com&#47;ronnyhartenstein&#47;e9ad3ff27ea4c95bfd83">Navigation responsiv und angepasst<&#47;a><&#47;li><br />
-<&#47;ul></p>
-<h2>Fazit<&#47;h2></p>
-<p>Einen responsiven OXID eShop bekommt man derzeit nicht geschenkt. Schon gar nicht wenn man es ein wenig individueller haben m&ouml;chte oder &uuml;ber die Jahre entwickelt hat. Aber es gibt Mittel und Wege um bestehende Responsive CSS-Frameworks, wie Bootstrap eins ist, transparent und gezielt einzubauen, ohne alle auf einmal &uuml;ber den Haufen zu werfen. Prinzipiell kann man das Ganze auch auf Basis von <a href="http:&#47;&#47;semantic-ui.com&#47;">Semantic UI<&#47;a> oder <a href="http:&#47;&#47;purecss.io&#47;">Pure CSS<&#47;a> bauen.<&#47;p></p>
-<p>Belohnt wird man mit einer auf jahre hin tauglichen CSS-Basis, die noch dazu automatisch mit dem aktuellen Stand des Azure-Templates verschmolzen wird.<&#47;p></p>
-<p><em>Mich w&uuml;rde brennend interessieren wie das OXID-Agenturen machen. Vielleicht plaudert mal jemand aus dem N&auml;hk&auml;stchen. Kommentare und Anregungen gerne hier oder via Twitter.<&#47;em> <a href="https:&#47;&#47;twitter.com&#47;rhflow_de">@rhflow_de<&#47;a>.<&#47;p></p>
+Viele OXID eShops laufen mit auf Azure basierenden Templates. Dieses ist nicht responsive und sieht auf Smartphones nicht gut aus. Dieser Artikel erklärt wie das CSS-Grid der Seite auf [Bootstrap][1] umgestellt werden kann, sowie gibt Tipps und Ausblicke für die Entwickler-TODOs. Der [hier][2] vorgestellte Grunt+Bower-Workflow wird durch [Sass][3] erweitert zu einem modernen CSS-Workflow und bildet die Grundlage für die genannten Anpassungen.
+
+<!--more-->
+
+## Vorgeschichte
+
+Da ist er also, der tolle OXID Shop in der CE-Edition, der jahrelang schon treu seinen Dienst verrichtet. Das Theme basiert auf Azure und biegt dieses an verschiedenen Stellen etwas zurecht. Leider ist Azure nicht responsive, weder progressive enhanced, noch mobile first oder sonstwas. OXID eShop CE bietet bringt von Haus aus ein [Mobile Theme][4] an.
+
+Ich bin ehrlich, mir gefällt das Mobile Theme nicht. Auch müsste ich ja auch in diesen Mobile Theme die paar Sonderlocken einbauen die es nunmal in einen leicht angepassten Shop so gibt. Doppelpflege, Device-Weiche, Nein danke!
+
+In 2015 ist schon länger **Responsive Webdesign** Trend. Wobei man von Trend nicht mehr sprechen kann. Google hat unlängst Warnungen herumgeschickt an Betreiber von Nicht-Smartphone-kompatiblen Webseiten. Man müsste sich darauf einstellen, demnächst im Suchindex (auf Handys) kaum bis gar nicht mehr wiederzufinden. Nett formuliert heißt das *"Beheben Sie Probleme der mobilen Nutzerfreundlichkeit"*.
+
+![Google Mail Beispiel][5]
+
+**Zeit aktiv zu werden!**
+
+## Screenshots zum Warmwerden
+
+**Flechtie vorher:** [<img src="http://rhflow.wp-root.rh-flow.de/files/2015/03/flechtie_alt-1024x690.png" alt="flechtie_alt" width="820" height="553" class="alignnone size-large wp-image-656" />][6]
+
+**Flechtie nachher:**
+
+Desktop [<img src="http://rhflow.wp-root.rh-flow.de/files/2015/03/flechtie_neu_desktop-1024x631.png" alt="flechtie_neu_desktop" width="820" height="505" class="alignnone size-large wp-image-657" />][7]
+
+Smartphone [<img src="http://rhflow.wp-root.rh-flow.de/files/2015/03/flechtie_neu_smartphone-133x300.png" alt="flechtie_neu_smartphone" width="133" height="300" class="alignnone size-medium wp-image-658" />][8]
+
+## Build Workflow in a nutshell
+
+[**Bower**][9] besorgt alle im Frontend benötigen Komponenten: Bootstrap, JS-Libs, OXID-Module  
+[**Grunt**][10] kopiert OXID Azure CSS als SCSS in unser eigenes Theme-Verzeichnis  
+[**Sass**][3] baut alle in SCSS programmierten Styles zu **einer** CSS zusammen, inkl. adaptierter Bootstrap-Komponenten und Azure-Style
+
+## Node.js und Bower Pakete
+
+Die benötigen Node.JS Module werden in der `./package.json` konfiguriert:
+
+<script src="https://gist.github.com/ronnyhartenstein/1dae4330ae3bc1c237ae.js"> </script>
+
+Die Bower-Komponenten in der `./bower.json`:
+
+<script src="https://gist.github.com/ronnyhartenstein/ebf6b1b7d27a8b883161.js"> </script>
+
+Und Install ..
+
+    npm install -g bower
+    npm install -g grunt-cli
+    npm install
+
+
+## Grunt Module
+
+Insofern noch nie mit Grunt gearbeitet sei die [**Getting Started**][13] empfohlen. Grundlegend wird das [hier][2] beschriebene Setup erweitert.
+
+### Initfile `Gruntfile.js`
+
+Initial sucht sich Grunt die `Gruntfile.js`, wobei mittels des Moduls `load-grunt-config` bequem die Modulkonfigs in einzelne `.js`-Dateien im Unterverzeichnis `./grunt/`.
+
+`./Gruntfile.js`
+
+<script src="https://gist.github.com/ronnyhartenstein/d62f92fb1da1ec732566.js"> </script>
+
+### Task-Liste `aliases.yaml`
+
+Darin werden alle Grunt-Tasks definiert. Später genügt z.B. `grunt css` und es werden alle CSS gebaut. Sollen die Bower-Komponenten aktualisiert werden? `grunt update_components` und fertig.
+
+`./grunt/aliases.yaml`
+
+<script src="https://gist.github.com/ronnyhartenstein/c521d892dcaa207edd6e.js"> </script>
+
+### Bower: JS-Komponenten einbinden mit [`grunt-bower-concat`][16]
+
+Kopiert die nötigen JS-Libs, welche als Bower-Komponenten vorliegen, zusammengefasst ins Theme-`src`-Verzeichnis. In `layout/base.tpl` wird diese dann eingebunden. Vorteil vom Zusammenfassen ist, dass nur noch ein Request statt zig nötig sind.
+
+`./grunt/bower_concat.js`
+
+<script src="https://gist.github.com/ronnyhartenstein/ba460dada2b16d812924.js"> </script>
+
+### Dateien kopieren mit [`grunt-contrib-copy`][18]
+
+Kopiert die Azure CSS als SCSS ins eigene Theme-Verzeichnis. Kopiert die Fontawesome-Schriften ins Theme-`src`-Verzeichnis für einfachen Include in `layout/base.tpl`. Damit ist die Grundlage für die Sass-Integration gelegt.
+
+Weiterhin werden die OXID-Module wie bereits [hier][2] beschrieben ins Module-Verzeichnis kopiert.
+
+`./grunt/copy.js`
+
+<script src="https://gist.github.com/ronnyhartenstein/c46723fe0556397c8922.js"> </script>
+
+### CSS zusammendampfen mit [`grunt-csswring`][20]
+
+CSSwring entfernt Kommentare und Zeilenumbrüche, sodass am Ende ein einzeiliges CSS übrig bleibt. Wenn das der Webserver noch gzipped ausliefert ist die Optimierung perfekt. Zumindest technisch. Fachlich geht sicher noch so einiges ;)
+
+`./grunt/csswring.js`
+
+<script src="https://gist.github.com/ronnyhartenstein/7d592e9174a5ed412e15.js"> </script>
+
+### Bower-Komponenten aktualisieren mit [`grunt-exec`][22]
+
+Um die Bower-Aktualisierung anzustarten wird einfach `bower update` ausgeführt.
+
+`./grunt/exec.js`
+
+<script src="https://gist.github.com/ronnyhartenstein/b2173b5832aa645cbca8.js"> </script>
+
+### Sass starten und CSS generieren mit [`grunt-contrib-sass`][24]
+
+Die Generierung unseres Theme-CSS wird mittels Sass durchgeführt. Da Sass selbst in Ruby geschrieben ist, also kein natives Node.JS-Modul verfügbar ist, ruft das Modul `sass` mit entsprechenden Parametern auf.
+
+`./grunt/sass.js`
+
+<script src="https://gist.github.com/ronnyhartenstein/ddab26eb08cc8577301a.js"> </script>
+
+### Kontinuierlicher Sass-Build mit [`grunt-contrib-watch`][26]
+
+Sobald mal in der IDE / im Editor speichert, möchte man natürlich dass das CSS neu gebaut wird, sodass man anschließend die Änderung sofort im Browser sieht. Durch die Trennung in `aliases.yaml` nach `css` für alle CSS und `css_sass` für das Theme-SCSS ist es möglich, gezielt nur das eigene Theme-Style neuzubauen.
+
+`./grunt/watch.js`
+
+<script src="https://gist.github.com/ronnyhartenstein/aa7ffb3b3a1bbf690864.js"> </script>
+
+## Generierte Komponenten in `layout/base.tpl` einbinden
+
+In das im eigenen Theme-Verzeichnis liegende `base.tpl` werden die kombinierten CSS und JS nun eingebunden.
+
+**Vorher:** (bei mir, kein Azure-Standard!)
+
+    [{block name="base_style"}]
+        [{oxstyle include="css/reset.css"}]
+        [{oxstyle include="css/oxid.css"}]
+        [{oxstyle include="css/ie7.css" if="IE 7"}]
+        [{oxstyle include="css/ie8.css" if="IE 8"}]
+        [{oxstyle include="css/libs/jscrollpane.css"}]
+    [{/block}]
+    ...
+    [{oxstyle include="css/flechtie.css"}]
+    ...
+    [{oxscript include="js/libs/jquery.min.js" priority=1*}]
+    [{oxscript include="js/libs/jquery-ui.min.js" priority=1*}]
+    [{oxscript include="js/libs/cookie/jquery.cookie.js" priority=2}]
+    ...
+    [{block name="base_js"}]
+        [{oxscript include="js/libs/es5-shim.min.js" priority=1}]
+        [{oxscript include="js/libs/featuredetection.js"}]
+        [{oxscript include='js/libs/superfish/hoverIntent.js'}]
+        [{oxscript include='js/libs/superfish/supersubs.js'}]
+        [{oxscript include='js/libs/superfish/superfish.js'}]
+    [{/block}]
+
+
+**Nachher:**
+
+    [{oxstyle include="css/vendor.css"}]
+    [{oxstyle include="css/meinshop.css"}]
+    ...    
+    [{oxscript include="js/vendor-libs.min.js" priority=1}]
+
+
+Gut, die IE7+8 Hacks sind auch gleich über Bord geflogen, aber prinzipiell sollte die Entschlackung erkennbar sein. Das wichtigste ist mir aber, dass ich nicht mehr Azure `reset.css` und `oxid.css` **vor** den eigenen Theme-Styles einbinden muss, sondern dass es nur noch genau **ein** Customize-CSS gibt und ein gebündeltes Drittanbieter-CSS. Bei **voller Update-Fähigkeit zum Azure-CSS**.
+
+## Bootstrap Grid einbinden
+
+Spätestens jetzt sollte man sich erstmal mit den Komponenten des Bootstrap-Frameworks vertraut machen. Dazu sollte man am besten [**Getting Started**][28], [**CSS**][29] (vor allem Grid, Forms, Buttons, Responsive Utilities) und [**Components**][30] (vor allem Navs, Badges, Jumbotrons, Wells) mindestens querlesen um die Begrifflichkeiten und Konzepte zu kennen.
+
+Prinzipiell sind die Bootstrap-CSS-Klassen und JS nun vorhanden. Um das Grundlayout auf das [Bootstrap-Grid][31] umzustellen, muss das Azure-Grundlayout auf die CSS-Klassen `container`, `row` und `col-*-*` umgestellt werden Dazu sind die Templates in `layout/` komplett anzupassen. Hier die Gists am Beispiel von [Flechtie][32]:
+
+*   `layout/header.tpl`: Kopfbereich, Login, Kategorieliste / Menü [(Gist)][33]
+*   `layout/footer.tpl`: Service-Links, Impressum, Seitenabschluss [(Gist)][34]
+*   `layout/page.tpl`: Seiten-Grundlayout mit Sidebar-Ausrichtung [(Gist)][35]
+*   `widget/sidebar/categorytree.tpl`: Kategorieliste in Artikelliste (u.a.) [(Gist)][36]
+
+Damit ist der Grundstein für weitere Anpassungen gelegt.
+
+## Sass `meinshop.scss`
+
+Die zentrale Theme-SASS-Datei `out/meinshop/src/css/meinshop.scss` wird in einzelne Sass-Include-Dateien aufgegliedert, die günstigerweise mit der Tpl-Struktur korrelieren. Ein mittelschwer angepasster Shop schaut also z.B. so aus:
+
+<script src="https://gist.github.com/ronnyhartenstein/40df7c5612a787588a3a.js"> </script>
+
+Am Anfang werden die Azure-CSS eingebunden (die ja mittels Grunt als SCSS vorliegen). Dann werden alle in den SCSS-Modulen angesprochenen Bootstrap-Module inkludiert. Kommt was neues hinzu muss man hier ggf. noch nachsteuern.
+
+**Halt moment,** Boostrap wird doch schon in der `css/vendor.css` eingebunden, die durch Grund `csswring:vendor` erstellt wird? Ja, sicher, hier wird es ein wenig kritisch. Prinzipiell müsste man alle CSS aus der `vendor.css` gleich mit in die `meinshop.scss` aufnehmen und nur noch eine einzige `meinshop.css` haben. Aber dann dauert der Sass-Build ewig. Für das entgültige Deployment-CSS kann man das machen, soll aber hier keine Berücksichtigung finden.
+
+**Warum muss Bootstrap überhaupt in `meinshop.scss` eingebunden werden?** Ha! Das ist der Trick!
+
+### DER TRICK! OXID-spezifische CSS-Klassen auf Bootstrap-Klassen umbiegen
+
+Folgendes Beispiel:
+
+    .submitButton {
+      @extend .btn;
+      @extend .btn-primary;
+      text-transform: none;
+      text-shadow: none;
+      height: auto;
+    }
+
+
+Mittels Sass `@extend` wird der OXID-übliche Submit-Button auf Bootstrap umgebogen. Sass rechnet die Bootstrap-Klasse .btn mit der Klasse `.submitButton` zusammen. Da das ganze nach dem Azure-SCSS ausgeführt wird, überschreibt dieses die CSS-Eigenschaften vom Original-`submitButton`. Dadurch muss man nicht jedes Template ableiten und `submitButton` in `btn btn-primary` umbauen.
+
+Ein weiteres Beispiel: Formular-Eingabefelder um `form-control` erweitern und so das Bootstrap-Layout für alle `.form` Felder ausrollen:
+
+    .form {
+      input[type=password], input[type=text], select, textarea {
+        @extend .form-control;
+      }
+      ..
+    }
+
+
+Und der oft verwendete `.largeButton`:
+
+    .largeButton {
+      @extend .btn-lg;
+      text-transform: none;
+      text-shadow: none;
+      height: auto;
+    }
+
+
+Ein `@extend .btn` ist hier nicht nötig, da diese Klasse nur zusammen mit `.submitButton` verwendet.
+
+### Fleißarbeit: Anpassung des restlichen Layouts
+
+Nachdem die Basics nun klar sind - **a)** Templates ableiten und anpassen und **b)** Bootstrap-Klassen per SCSS anflanschen - geht die Fleißarbeit los. Und die hängt vom konkreten Layout ab, was der Shop fährt. Hier noch ein paar Auszüge aus dem Flechtie-Layout:
+
+*   [Formulare responsiv][38]
+*   [Checkout responsiv][39]
+*   [Navigation responsiv und angepasst][40]
+
+## Fazit
+
+Einen responsiven OXID eShop bekommt man derzeit nicht geschenkt. Schon gar nicht wenn man es ein wenig individueller haben möchte oder über die Jahre entwickelt hat. Aber es gibt Mittel und Wege um bestehende Responsive CSS-Frameworks, wie Bootstrap eins ist, transparent und gezielt einzubauen, ohne alle auf einmal über den Haufen zu werfen. Prinzipiell kann man das Ganze auch auf Basis von [Semantic UI][41] oder [Pure CSS][42] bauen.
+
+Belohnt wird man mit einer auf jahre hin tauglichen CSS-Basis, die noch dazu automatisch mit dem aktuellen Stand des Azure-Templates verschmolzen wird.
+
+*Mich würde brennend interessieren wie das OXID-Agenturen machen. Vielleicht plaudert mal jemand aus dem Nähkästchen. Kommentare und Anregungen gerne hier oder via Twitter.* [@rhflow_de][43].
+
+ [1]: http://getbootstrap.com/
+ [2]: http://blog.rh-flow.de/2015/03/03/oxid-shop-module-per-bower-und-grunt-aktuell-automatisch-halten/
+ [3]: http://sass-lang.com/
+ [4]: https://exchange.oxid-esales.com/Shopping-experience/Mobile/OXID-eShop-mobile-theme-1-3-0-for-5-2-0-Stable-EE-PE-4-7-x-5-2-x.html
+ [5]: /files/2015/03/google_probleme_mobile_nutzerfreundlichkeit.png
+ [6]: /files/2015/03/flechtie_alt.png
+ [7]: /files/2015/03/flechtie_neu_desktop.png
+ [8]: /files/2015/03/flechtie_neu_smartphone.png
+ [9]: http://bower.io/
+ [10]: http://gruntjs.com/
+ [13]: http://gruntjs.com/getting-started
+ [16]: https://www.npmjs.com/package/grunt-bower-concat
+ [18]: https://github.com/gruntjs/grunt-contrib-copy
+ [20]: https://www.npmjs.com/package/grunt-csswring
+ [22]: https://github.com/jharding/grunt-exec
+ [24]: https://github.com/gruntjs/grunt-contrib-sass
+ [26]: https://github.com/gruntjs/grunt-contrib-watch
+ [28]: http://getbootstrap.com/getting-started/
+ [29]: http://getbootstrap.com/css/
+ [30]: http://getbootstrap.com/components/
+ [31]: http://getbootstrap.com/css/#grid
+ [32]: http://test.flechtie.de
+ [33]: https://gist.github.com/ronnyhartenstein/f490444b562dab19edca
+ [34]: https://gist.github.com/ronnyhartenstein/d085ccdbc2d54169290a
+ [35]: https://gist.github.com/ronnyhartenstein/a9581017121f88389612
+ [36]: https://gist.github.com/ronnyhartenstein/0e344335a332e135e966
+ [38]: https://gist.github.com/ronnyhartenstein/f6b9b371d5e843238999
+ [39]: https://gist.github.com/ronnyhartenstein/d774bee8dbac81960322
+ [40]: https://gist.github.com/ronnyhartenstein/e9ad3ff27ea4c95bfd83
+ [41]: http://semantic-ui.com/
+ [42]: http://purecss.io/
+ [43]: https://twitter.com/rhflow_de
