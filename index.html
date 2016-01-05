@@ -1,10 +1,16 @@
 ---
 layout: home
+title: BLOG.rh-flow.de
 ---
 {% for post in site.posts %}
   {% if forloop.index <= 6 %}
   <article class="post type-post status-publish format-standard hentry post-bright">
   	<header class="entry-header">
+        {% if post.thumb %}
+        <div class="post-thumb">
+            <a href="{{ post.url }}"><img width="889" height="346" src="{{ site.url }}{{ post.thumb }}" class="attachment-post-thumbnail wp-post-image"></a>
+        </div>
+        {% endif %}
 				<h1 class="entry-title"><a href="{{ post.url }}" rel="bookmark">{{ post.title }}</a></h1>
 		</header><!-- .entry-header -->
 
@@ -24,3 +30,5 @@ layout: home
   </article>
   {% endif %}
 {% endfor %}
+
+<h2 class="entry-title" style="text-align: center;"><a href="index_older.html">Ältere Posts</a></h2>
