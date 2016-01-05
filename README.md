@@ -21,19 +21,22 @@
   - http://stackoverflow.com/questions/22441281/jekyll-site-categories-variable
   - gh-pages don't support Plugins!
 
-- [ ] Pictures from wp-content
+- [x] Pictures from wp-content
+- [x] Genericons CSS+Font for arrows
 
-- [ ] Lazy load Disqus (without Jquery)
+- [x] Post archive (index_older.html) + Navigation
+
+- [ ] Lazy load Disqus (without Jquery) + Activate
   - https://www.kadder.de/2014/04/pagespeed-disqus-mit-lazyload/
   - https://www.hagen-bauer.de/2015/12/jekyll-disquss.html
 
 - [x] RSS-Feed OXID http://blog.rh-flow.de/category/entwicklung/oxid/feed/ (static?)
 
-- [ ] Search
-- [ ] Post: more articles of category of Post
+- [ ] (later) Post: more articles of category of Post
   - http://stackoverflow.com/questions/22441281/jekyll-site-categories-variable
 
 - [ ] move all drafts from Repo `_blog`
+  - some docs on Google Docs?
   - http://jekyllrb.com/docs/drafts/
 
 ## Jekyll Docs
