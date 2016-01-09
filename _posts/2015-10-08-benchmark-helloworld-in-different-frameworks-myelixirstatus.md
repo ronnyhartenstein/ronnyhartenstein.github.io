@@ -2,7 +2,7 @@
 layout: post
 status: publish
 published: true
-title: 'Benchmark Helloworld in different frameworks #myelixirstatus [Update #2]'
+title: 'Benchmark Helloworld in different frameworks #myelixirstatus [Update #3, now with Go]'
 author:
   display_name: ''
   login: ''
@@ -33,6 +33,7 @@ Beside the plain implementation I also tried a standard framework each. So here 
 *   Node.JS v4.1.1: Module http and Express v4.13.3
 *   PHP v5.5.29 + v7.0.0RC4: built-in Http-Server and Silex v1.3
 *   Elixir v1.1.1: Plug (with Cowboy) and Phoenix v0.15
+*   Go v1.5.2: `net/http`
 
 (**Update** Added version numbers)
 
@@ -658,6 +659,83 @@ Well, it is'nt so plain like the other ones. The route `/hello/:name` works with
       99%     78
      100%     86 (longest request)
 
+## Go with `net/http`
+
+The code:
+
+```
+package main
+
+import (
+	"io"
+	"net/http"
+)
+
+func main() {
+	http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
+		io.WriteString(w, "Hello world!")
+	})
+	http.ListenAndServe(":8080", nil)
+}
+```
+
+The results for `ab -n 1000 -c 10 http://127.0.0.1:8080/`:
+
+```
+Requests per second:    3854.59 [#/sec] (mean)
+Time per request:       2.594 [ms] (mean)
+Time per request:       0.259 [ms] (mean, across all concurrent requests)
+Transfer rate:          485.59 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   0.7      1       5
+Processing:     0    2   0.9      1       7
+Waiting:        0    1   0.7      1       6
+Total:          1    2   1.1      2       7
+WARNING: The median and mean for the processing time are not within a normal deviation
+        These results are probably not that reliable.
+
+Percentage of the requests served within a certain time (ms)
+  50%      2
+  66%      3
+  75%      3
+  80%      3
+  90%      4
+  95%      5
+  98%      7
+  99%      7
+ 100%      7 (longest request)
+```
+
+The `ab -n 1000 -c 100 http://127.0.0.1:8080/` result:
+
+```
+Requests per second:    4097.54 [#/sec] (mean)
+Time per request:       24.405 [ms] (mean)
+Time per request:       0.244 [ms] (mean, across all concurrent requests)
+Transfer rate:          516.19 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        2    9   5.2      8      31
+Processing:     3   13   6.3     12      36
+Waiting:        2   10   5.2      9      31
+Total:          9   22   7.6     21      45
+
+Percentage of the requests served within a certain time (ms)
+  50%     21
+  66%     23
+  75%     24
+  80%     26
+  90%     35
+  95%     41
+  98%     42
+  99%     44
+ 100%     45 (longest request)
+```
+
+So well, Go is faster than Elixir with Plug. It's really really flippin fast! But hey, its like programming a lean webservice in C :smile:
 
 ## Conclusion
 
