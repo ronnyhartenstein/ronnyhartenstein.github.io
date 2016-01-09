@@ -2,17 +2,19 @@
 layout: post
 comments: true
 title: Code.talks 2015
-#date: '2016-??-??'
-#categories: Patterns
+date: '2016-01-09'
+categories: Conferences
 ---
 
-## Zusammenfassender Eindruck
+**Zusammenfassender Eindruck**
 
 Mit wachsenden Mengen schlechten Code haben nahezu alle zu kämpfen weil sie im Featureitis-Marktdruck-Rad mitlaufen. Der Weg daraus ist anstrengend und Tech-lastig.
 
 Microservices ist der Hype und ist für viele der Weg von einen schlecht skalierbaren und starren Monolithen hin zu einen skalierbaren und wartbaren Umgebung. Kleine leichtgewichtige Prozesse die über ein Protokoll (JSON) miteinander reden.
 
 Überall dröhnt es auf einen ein: Lernt FTW (oder stirb!). Paradigmen, Tech, Softskills, fordere dich selbst hart und oft. Wer sich nicht weiterbildet, ist irgendwann nicht mehr beschäftigbar weil zu teuer bzgl. des produzierten Ergebnisses..
+
+<!--more-->
 
 ## Kickoff
 
@@ -23,100 +25,73 @@ Microservices ist der Hype und ist für viele der Weg von einen schlecht skalier
 
 ## Startup-Code vs. Enterprise-Code
 
+* Speaker: Sebastian Bernt [@berntseb](https://twitter.com/berntseb)
 * Slides: ?
-* Speaker: Sebastian Bernt
 * Prädikat: **sehenswert**
-* ## Key-Learning: Wir haben Startup-Code und das ist normal. Microservices FTW!
---
+* Key-Learning: Wir haben Startup-Code und das ist normal. Microservices FTW!
+
+- - -
 
 * "wann das Geld alle war, sieht man dem Code an"
-
 * "Refactoring? bei soviel Code? im laufenden Betrieb? OMFG!"
-
 * Code doppelt pflegen?
-
 * permanent unter Hochdruck blöden Code produzieren -> konnte man sich fachlich im Kopf weiterentwickeln?
-
 * Startup-Code: funktioniert, skaliert wenig, unstrukturiert, hoher Wartungsaufwand
-
 * Enterprise-Code: skaliert, strukturiert, wartbar, komplex, kompliziert, nicht performant, aber: auch hoher Aufwand für Erweiterungen
-
 * Entwickler -> Fachidioten
-
 * Lösung: Microservices!
-
 * Was ist noch "Micro"? alles was in 2 Personenwochen entwickelt werden kann
 
 * Micro-SOA ist nicht:
-
-  ```
   * MVC Anwendung mir vielen Endpoints
   * API im Legacy-Code
   * viele APIs mit vielen Standards/Protokollen
   * **ABER**: alles erlaubt in Übergangsphase!
-  ```
 
 * **M-SOA ist OOP** (Objekte mit Zuständen)
 
 * Change-Management -> nur mit dem TEAM
-
-  ```
   * zum erreichen des nächst besseren stabilen Zustand
   * -> Plan finden -> Team verkaufen, vorleben -> Team reinziehen
   * -> bestehendes Team wehr sich gegen das wegschmeißen, weil es funktioniert ja
   * -> holt die Leute ab die Fehler gemacht haben
   * -> warum wurden diese gemacht?
-  ```
 
 * Devs sind flexibel und anpassbar
 
 ## Two-Stack-CMS
 
 * Speaker: Robert Lemke @robertlemke, Arne Blankerts @arneblankerts
-
-* Slides: ?
-
+* Slides: [slideshare](http://de.slideshare.net/robertlemke/two-stack-cms-codetalks-hamburg-2015)
 * Prädikat: unterschätzt
+* Key-Learning: Aggregated Content Store ist kein Cache aber genauso schnell
 
-* ## Key-Learning: Aggregated Content Store ist kein Cache aber genauso schnell
+- - -
 
 * Vortrag & Diagramm basiert auf Artikel von Martin Fowler (URL?)
-
 * CCS = Content Creator Stack
-
 * CDS = Content Delivery Stack
-
 * Seiten müssen instant da sein
-
 * Aggregated Content Store != Cache
-
-* -> tolle Brücke für Integration verschiedener Dienste
-
-* -> Security als Abfallprodukt :)
-
-* -> kein Backend beteiligt
-
+  * -> tolle Brücke für Integration verschiedener Dienste
+  * -> Security als Abfallprodukt :)
+  * -> kein Backend beteiligt
 * z.B. mit Redis (nginx Modul)
-
 * Neos: schickes hochindividuell anpassbares CMS mit inline-editing
-
-* -> Suche mit Elasticsearch
-
-* -> Suche ist als Service herauslösbar
-
+  * -> Suche mit Elasticsearch
+  * -> Suche ist als Service herauslösbar
 * MySQL skalieren ist viel schwieriger als Redis
-
 * Code zur Erstellung ist gleich zu Caching, aber der Ausführungszeitpunkt ist anders
+
 
 ## Tour of language landscape
 
-* Speaker: @theburningmonk
-
-* Slides: ?
-
+* Speaker: [@theburningmonk](https://twitter.com/theburningmonk)
+* Slides: [Slideshare](http://www.slideshare.net/theburningmonk/tour-of-language-landscape-codetalks)
 * Prädikat: take the red pill
+* Key-Leanings: lerne neue Paradigmen statt neue Syntax
 
-* ## Key-Leanings: lerne neue Paradigmen statt neue Syntax
+- - -
 
 **#F**
 
@@ -147,236 +122,220 @@ Microservices ist der Hype und ist für viele der Weg von einen schlecht skalier
 * at least 20 hours (Josh Kaufman)
 * learn new paradigma not a new syntax
 
+
 ## Change or die!
 
-* Speaker: Alexander Jäger
-
-* Slides: ?
-
+* Speaker: Alexander Jäger [@lxhunter](https://twitter.com/lxhunter)
+* Slides: [speakerdeck](https://speakerdeck.com/lxhunter/change-or-die)
 * Prädikat: empfehlenswert
+* Key-Learning: embrace yourself. bewußt leben, lernen und agieren
 
-* ## Key-Learning: embrace yourself. bewußt leben, lernen und agieren
+- - -
 
 * der der Abends am längsten sitzt hat es noch nicht begriffen
-
 * statt Burnout gleich Karoshi - einfach tot umfallen
-
 * Schwarmdumm lesen
-
 * Tribal Leadership: Einheit "Dunbar" (Wiki: [Dunbar-Zahl](http://de.wikipedia.org/Dunbar-Zahl))
-
 * (fun-fact: Wer hat mehr als 150 Freunde auf FB? und Bekannte im echten Leben?)
-
 * Spiral Dynamics
-
 * Freiheit ist, sich nach einer Aktio vor einer Reaktio aktiv zu entscheiden.
-
 * Was verändern?
-
 * Daniel Pink -> "What drives you?"
-
-* Viktor Frankl (Leseempfehlung! TODO Welches Buch? in den Slides?)
-
+* Viktor Frankl ["Trotzdem ja zum Leben sagen"](http://www.amazon.de/trotzdem-zum-Leben-sagen-Konzentrationslager/dp/3466368596) (Leseempfehlung!)
+  (wird auch in Buch ["Resilienz: Die unentdeckte Fähigkeit der wirklich Erfolgreichen"](http://www.amazon.de/gp/product/3869802499) äußert hervorgehoben)
 * bei Impacts **rückt** die Familie zusammen, Firmen werfen Leute raus
+* Meta-Ebene: Beobachter-Position in den eigenen Gedanken einnehmen
 
-* Meta-ebene: Beobachter-Position in den eigenen Gedanken einnehmen
+## Learn or die.
+
+* Speaker: Lars Jankowfsk
+* Slides: [slideshare](http://de.slideshare.net/AboutYouGmbH/lars-jankowfsky-learn-or-die-codetalks-2015)
+
+(leider nicht selbst dabei gewesen)
 
 ## CQRS, DDD etc. bei flyeralarm
 
 * Speaker: Verena Ruff
-
 * Slides: ?
-
 * Prädikat: **spannend**
+* Key-Learnings: von Legacy zu Micro-SOA dauert, betrifft nicht nur Tech sondern auch das Team
 
-* ## Key-Learnings: von Legacy zu Micro-SOA dauert, betrifft nicht nur Tech sondern auch das Team
+- - -
 
 * Programmierung ist nur ein Teil der Softwareentwicklung
-
-* SOLID Entwicklerparadigma
-
+* SOLID Entwicklerparadigma ([Wiki](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)))
 * Proof-of-Concept von Domain-driven development (DDD) und CQRS (Command-Query-Responsibility-Segregation, vereinfacht Trennung zw. Lesen und Schreiben
 
 * umfangreiches internes Schulungsprogramm:
-
-  ```
   * -> neues Projekt, grüne Wiese, neue Techniken testen
   * jedes Team 1 Quartal lang -> 5x Teams = 5 Quartale (sind nun durch)
   * Scaling Agile -> SAFe (Dean Leffinwell), LeSS, ScalingScrum
-  ```
 
 * Abhängigkeiten per composer gemanagt
-
 * agile Teams -> funktioniert nicht firmenweit -> z.B. nicht für Papier-Produktion
-
 * -> autarke Teams vs .Das große Ganze
 
 * Workshop:
-
-  ```
   * Team-Regeln: nicht zu viel, nicht zu wenig
   * Rollen! lead tech, QA, method guru, OPS, UX, dev
-  ```
 
 ## Microservice Testing
 
 * Speaker: Per Bernhardt @perprogramming
-
-* Slides: ?
-
+* Slides: [slideshare](http://de.slideshare.net/perprogramming/microservice-teststrategie-mit-symfony2)
 * Prädikat: schwer zu folgen (für mich)
+* Key-Learning: ordentliches Testen von MSOA ist herausfordernd
 
-* ## Key-Learning: ordentliches Testen von MSOA ist herausfordernd
+- - -
 
 * basiert auf Martin Fowlers (@martinfowler) original Artikel "Microservice Testing"
-
 * Unit Tests:
-
-  ```
   * solitary -> alleinstehend
   * social -> zusammenarbeitend
-  ```
 
 * Controller testen? DI? also kein ServiceLayer :8
-
 * -> frei von Logik halten -> muss man nicht testen
-
 * Integrations Test: Wie reagiert Gateway?
-
-* ```
-  Configdaten richtig? Schemas richtig?
-  ```
+  * Configdaten richtig? Schemas richtig?
 
 * Guzzle: MockHandler
-
 * SQlite: in memory
 
 * Contract Tests -> hauptsächlich für Micro-SOA
-
-  ```
   * Vertrag macht der Consumer, nicht der Producer
-  *
-  ```
 
 * Testpyramide: je höher der Fehler auftritt, desto schwerer das Debugging
 
 * Prio der Tests nach Aufwand/Nutzen
 
+
 ## Managed Chaos
-
-* Speaker: Johanes Manusch @docjoe
-
+* "Chaos verstehen und verhindern"
+* Speaker: Johannes Manusch [@docjoe](https://twitter.com/docjoe)
 * Slides: ?
-
 * Prädikat: auch für PM unbedingt empfehlenswert
+* Key-Learning: kompliziert, komplex und chaotisch sind völlig unterschiedliche Dinge
 
-* ## Key-Learning:
+- - -
 
 * simpel -> kompliziert -> komplex -> chaotisch
-
 * Ziel von Softwarearchitektur: Änderungen einfach implementierbar
-
 * 400 Bugs = symptomatisch
-
-  ```
   * Tortentester: kann Gabel nicht mehr heben
   * Sport geht auch nicht, ist zu schwer
   * multiples Organversagen (in der Software)
-  ```
 
 * Chaos: Zustand morgen ist nicht heute ableitbar
-
 * Unternehmen ist kaputt, wenn Management-Entscheidungen schneller kommen, als sie umgesetzt werden können = Stillstand
-
 * (Mark Haddon "dog night time", enthält interessante Definition von "Chaos")
+* "People are the new gold"
 
-* "People ar ethe new gold"
-
-* Video von Git-Projekten -> **Gors**
-
-  ```
+* Video von Git-Projekten -> [**Gource**](http://gource.io)
   * Software sichtbar machen
-  ```
 
 * Excel-Graph Teamgrößen -> 8-20% Kommunikations-Overhead
 
+
 ## PHP-Framework geschrumpft
-
-* Speaker: @belanur
-
-* Slides: ?
-
+* Speaker: [@belanur](https://twitter.com/belanur)
+* Slides: [speakerdeck](https://speakerdeck.com/belanur/liebling-ich-habe-das-framework-geschrumpft-at-code-dot-talks-2015)
 * Prädikat: im Kern spannend
+* Key-Learning: MSOA mit REST mit PHP benötigt kein Framework, ist dann auch schnell
 
-* ## Key-Learning: MSOA mit REST mit PHP benötigt kein Framework, ist dann auch schnell
+- - -
 
 * "Lara-vel"
-
 * stellt Minimalimplementierung von Router und Controller vor
-
 * Apache Bench Helloworld -> 1ms Response
-
 * Essenz von Microservices -> [belanur/minimal-rest](http://github.com/belanur/minimal-rest)
-
 * 1 Service pro Domain
-
 * REST-Service ruft andere Services auf
-
-  ```
   * _Gateway_-Service enthält Verknüpfungs-Logik
   * (per DI können Implementierungen getauscht werden)
-  ```
-
 * fein granulierte Skalierung je Service
-
 * einzelne Services als Docker-Container (?)
-
 * wachsen von Services -> wann trennen? -> wenn es mehr als 1 Domäne abdeckt, Review
 
 Warum PHP?
-
 * "weil ichs kann"
 * haben die Sprache im Griff
 * kennen alle Eigenheiten
 
+
 ## Lügen, schlimme Lügen
-
 * Speaker: Johann-Peter Hartmann
-
-* Slides: ? (aber kommt definitiv!)
-
+* Slides: [slideshare](http://de.slideshare.net/johannhartmann/lugen-schlimme-lgen-und-itvertrge)
 * Prädikat: BÄM! Pflichtlektüre!
+* Key-Learnings: Pflichtenheft und Zieltermin zusammen funktioniert nicht
 
-* ## Key-Learnings:
+- - -
 
-* Dienst nach Vorschrift -> so wie es der Arbeitsvertrag verlangt
-
+* "Dienst nach Vorschrift" -> so wie es der Arbeitsvertrag verlangt
 * Vertrag -> Risiken *vermeiden* (Warum nicht nur verringern?)
-
 * Chaos Report (Kreisdiagram zu Erfolg von Software-Projekten)
-
 * Cynefin - Sense making model
-
 * 6 Leute, 6 Monate, 50% Zusatzaufwand, immer.
-
 * Chaos-Report wurde angepasst -> Erfolg != in time & budget,
-
-  ```
   * -> sondern beide Parteien erachten Projekt als erfolgreich
-  ```
-
 * Max(Features) == Min(Qualität)
-
 * Vertrag "Fixed profit" -> auch Exploits
-
 * Langzeit-Opportunismus: Langzeitprojekt ohne Doku
-
 * komplexe Aufgabe = Standard in Projekten => "unvollständiger Vetrag"
-
 * fixed time + fixed states geht nicht, außer mit sehr viel Buffer
-
 * bei neuen Kunden: erst Werkvertrag später Dienstvertrag
-
 * wenn Kunde komplett opportunistisch ist, gibts keine Lösung, nur andere Projekte von anderen Kunden stattdessen
-
 * **wenn nach Storypoints abgerechnet wird, taugen sie nicht mehr für Metriken** (Burndown, Velocity)
+
+
+## Lambda Architektur
+* [“Kleine Schritte, große Daten. Wieso Lambda-Architektur und agile Entwicklung perfekt zusammenpassen.”](https://www.codetalks.de/2015/programm/kleine-schritte-grosse-daten-wieso-lambda-architektur-und-agile-entwicklung-perfekt-zusammenpassen)
+* Speaker: Christian Stamm @christian_stamm
+* Slides: ?
+* Prädikat: wenig Tech, mäßig informativ
+* Key-Learnings: Development in Babysteps statt Kanban funktioniert gut (MVP)
+
+- - -
+
+* Onlineshops: dem Nutzer relevante Inhalte aufgrund einer algorithmischen Auswahl präsentieren
+* kurzzyklische Änderungen, messen in Produktivumgebung
+* graceful degradation -> Services gehen langsam kaputt
+* Babysteps -> MVP -> dümmst mögliche Implementierung als Durchstich
+* Github: https://github.com/otto-de/tesla-microservice
+* “map reduce ist schwierig aber explizit”
+* [dev.otto.de](http://dev.otto.de/)
+
+Tech-Stack:
+
+* Mesos-Cluster + Docker + Zookeeper
+* Kafka -> Eventstream-Transporteur
+* Spark -> Batch-Processing -> soll zu Clojure gehen (Microservices)
+* Python + Clojure + Scala
+* Scala -> sehr umständliche Sprache
+* Metriken an Graphite
+
+
+
+## Appserver.io
+* Speaker: Bernhardt Wide
+* Slides: [slideshare](http://de.slideshare.net/AboutYouGmbH/bernhard-wick-appserverio-codetalks-2015)
+* Prädikat: gemischte Gefühle
+* Key-Learning: PHP mit so viel Clutter wie Java Servlets. Aber hey, der Application-Server läuft. Allerdings müssen bestehende Anwendungen angepasst werden.
+
+- - -
+
+* erstes Prod-Projekt 6/2014
+* 8 Prod-Projekte bislang, 2 Partnerfirmen
+* 24 Jahre Entwicklungszeit, ~96k Zeilen Code
+* homogenisierter Tech-Stack
+* Infrastruktur -> Framework + Laufzeit-Umgebung
+* technologische Sicherheit
+* homebrew-Unterstützung + Dockerimages
+* Servlets kapseln Bootstrapping
+* Session Beans
+* Doctrine per Default
+* statefull programmieren -> bootstrapping entfällt, aber : man muss aufräumen!
+* AOP -> PHP_Modul?? schwer zu debuggen
+* DI per Annotation
+* DI Container funktioniert auch auf mehreren Servern
+* Design by contract
+* Worker-Skalierung, derzeit nur fix per Config möglich
