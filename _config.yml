@@ -6,3 +6,5 @@ url: http://blog.rh-flow.de
 #url: http://ronnyhartenstein.github.io
 baseurl:
 excerpt_separator: <!--more-->
+gems:
+  - jemoji
