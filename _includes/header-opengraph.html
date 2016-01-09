@@ -1,9 +1,8 @@
-<!-- Jetpack Open Graph Tags -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="alles im fluss..." />
-<meta property="og:description" content="bleibt neugierig!" />
-<meta property="og:url" content="http://blog.rh-flow.de/" />
-<meta property="og:site_name" content="alles im fluss..." />
-{% comment %}<meta property="og:image" content="https://s0.wp.com/i/blank.jpg" />{% endcomment %}
+<meta property="og:title" content="{{ page.title }}" />
+{% comment %}<meta property="og:description" content="{{ page.excerpt }}" />{% endcomment %}
+<meta property="og:url" content="{{ site.baseurl }}{{ page.url }}" />
+<meta property="og:site_name" content="{{ site.name}}" />
+{% if page.thumb %}<meta property="og:image" content="{{ site.baseurl }}{{ page.thumb }}" />{% endif %}
 <meta property="og:locale" content="de_DE" />
 <meta name="twitter:site" content="@rhflow_de" />
