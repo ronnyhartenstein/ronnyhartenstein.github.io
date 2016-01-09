@@ -1,3 +1,10 @@
+---
+layout: post
+comments: true
+title: FLOW-Erlebnis
+#date: '2016-??-??'
+categories: Patterns
+---
 
 “Flow-Erlebnis: aktive Formen des Glücks-Erlebens, bei denen man ganz bei der Sache ist und Sorgen und die Zeit vergisst”
 

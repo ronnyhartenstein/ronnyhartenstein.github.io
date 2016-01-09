@@ -1,4 +1,10 @@
-# Migrating from Wordpress to Jekyll
+---
+layout: post
+comments: true
+title: Migrating from Wordpress to Jekyll
+#date: '2016-??-??'
+#categories: Patterns
+---
 
 http://import.jekyllrb.com/docs/installation/
 

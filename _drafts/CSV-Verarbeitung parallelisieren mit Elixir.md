@@ -2,12 +2,15 @@
 layout: post
 comments: true
 title: CSV-Verarbeitung parallelisieren mit Elixir
-date: '2016-??-??'
+#date: '2016-??-??'
 categories: Elixir
-tags: []
 ---
 
 Ziel der Übung ist zu prüfen, wie mit Elixir massiv große CSV Datenbestände parallel und zügig importiert werden können.
+
+**TL;DR** `parallel_stream` gewinnt gegenüber `Task.async` und `Poolboy`.
+
+<!--more-->
 
 ## Erster Ansatz: jeder Datensatz ist ein Prozess mit [`Task.async`](http://elixir-lang.org/docs/v1.0/elixir/Task.html)
 

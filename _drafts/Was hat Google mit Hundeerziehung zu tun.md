@@ -1,4 +1,10 @@
-# Was hat Google mit Hunde-Erziehung zu tun?
+---
+layout: post
+comments: true
+title: Was hat Google mit Hunde-Erziehung zu tun?
+#date: '2016-??-??'
+categories: Philosophy
+---
 
 Googles Suchmaschine ist quasi organisch.
 man kann nicht hineinschauen und die Algorithmen sehen

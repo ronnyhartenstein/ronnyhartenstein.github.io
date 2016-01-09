@@ -1,3 +1,11 @@
+---
+layout: post
+comments: true
+title: PHP-Application-Server antesten
+#date: '2016-??-??'
+#categories: Patterns
+---
+
 Ziel: PHP-Application-Server in einem Docker-Container mit laufenden Servlet
 http://appserver.io/documentation/servlet-engine.html#bootstrapping-a-servlet
 
