@@ -62,8 +62,9 @@ bundle install
 ## Run Jeykll local
 
 ```
-bundle exec jekyll serve --baseurl ''
+bundle exec jekyll serve --drafts --baseurl ''
 ```
+
 
 ## Bower for vendor libs
 
