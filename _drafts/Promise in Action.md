@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: Promises in Action
+title: Promises
 #date: '2016-??-??'
 categories: Patterns
 ---

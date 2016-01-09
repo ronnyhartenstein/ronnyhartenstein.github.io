@@ -6,6 +6,8 @@ title: MQTT
 categories: Patterns
 ---
 
+MQTT - Message Queue Telemetry Transport
+
 Chrome: Extension "MQTTlens"
 Homepage: http://mosquitto.org
 PHP-Client: github/oliverlorenz/phpmqttclient#0.3
