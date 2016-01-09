@@ -54,8 +54,9 @@ This posts on serverfault.com are also revealing:
 
 The code:
 
-    <?="Hello World"?>
-
+```php
+<?="Hello World"?>
+```
 
 Start the PHP internal server with
 
@@ -172,13 +173,14 @@ So PHP 7 is a bit faster than 5.5. Not bad at all. Lets see the other ones.
 
 The code:
 
-    var http = require('http');
-    var server = http.createServer(function (request, response) {
-      response.writeHead(200, {"Content-Type": "text/plain"});
-      response.end("Hello World\n");
-    });
-    server.listen(8000);
-
+```js
+var http = require('http');
+var server = http.createServer(function (request, response) {
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.end("Hello World\n");
+});
+server.listen(8000);
+```
 
 The `ab -n 1000 -c 10 http://localhost:8000/` result:
 
@@ -238,35 +240,38 @@ Node.JS is at the same speed than PHP, but did the Webserver for himself. Don't 
 
 After bootstrapping Elixir with `mix new elixir_plug`.. The code in `mix.exs`
 
-    defp deps do
-      [{:cowboy, "~> 1.0.0"},
-     {:plug, "~> 1.0"}]
-    end
-
+```elixir
+defp deps do
+  [{:cowboy, "~> 1.0.0"},
+ {:plug, "~> 1.0"}]
+end
+```
 
 The code in `lib/elixir_plug.ex`:
 
-    defmodule ElixirPlug do
-      import Plug.Conn
+```elixir
+defmodule ElixirPlug do
+  import Plug.Conn
 
-      def init(options) do
-        # initialize options
+  def init(options) do
+    # initialize options
 
-        options
-      end
+    options
+  end
 
-      def call(conn, _opts) do
-        conn
-        |> put_resp_content_type("text/plain")
-        |> send_resp(200, "Hello from Plug")
-      end
-    end
-
+  def call(conn, _opts) do
+    conn
+    |> put_resp_content_type("text/plain")
+    |> send_resp(200, "Hello from Plug")
+  end
+end
+```
 
 Start with `iex -S mix` and then
 
-    {:ok, _} = Plug.Adapters.Cowboy.http ElixirPlug, []
-
+```elixir
+{:ok, _} = Plug.Adapters.Cowboy.http ElixirPlug, []
+```
 
 The `ab -n 1000 -c 10 http://127.0.0.1:4000/` result: (Elixir and Phoenix don't like `localhost`)
 
@@ -324,24 +329,26 @@ The `ab -n 1000 -c 100 http://127.0.0.1:4000/` result:
 
 The `composer.json`
 
-    {
-        "require": {
-            "silex/silex": "~1.3"
-        }
+```json
+{
+    "require": {
+        "silex/silex": "~1.3"
     }
-
+}
+```
 
 The code of `index.php`
 
-    <?php
-    require __DIR__ . '/vendor/autoload.php';
-    $app = new \Silex\Application();
-    $app['debug'] = false;
-    $app->get('/', function() {
-        return "HelloWorld";
-    });
-    $app->run();
-
+```php
+<?php
+require __DIR__ . '/vendor/autoload.php';
+$app = new \Silex\Application();
+$app['debug'] = false;
+$app->get('/', function() {
+    return "HelloWorld";
+});
+$app->run();
+```
 
 Start the PHP internal dev server with `php -S localhost:3000`. Well, this dev server is (probably) single processing, so the parallel request will be processed round robin. But hey, for fun..
 
@@ -409,30 +416,32 @@ So it's ~30% faster looking at the longest request. But the 99% and other values
 
 The `package.json`
 
-    {
-      ..
-      "dependencies": {
-        "express": "^4.13.3",
-        "express-cluster": "0.0.4"
-      }
-    }
-
+```json
+{
+  ..
+  "dependencies": {
+    "express": "^4.13.3",
+    "express-cluster": "0.0.4"
+  }
+}
+```
 
 ### as single instance
 
 The code `app_single.js`
 
-    var express = require('express');
-    var app = express();
-    app.get('/', function (req, res) {
-      res.send('Hello World!');
-    });
-    var server = app.listen(3000, function () {
-      var host = server.address().address;
-      var port = server.address().port;
-      console.log('Listening at http://%s:%s', host, port);
-    });
-
+```js
+var express = require('express');
+var app = express();
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+var server = app.listen(3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log('Listening at http://%s:%s', host, port);
+});
+```
 
 The result of `ab -n 1000 -c 10 http://localhost:3000/`
 
@@ -488,21 +497,22 @@ The result of `ab -n 1000 -c 100 http://localhost:3000/`
 
 The code `app_cluster.js`
 
-    var express = require('express');
-    var cluster = require('express-cluster');
-    cluster(function(worker) {
-        var app = express();
-        app.get('/', function(req, res) {
-            res.send('Hello World from worker #' + worker.id);
-        });
-        server = app.listen(3000, function () {
-          var host = server.address().address;
-          var port = server.address().port;
-          console.log('Listening at http://%s:%s', host, port);
-        });
-        return server;
-    }, {count: 4})
-
+```js
+var express = require('express');
+var cluster = require('express-cluster');
+cluster(function(worker) {
+    var app = express();
+    app.get('/', function(req, res) {
+        res.send('Hello World from worker #' + worker.id);
+    });
+    server = app.listen(3000, function () {
+      var host = server.address().address;
+      var port = server.address().port;
+      console.log('Listening at http://%s:%s', host, port);
+    });
+    return server;
+}, {count: 4})
+```
 
 (If you have more cores, than increase `count: n`)
 
@@ -564,47 +574,51 @@ Hm, no better performance for me now. Maybe, because "cluster" don't really mean
 
 The `mix.ex`
 
-    ..
-    defp deps do
-      [{:phoenix, "~> 0.15"},
-       {:phoenix_ecto, "~> 0.8"},
-       {:postgrex, ">= 0.0.0"},
-       {:phoenix_html, "~> 1.4"},
-       {:phoenix_live_reload, "~> 0.5", only: :dev},
-       {:cowboy, "~> 1.0"}]
-    end
-
+```elixir
+..
+defp deps do
+  [{:phoenix, "~> 0.15"},
+   {:phoenix_ecto, "~> 0.8"},
+   {:postgrex, ">= 0.0.0"},
+   {:phoenix_html, "~> 1.4"},
+   {:phoenix_live_reload, "~> 0.5", only: :dev},
+   {:cowboy, "~> 1.0"}]
+end
+```
 
 After bootstrapping Phoenix with `mix phoenix.new hello_world` we had to tune it a little bit.
 
 We define a `/hello/:name` route for fun in file `web/router.ex`.
 
-    ..
-    scope "/", HelloPhoenix do
-      ..
-      get "/hello/:name", HelloController, :world
-      ..
-    end
-    ..
-
+```elixir
+..
+scope "/", HelloPhoenix do
+  ..
+  get "/hello/:name", HelloController, :world
+  ..
+end
+..
+```
 
 Our layout should be nearly plain in `web/templates/layout/app.html.eex`
 
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <title>Hello Phoenix!</title>
-      </head>
-      <body>
-          <%= @inner %>
-      </body>
-    </html>
-
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello Phoenix!</title>
+  </head>
+  <body>
+      <%= @inner %>
+  </body>
+</html>
+```
 
 The template for our route is also more or less minimal - file `web/templates/hello/world.html.eex`
 
-    <h1>From template: Hello <%= String.capitalize @name %>!</h1>
-
+```html
+<h1>From template: Hello <%= String.capitalize @name %>!</h1>
+```
 
 Well, it is'nt so plain like the other ones. The route `/hello/:name` works with the value of the parameter. But still ..
 
@@ -663,7 +677,7 @@ Well, it is'nt so plain like the other ones. The route `/hello/:name` works with
 
 The code:
 
-```
+```go
 package main
 
 import (
