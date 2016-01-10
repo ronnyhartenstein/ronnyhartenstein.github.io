@@ -3,3 +3,15 @@
 <link rel='stylesheet' id='displace-style-css'  href='{{ site.baseurl }}/css/displace-style.css' type='text/css' media='all' />
 <link rel='stylesheet' id='prettify-css'  href='{{ site.baseurl }}/css/prettify.css' type='text/css' media='all' />
 <link rel='stylesheet' id='pygment-trac-css'  href='{{ site.baseurl }}/css/pygment_trac.css' type='text/css' media='all' />
+{% for lib in page.libs %}
+  {% if lib == "chartjs" %}
+    <script src="{{ site.baseurl }}/vendor/Chart.min.js"></script>
+  {% endif %}
+  {% if lib == "underscore" %}
+    <script src="{{ site.baseurl }}/vendor/underscore.js"></script>
+  {% endif %}
+  {% if lib == "mermaid" %}
+    <script src="{{ site.baseurl }}/vendor/mermaid.slim.min.js"></script>
+    <link rel='stylesheet' id='mermaid-css'  href='{{ site.baseurl }}/vendor/mermaid.css' type='text/css' media='all' />
+  {% endif %}
+{% endfor %}
