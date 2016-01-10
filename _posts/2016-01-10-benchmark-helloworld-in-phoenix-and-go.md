@@ -226,7 +226,7 @@ data.datasets[0].data.push(8094)
 
 Let's have a look on the Request/sec
 
-<canvas id="charts" height="200" width="400"></canvas>
+<canvas id="charts" height="300" width="400"></canvas>
 
 So, we see, Elixir is really fast (15k requests per second!) in compare to Node. But a compiled and minimal Go service is twice as fast. What I wonder about is, Node with Express-Cluster runs faster than Phoenix. Hm, maybe I miss some performance trigger. Any suggestions?
 
