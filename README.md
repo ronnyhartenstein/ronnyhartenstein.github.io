@@ -65,6 +65,11 @@ bundle install
 bundle exec jekyll serve --drafts --baseurl ''
 ```
 
+**Update SASS:**
+
+- for dev: `sass --scss --watch style.scss:style.css`
+- for prod: `sass --scss --style compressed --sourcemap=none style.scss style.css`
+
 
 ## Bower for vendor libs
 

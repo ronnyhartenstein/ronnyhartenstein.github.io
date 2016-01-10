@@ -1,0 +1,29 @@
+
+// for dev: sass --scss --watch style.scss:style.css
+// for prod: sass --scss --style compressed --sourcemap=none style.scss style.css
+
+@import "displace-style";
+@import "genericons";
+@import "prettify";
+@import "pygment_trac";
+
+// slim border on small devices
+@media screen and (max-width: 680px) {
+  // main title
+  .page-header, .entry-title, .not-found .entry-content, .post-wide .entry-content, .post-wide .entry-meta, .format-audio .entry-content, .entry-attachment, .type-attachment .entry-title, .type-attachment .entry-meta, .site-content .site-navigation, .comments-area .comments-title, ol.commentlist, .entry-meta {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  // content
+  .entry-content, .entry-summary, .format-audio .entry-content {
+    margin-right: 10px;
+  }
+  .entry-content, .entry-summary, .small-attach .entry-attachment a .type-attachment .entry-description, .entry-attachment .wp-audio-shortcode {
+    margin-left: 10px;
+  }
+  // footer
+  #disqus_thread, .site-info, p.nocomments, #comments > #respond {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
