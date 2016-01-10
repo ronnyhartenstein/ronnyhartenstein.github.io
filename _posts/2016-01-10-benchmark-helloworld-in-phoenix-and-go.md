@@ -20,6 +20,10 @@ As a response of my update of ["Benchmark Helloworld in different frameworks"](h
 
 I'll test (like before) on my MacBookPro 15" Mid 2010, 2,53 GHz i5, 8 GB DDR3, OS X El Capitan 10.11.2 and wrk 4.0.0.
 
+**TL;DR** Go is still faster than Elixir. But remember .. apples and peaches.
+
+<!--more-->
+
 ## Elixir with Phoenix
 
 Bootstrap a new project without Brunch and Ecto: `mix phoenix.new phoenix2 --no-brunch --no-ecto`
