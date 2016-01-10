@@ -40,6 +40,9 @@ window.onload = function(){
 
 ## Elixir with Phoenix
 
+
+See [source](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/tree/master/phoenix2) on GitHub.
+
 Bootstrap a new project without Brunch and Ecto: `mix phoenix.new phoenix2 --no-brunch --no-ecto`
 
 Removing all the clutter from Layout and Page template.
@@ -75,8 +78,6 @@ config :logger, :console,
 Run it: `ENV=production mix phoenix.server`
 
 Curl it: `curl http://127.0.0.1:4000/` -> "Hello World!" - Yay! :v:
-
-[See source here](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/tree/master/phoenix2) on GitHub.
 
 
 The `wrk -t 4 -c 10 -d 30 http://127.0.0.1:4000/` result:
