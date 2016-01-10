@@ -102,7 +102,7 @@ CPU spikes at ~260% for beam.smp and ~55% for wrk.
 
 ## Go
 
-The source is the same than before, see  [source of  helloworld.go](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/blob/master/go/helloworld.go) on GitHub.
+Source is the same than before, see  [helloworld.go](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/blob/master/go/helloworld.go) on GitHub.
 
 The `wrk -t 4 -c 10 -d 30 http://127.0.0.1:8080/` result:
 
@@ -122,7 +122,7 @@ CPU spikes at ~190% for go and ~95% for wrk.
 
 ## NodeJS
 
-The source is the same than before, see  [source of  app.js](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/blob/master/nodejs/app.js) on GitHub.
+Source is the same than before, see  [app.js](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/blob/master/nodejs/app.js) on GitHub.
 
 The `wrk -t 4 -c 10 -d 30 http://127.0.0.1:8000/` result:
 
@@ -141,7 +141,7 @@ CPU spikes at ~100% for node (single instance, single thread) and ~30% for wrk.
 
 ## NodeJS with Express
 
-Source is the same than before, see  [source of  app.js](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/blob/master/nodejs-express/app_single.js) on GitHub.
+Source is the same than before, see  [app_single.js](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/blob/master/nodejs-express/app_single.js) on GitHub.
 
 The `wrk -t 4 -c 10 -d 30 http://127.0.0.1:3000/` result:
 
@@ -160,7 +160,7 @@ CPU spikes at ~100% for node (single instances, single thread) and ~16% for wrk.
 
 ## NodeJS with Express-Cluster
 
-Source is the same than before, see  [source of  app.js](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/blob/master/nodejs-express/app_cluster.js) on GitHub.
+Source is the same than before, see  [app_cluster.js](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/blob/master/nodejs-express/app_cluster.js) on GitHub.
 
 The `wrk -t 4 -c 10 -d 30 http://127.0.0.1:3000/` result:
 
