@@ -180,10 +180,8 @@ CPU spikes at ~300% for node (multiple instances) and ~30% for wrk.
 
 ## Conclusion
 
-So, we see, Elixir and Phoenix are really fast (15k requests per second!). But a compiled and minimal Go service is twice as fast as Elixir with Plug.
-
-What I wonder about is, Node with Express-Cluster runs faster than Phoenix. Hm, maybe I miss some performance trigger. Any suggestions?
+So, we see, Elixir is really fast (15k requests per second!). But a compiled and minimal Go service is twice as fast. What I wonder about is, Node with Express-Cluster runs faster than Phoenix. Hm, maybe I miss some performance trigger. Any suggestions?
 
 Well, again, it is comparing apples with peaches. It's just a Helloworld, no complex concurrent microservices with fancy business logic or so. So, don't give too much on this.
 
-Hints for improve the tests are welcome! Just hit me on Twitter.
+_Hints for improve the tests are welcome! Just hit me on Twitter._
