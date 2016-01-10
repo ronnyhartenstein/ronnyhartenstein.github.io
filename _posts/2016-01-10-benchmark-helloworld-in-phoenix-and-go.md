@@ -6,6 +6,7 @@ date: 2016-01-10
 categories:
 - Elixir
 - Go
+libs: chartjs
 ---
 
 As a response of my update of ["Benchmark Helloworld in different frameworks"](http://blog.rh-flow.de/2015/10/08/benchmark-helloworld-in-different-frameworks-myelixirstatus/) yesterday, [@chris_mccord](https://twitter.com/chris_mccord) gave me [some](https://twitter.com/chris_mccord/status/685940578496954368) [hints](https://twitter.com/chris_mccord/status/685940715919163393) [on](https://twitter.com/chris_mccord/status/685940856986189824) Twitter. So here we go.
@@ -23,6 +24,19 @@ I'll test (like before) on my MacBookPro 15" Mid 2010, 2,53 GHz i5, 8 GB DDR3, O
 **TL;DR** Go is still faster than Elixir. But remember .. apples and peaches.
 
 <!--more-->
+
+<script>
+data = {
+  labels : [],
+  datasets : [{ label: "#1", data: []}]
+}
+window.onload = function(){
+	var ctx = document.getElementById("charts").getContext("2d");
+	window.myLine = new Chart(ctx).Bar(data, {
+		responsive: true
+	});
+}
+</script>
 
 ## Elixir with Phoenix
 
@@ -80,6 +94,11 @@ Transfer/sec:      1.94MB
 
 CPU spikes at ~300% for beam.smp and ~25% for wrk.
 
+<script>
+data.labels.push("Phoenix")
+data.datasets[0].data.push(5977)
+</script>
+
 ## Elixir with Plug
 
 Same source than before, see [here](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/tree/master/elixir_plug) on GitHub.
@@ -98,6 +117,11 @@ Transfer/sec:      2.98MB
 ```
 
 CPU spikes at ~260% for beam.smp and ~55% for wrk.
+
+<script>
+data.labels.push("Plug")
+data.datasets[0].data.push(15633)
+</script>
 
 
 ## Go
@@ -119,6 +143,11 @@ Transfer/sec:      4.03MB
 
 CPU spikes at ~190% for go and ~95% for wrk.
 
+<script>
+data.labels.push("Go")
+data.datasets[0].data.push(32788)
+</script>
+
 
 ## NodeJS
 
@@ -139,6 +168,11 @@ Transfer/sec:      1.16MB
 
 CPU spikes at ~100% for node (single instance, single thread) and ~30% for wrk.
 
+<script>
+data.labels.push("NodeJs")
+data.datasets[0].data.push(7795)
+</script>
+
 ## NodeJS with Express
 
 Source is the same than before, see  [app_single.js](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/blob/master/nodejs-express/app_single.js) on GitHub.
@@ -157,6 +191,11 @@ Transfer/sec:    842.19KB
 ```
 
 CPU spikes at ~100% for node (single instances, single thread) and ~16% for wrk.
+
+<script>
+data.labels.push("Express")
+data.datasets[0].data.push(4087)
+</script>
 
 ## NodeJS with Express-Cluster
 
@@ -177,10 +216,18 @@ Transfer/sec:      1.74MB
 
 CPU spikes at ~300% for node (multiple instances) and ~30% for wrk.
 
+<script>
+data.labels.push("Express-Cluster")
+data.datasets[0].data.push(8094)
+</script>
 
 ## Conclusion
 
-So, we see, Elixir is really fast (15k requests per second!). But a compiled and minimal Go service is twice as fast. What I wonder about is, Node with Express-Cluster runs faster than Phoenix. Hm, maybe I miss some performance trigger. Any suggestions?
+Let's have a look on the Request/sec
+
+<canvas id="charts" height="200" width="400"></canvas>
+
+So, we see, Elixir is really fast (15k requests per second!) in compare to Node. But a compiled and minimal Go service is twice as fast. What I wonder about is, Node with Express-Cluster runs faster than Phoenix. Hm, maybe I miss some performance trigger. Any suggestions?
 
 Well, again, it is comparing apples with peaches. It's just a Helloworld, no complex concurrent microservices with fancy business logic or so. So, don't give too much on this.
 
