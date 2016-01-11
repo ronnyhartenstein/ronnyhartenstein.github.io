@@ -38,6 +38,14 @@ window.onload = function(){
 }
 </script>
 
+**Versions:**
+
+- Erlang: v18.2.1
+- Elixir: v1.1.1
+- Phoenix: v1.0.4
+- Go: v1.5.2
+- Node: v4.1.1
+
 ## Elixir with Phoenix
 
 
