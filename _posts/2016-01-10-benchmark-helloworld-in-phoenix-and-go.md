@@ -1,6 +1,5 @@
 ---
 layout: post
-comments: true
 title: Benchmark Helloworld in Phoenix and Go
 date: 2016-01-10
 categories:
