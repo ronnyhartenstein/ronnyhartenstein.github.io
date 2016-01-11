@@ -18,6 +18,8 @@ As a response of my update of ["Benchmark Helloworld in different frameworks"](h
 - disable CSRF while remove `plug: protect_from_forgery`
 - disable also `plug :fetch_session` and `plug :fetch_flash` (even we don't use them on purpose for the test)
 - run more requests in sum to keep the machine busy long enough to see if the CPU usage is above 30% - thanks `wrk` support duration instead of requests
+- take the best of 3 runs
+- closing all other tools and apps
 
 I'll test (like before) on my MacBookPro 15" Mid 2010, 2,53 GHz i5, 8 GB DDR3, OS X El Capitan 10.11.2 and wrk 4.0.0.
 
@@ -41,10 +43,10 @@ window.onload = function(){
 **Versions:**
 
 - Erlang: v18.2.1
-- Elixir: v1.1.1
-- Phoenix: v1.0.4
+- Elixir: v1.2.0
+- Phoenix: v1.1.2
 - Go: v1.5.2
-- Node: v4.1.1
+- Node: v5.4.0
 
 ## Elixir with Phoenix
 
@@ -83,7 +85,7 @@ config :logger, :console,
   compile_time_purge_level: :error
 ```
 
-Run it: `ENV=production mix phoenix.server`
+Run it: `ENV=prod mix phoenix.server`
 
 Curl it: `curl http://127.0.0.1:4000/` -> "Hello World!" - Yay! :v:
 
@@ -94,23 +96,50 @@ The `wrk -t 4 -c 10 -d 30 http://127.0.0.1:4000/` result:
 Running 30s test @ http://127.0.0.1:4000/
   4 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.54ms    4.20ms 126.93ms   99.64%
-    Req/Sec     1.50k   126.89     1.72k    83.44%
-  179439 requests in 30.02s, 58.39MB read
-Requests/sec:   5977.08
-Transfer/sec:      1.94MB
+    Latency     1.14ms  561.35us  16.65ms   73.90%
+    Req/Sec     1.77k   109.77     2.01k    80.17%
+  210882 requests in 30.01s, 68.62MB read
+Requests/sec:   7026.62
+Transfer/sec:      2.29MB
 ```
 
 CPU spikes at ~300% for beam.smp and ~25% for wrk.
 
 <script>
 data.labels.push("Phoenix")
-data.datasets[0].data.push(5977)
+data.datasets[0].data.push(7026)
 </script>
+
+**Removing all Plugs**
+
+in `phoenix2/lib/phoenix2/endpoint.ex` and `phoenix2/web/router.ex`
+
+```
+Running 30s test @ http://127.0.0.1:4000/
+  4 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     0.99ms    4.44ms 131.31ms   99.06%
+    Req/Sec     2.85k   270.89     3.51k    81.75%
+  339998 requests in 30.01s, 64.26MB read
+Requests/sec:  11331.30
+Transfer/sec:      2.14MB
+```
+
+<script>
+data.labels.push("Phoenix clean")
+data.datasets[0].data.push(11331)
+</script>
+
 
 ## Elixir with Plug
 
 Same source than before, see [here](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/tree/master/elixir_plug) on GitHub.
+
+Start with `iex -S mix` and then
+
+```elixir
+{:ok, _} = Plug.Adapters.Cowboy.http ElixirPlug, []
+```
 
 The `wrk -t 4 -c 10 -d 30 http://127.0.0.1:4000/` result:
 
@@ -118,18 +147,18 @@ The `wrk -t 4 -c 10 -d 30 http://127.0.0.1:4000/` result:
 Running 30s test @ http://127.0.0.1:4000/
   4 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   553.55us    1.12ms  50.26ms   98.95%
-    Req/Sec     3.93k   440.11     5.25k    71.92%
-  469051 requests in 30.00s, 89.55MB read
-Requests/sec:  15633.63
-Transfer/sec:      2.98MB
+    Latency   515.42us  727.02us  35.67ms   97.72%
+    Req/Sec     4.07k   403.24     5.13k    72.34%
+  487152 requests in 30.10s, 93.01MB read
+Requests/sec:  16184.13
+Transfer/sec:      3.09MB
 ```
 
 CPU spikes at ~260% for beam.smp and ~55% for wrk.
 
 <script>
 data.labels.push("Plug")
-data.datasets[0].data.push(15633)
+data.datasets[0].data.push(16184)
 </script>
 
 
@@ -143,18 +172,18 @@ The `wrk -t 4 -c 10 -d 30 http://127.0.0.1:8080/` result:
 Running 30s test @ http://127.0.0.1:8080/
   4 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   359.85us    1.26ms  60.11ms   97.67%
-    Req/Sec     8.25k     1.48k   13.16k    69.88%
-  987040 requests in 30.10s, 121.43MB read
-Requests/sec:  32788.42
-Transfer/sec:      4.03MB
+    Latency   296.47us    0.94ms  41.72ms   97.67%
+    Req/Sec     9.37k     1.42k   13.81k    69.58%
+  1121496 requests in 30.10s, 137.97MB read
+Requests/sec:  37257.91
+Transfer/sec:      4.58MB
 ```
 
 CPU spikes at ~190% for go and ~95% for wrk.
 
 <script>
 data.labels.push("Go")
-data.datasets[0].data.push(32788)
+data.datasets[0].data.push(37257)
 </script>
 
 
@@ -162,48 +191,49 @@ data.datasets[0].data.push(32788)
 
 Source is the same than before, see  [app.js](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/blob/master/nodejs/app.js) on GitHub.
 
-The `wrk -t 4 -c 10 -d 30 http://127.0.0.1:8000/` result:
+The `wrk -t 1 -c 10 -d 30 http://127.0.0.1:8000/` result:
 
 ```
 Running 30s test @ http://127.0.0.1:8000/
-  4 threads and 10 connections
+  1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.05ms  844.03us  44.06ms   99.51%
-    Req/Sec     1.96k   157.75     4.00k    93.76%
-  234656 requests in 30.10s, 34.91MB read
-Requests/sec:   7795.53
-Transfer/sec:      1.16MB
+    Latency     1.23ms   76.83us   4.70ms   91.35%
+    Req/Sec     8.11k   177.74     9.06k    93.02%
+  242916 requests in 30.10s, 36.14MB read
+Requests/sec:   8070.08
+Transfer/sec:      1.20MB
 ```
 
 CPU spikes at ~100% for node (single instance, single thread) and ~30% for wrk.
 
 <script>
 data.labels.push("NodeJs")
-data.datasets[0].data.push(7795)
+data.datasets[0].data.push(8070)
 </script>
 
 ## NodeJS with Express
 
 Source is the same than before, see  [app_single.js](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/blob/master/nodejs-express/app_single.js) on GitHub.
 
-The `wrk -t 4 -c 10 -d 30 http://127.0.0.1:3000/` result:
+The `wrk -t 1 -c 10 -d 30 http://127.0.0.1:3000/` result:
 
 ```
 Running 30s test @ http://127.0.0.1:3000/
-  4 threads and 10 connections
+  1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     2.00ms    1.23ms  53.10ms   97.17%
-    Req/Sec     1.03k   146.10     1.22k    86.67%
-  122740 requests in 30.03s, 24.70MB read
-Requests/sec:   4087.21
-Transfer/sec:    842.19KB
+    Latency     2.27ms    1.17ms  54.06ms   99.07%
+    Req/Sec     4.49k   433.05     4.69k    96.01%
+  134813 requests in 29.48s, 27.13MB read
+  Socket errors: connect 0, read 0, write 0, timeout 10
+Requests/sec:   4573.21
+Transfer/sec:      0.92MB
 ```
 
 CPU spikes at ~100% for node (single instances, single thread) and ~16% for wrk.
 
 <script>
 data.labels.push("Express")
-data.datasets[0].data.push(4087)
+data.datasets[0].data.push(4573)
 </script>
 
 ## NodeJS with Express-Cluster
@@ -216,18 +246,19 @@ The `wrk -t 4 -c 10 -d 30 http://127.0.0.1:3000/` result:
 Running 30s test @ http://127.0.0.1:3000/
   4 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.36ms    3.15ms 113.92ms   96.81%
-    Req/Sec     2.04k   824.35     4.02k    66.31%
-  243005 requests in 30.02s, 52.37MB read
-Requests/sec:   8094.42
-Transfer/sec:      1.74MB
+    Latency     0.97ms    0.96ms  36.15ms   92.64%
+    Req/Sec     2.25k     1.07k    4.72k    68.83%
+  269641 requests in 30.10s, 58.12MB read
+Requests/sec:   8957.45
+Transfer/sec:      1.93MB
 ```
 
 CPU spikes at ~300% for node (multiple instances) and ~30% for wrk.
+It's nearly 2x fast than node single thread, because the i5 in 2010 has 2 physical cores.
 
 <script>
 data.labels.push("Express-Cluster")
-data.datasets[0].data.push(8094)
+data.datasets[0].data.push(8957)
 </script>
 
 ## Conclusion
