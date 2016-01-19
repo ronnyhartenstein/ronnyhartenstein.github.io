@@ -8,7 +8,7 @@ title: BLOG.rh-flow.de
   	<header class="entry-header">
         {% if post.thumb %}
         <div class="post-thumb">
-            <a href="{{ post.url }}"><img width="889" height="346" src="{{ site.url }}{{ post.thumb }}" class="attachment-post-thumbnail wp-post-image"></a>
+            <a href="{{ post.url }}"><img width="889" height="346" src="{{ post.thumb }}" class="attachment-post-thumbnail wp-post-image"></a>
         </div>
         {% endif %}
 				<h1 class="entry-title"><a href="{{ post.url }}" rel="bookmark">{{ post.title }}</a></h1>

@@ -28,6 +28,12 @@
   }
 }
 
+// tune syntax highlight
 .highlight .ss {
   color: rgb(234, 135, 3);
+}
+
+// code in headlines
+h1 code, h2 code, h3 code, h4 code {
+  font-size: 90%;
 }
