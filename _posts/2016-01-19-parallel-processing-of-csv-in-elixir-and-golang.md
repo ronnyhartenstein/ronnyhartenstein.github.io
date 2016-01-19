@@ -131,6 +131,7 @@ func processData(i int, r []string) {
 So it works quite in the same way. It's just another approach with some benefits.
 Read more in Blogs [here](http://nanxiao.me/en/use-sync-waitgroup-in-golang/) and [here](http://nathanleclaire.com/blog/2014/02/15/how-to-wait-for-all-goroutines-to-finish-executing-before-continuing/) and of course in the great great **book ["The Go Programming Language"](http://www.amazon.de/Programming-Language-Addison-Wesley-Professional-Computing/dp/0134190440) chap. "9.8 Goroutines and Threads"**.
 
+See the code here: [ronnyhartenstein/golang-csv-parallel-processing](https://github.com/ronnyhartenstein/golang-csv-parallel-processing)
 
 ### Boilerplate for parallel processing in Go
 
