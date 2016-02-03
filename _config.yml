@@ -1,5 +1,5 @@
 name: "alles im fluss&#8230; &bull; bleibt neugierig!"
-markdown: redcarpet
+markdown: kramdown
 highlighter: pygments
 permalink: /:year/:month/:day/:title/
 url: http://blog.rh-flow.de
