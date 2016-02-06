@@ -12,12 +12,6 @@ url: http://blog.rh-flow.de
 #url: http://ronnyhartenstein.github.io
 baseurl:
 
-# Wordpress heritage
-excerpt_separator: <!--more-->
-
-# http://jekyllrb.com/docs/assets/
-sass:
-    style: compressed
 
 # additional Gems
 gems:
@@ -27,3 +21,16 @@ gems:
   - jekyll-paginate
   - jekyll-gist
   - jekyll-sass-converter
+  - jekyll-mentions
+
+
+# https://github.com/jekyll/jekyll-mentions
+jekyll-mentions:
+  base_url: https://twitter.com
+
+# Wordpress heritage
+excerpt_separator: <!--more-->
+
+# http://jekyllrb.com/docs/assets/
+sass:
+    style: compressed

@@ -270,4 +270,4 @@ So, we see, Elixir is really fast (15k requests per second!) in compare to Node.
 
 Well, again, it is comparing apples with peaches. It's just a Helloworld, no complex concurrent microservices with fancy business logic or so. So, don't give too much on this.
 
-_Hints for improve the tests are welcome! Just hit me on Twitter._
+_Hints for improve the tests are welcome! Just hit me on Twitter @rhflow_de ._  

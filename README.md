@@ -3,11 +3,6 @@
 
 ## TODO
 
-- [x] Umstellung auf rouge statt pygments
-  - [x] `bundle update`
-  - [x] CSS von pygments an rouge anpassen/übernehmen
-- [x] Umstellung auf kramdown
-
 
 Ideas - later:
 
