@@ -1,10 +1,26 @@
+
 name: "alles im fluss&#8230; &bull; bleibt neugierig!"
+
 markdown: kramdown
 highlighter: rouge
+
 permalink: /:year/:month/:day/:title/
+
 url: http://blog.rh-flow.de
 #url: http://ronnyhartenstein.github.io
 baseurl:
+
+# Wordpress heritage
 excerpt_separator: <!--more-->
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# additional Gems
 gems:
   - jemoji
+  - gemoji
+  - rouge
+  - jekyll-paginate
+  - jekyll-gist
