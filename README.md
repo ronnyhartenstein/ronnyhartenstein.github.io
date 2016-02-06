@@ -3,9 +3,9 @@
 
 ## TODO
 
-- [ ] Umstellung auf rouge statt pygments
+- [x] Umstellung auf rouge statt pygments
   - [x] `bundle update`
-  - [ ] CSS von pygments an rouge anpassen/übernehmen
+  - [x] CSS von pygments an rouge anpassen/übernehmen
 - [x] Umstellung auf kramdown
 
 
@@ -103,12 +103,6 @@ bundle install
 ```
 jekyll serve --drafts --baseurl '' --profile --incremental
 ```
-
-**Update SASS:**
-
-- for dev: `sass --scss --watch style.scss:style.css`
-- for prod: `sass --scss --watch --style compressed --sourcemap=none style.scss style.css`
-
 
 ## Bower for vendor libs
 

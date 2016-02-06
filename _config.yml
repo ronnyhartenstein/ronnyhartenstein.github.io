@@ -3,9 +3,11 @@ name: "alles im fluss&#8230; &bull; bleibt neugierig!"
 
 markdown: kramdown
 highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 permalink: /:year/:month/:day/:title/
-
 url: http://blog.rh-flow.de
 #url: http://ronnyhartenstein.github.io
 baseurl:
@@ -13,9 +15,9 @@ baseurl:
 # Wordpress heritage
 excerpt_separator: <!--more-->
 
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
+# http://jekyllrb.com/docs/assets/
+sass:
+    style: compressed
 
 # additional Gems
 gems:
@@ -24,3 +26,4 @@ gems:
   - rouge
   - jekyll-paginate
   - jekyll-gist
+  - jekyll-sass-converter

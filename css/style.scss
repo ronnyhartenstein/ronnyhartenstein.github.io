@@ -1,3 +1,5 @@
+---
+---
 
 // for dev: sass --scss --watch style.scss:style.css
 // for prod: sass --scss --style compressed --sourcemap=none style.scss style.css
@@ -5,10 +7,44 @@
 @import "displace-style";
 @import "genericons";
 @import "prettify";
+
+// Syntax-Highlighting
 @import "pygment_trac";
+
+.highlighter-rouge pre {
+  border: 1px solid lightgray;
+  background-color: #fff; // bla
+}
+.highlight .ss {
+  color: rgb(234, 135, 3);
+}
+
+// code in headlines
+h1 code, h2 code, h3 code, h4 code {
+  font-size: 90%;
+}
 
 // slim border on small devices
 @media screen and (max-width: 680px) {
+  // code in headlines
+  h1, .entry-title {
+    font-size: 30px;
+    line-height: 35px;
+  }
+  h2 {
+    font-size: 28px;
+    line-height: 30px;
+    font-weight: bold;
+  }
+  h2 {
+    font-size: 25px;
+    line-height: 27px;
+  }
+  h3 {
+    font-size: 22px;
+    line-height: 25px;
+  }
+
   // main title
   .page-header, .entry-title, .not-found .entry-content, .post-wide .entry-content, .post-wide .entry-meta, .format-audio .entry-content, .entry-attachment, .type-attachment .entry-title, .type-attachment .entry-meta, .site-content .site-navigation, .comments-area .comments-title, ol.commentlist, .entry-meta {
     margin-left: 10px;
@@ -26,14 +62,12 @@
     padding-left: 10px;
     padding-right: 10px;
   }
-}
 
-// tune syntax highlight
-.highlight .ss {
-  color: rgb(234, 135, 3);
-}
-
-// code in headlines
-h1 code, h2 code, h3 code, h4 code {
-  font-size: 90%;
+  .highlighter-rouge pre {
+    margin-left: -10px;
+    margin-right: -10px;
+    border-left: 0;
+    border-right: 0;
+    padding: 15px 10px;
+  }
 }

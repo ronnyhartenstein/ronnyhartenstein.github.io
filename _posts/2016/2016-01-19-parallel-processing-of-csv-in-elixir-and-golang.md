@@ -165,12 +165,12 @@ func main() {
 	}()
 	// fetch all channel results (necessary to prevent exit programm before)
 	for range ch {
-    // TODO if you are interested in channel responses
+		// TODO if you are interested in channel responses
 	}
 }
 
 func processData(task string) bool {
-  // TODO do things in this goroutine
+	// TODO do things in this goroutine
 	return true
 }
 ```

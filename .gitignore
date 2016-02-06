@@ -1,3 +1,6 @@
 _site
 bower_components
 node_modules
+.jekyll-metadata
+.sass-cache
+**/.sass-cache/*
