@@ -2,7 +2,6 @@
 layout: category
 ---
 
-
 {% assign cat = page.category %}
 {% capture catl %}{{ cat | downcase }}{% endcapture %}
 <header class="page-header">
@@ -10,7 +9,8 @@ layout: category
 </header><!-- .page-header -->
 {% for post in site.posts %}
   {% for pcat in post.categories %}
-    {% if pcat == catl %}
+    {% capture pcatl %}{{ pcat | downcase }}{% endcapture %}
+    {% if pcatl == catl %}
     <article class="post type-post status-publish format-standard has-post-thumbnail hentry post-bright has-post-thumb">
     	<header class="entry-header">
       	{% comment %}
