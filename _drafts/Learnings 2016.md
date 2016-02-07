@@ -5,13 +5,20 @@ title: Learnings 2016
 #date: '2016-??-??'
 categories: Patterns
 ---
-Januar: Go
-Buch: Resilienz
 
-Buch: Leading Technical Change
+**Januar:**
+- Go (Parallel-Processing, Site-Heartbeat)
+- Buch: Resilienz
+- Jekyll
 
-Buch: Refactoring
+**Februar**
+- PHP REST Microframeworks
+- PHP7
 
-Elm
 
-PureScript
+
+
+## Ausblick..
+
+- Buch: Refactoring
+- Elm
