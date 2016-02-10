@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'NW.js vs Electron'
-date: '2016-02-09'
+date: '2016-02-10'
 ---
 
 Im Rahmen des [Code for Chemnitz](http://codeforchemnitz.de) [Sensor-Projektes](http://codeforchemnitz.de/projects/sensor/) entstand die [Sensor-Provisionierungs-App](https://github.com/CodeforChemnitz/SensorProvisioning). Diese sollte eine Standalone-Desktop-App sein und in Javascript geschrieben sein. Also haben wir Jungs uns ein wenig zu den verfügbaren Node-Webkit-Frameworks informiert. Zur Auswahl standen [Electron](https://github.com/atom/electron) und [NW.js](https://github.com/nwjs/nw.js). Dieser Post basiert auf den Slack-Chat-Log vom 23. Oktober 2015. Hauptsächlich ging es um ...  
