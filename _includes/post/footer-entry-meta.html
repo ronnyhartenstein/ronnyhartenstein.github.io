@@ -2,15 +2,22 @@
   <div class="posted-on icon icon-month">
     Posted on <time class="entry-date" datetime="{{ page.date }}">{{ page.date | date_to_string }}</time></a>
   </div>
-  <div class="byline icon icon-user">
+  {% comment %}<div class="byline icon icon-user">
     By <span class="author vcard">{{ page.author }}</span>
-  </div>
+  </div>{% endcomment %}
   <div class="cat-links icon icon-category">
     <ul class="post-categories">
-      {% for category in page.category %}
+      {% for category in page.categories %}
         <li><a rel="category tag" href="{{ site.baseurl }}/category/{{ category | first }}" title="View all posts in {{ category[1] }}">
             {{ category[1] }}</a></li>
       {% endfor %}
     </ul>
   </div>
+  <span class="history">
+    <i class="genericon genericon-month"></i> <a href="https://github.com/ronnyhartenstein/ronnyhartenstein.github.io/commits/master/{{page.path}}" target="_blank">history</a>
+  </span>
+  <span class="source">
+    <i class="genericon genericon-code"></i> <a href="https://github.com/ronnyhartenstein/ronnyhartenstein.github.io/blob/master/{{page.path}}" target="_blank">source</a>
+  </span>
+
 </footer><!-- .entry-meta -->

@@ -1,5 +1,15 @@
+{% if page.previous != nil || page.next != nil %}
 <nav role="navigation" id="nav-below" class="site-navigation post-navigation">
 	<h1 class="assistive-text">Post navigation</h1>
-	<div class="nav-previous"><a href="http://blog.rh-flow.de/2015/10/08/benchmark-helloworld-in-different-frameworks-myelixirstatus/" rel="prev">
-		<span class="meta-nav">&larr;</span> Benchmark Helloworld in different frameworks #myelixirstatus [Update #2]</a></div>
+	{% if page.previous != nil %}
+	<div class="nav-previous"><a href="{{ page.previous.url }}" rel="prev">
+		<span class="meta-nav">&larr;</span> {{ page.previous.title }}</a>
+	</div>
+	{% endif %}
+	{% if page.next != nil %}
+	<div class="nav-next"><a href="{{ page.next.url }}" rel="nex">
+		<span class="meta-nav">&larr;</span> {{ page.next.title }}</a>
+	</div>
+	{% endif %}
 </nav><!-- #nav-below -->
+{% endif %}

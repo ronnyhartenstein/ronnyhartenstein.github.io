@@ -1066,9 +1066,11 @@ article:hover .entry-meta {
 }
 .sticky .posted-on,
 .byline,
+.entry-meta .history,
+.entry-meta .source,
 .cat-links {
-	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute;
+	//clip: rect(1px, 1px, 1px, 1px);
+	//position: absolute;
 }
 .single .byline {
 	clip: auto;
