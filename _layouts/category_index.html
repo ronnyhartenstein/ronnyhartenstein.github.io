@@ -30,9 +30,9 @@ layout: category
         <div class="posted-on icon icon-month">
           Posted on <time class="entry-date" datetime="{{ page.date }}">{{ post.date | date_to_string }}</time></a>
         </div>
-        <div class="byline icon icon-user">
+        {% comment %}<div class="byline icon icon-user">
           By <span class="author vcard">{{ post.author }}</span>
-        </div>
+        </div>{% endcomment %} 
       </footer>
     </article>
     {% endif %}

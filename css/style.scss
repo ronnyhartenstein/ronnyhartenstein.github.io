@@ -24,6 +24,12 @@ h1 code, h2 code, h3 code, h4 code {
   font-size: 90%;
 }
 
+aside.widget {
+  .project-img {
+    margin-top: 10px;
+  }
+}
+
 // slim border on small devices
 @media screen and (max-width: 680px) {
   // code in headlines
