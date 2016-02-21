@@ -3,10 +3,10 @@ layout: home
 title: BLOG.rh-flow.de
 ---
 {% for post in site.posts %}
-  {% if forloop.index <= 6 %}
-  <article class="post type-post status-publish format-standard hentry post-bright">
+  {% if forloop.index <= 3 %}
+    <article class="post type-post status-publish format-standard hentry post-bright">
   	<header class="entry-header">
-        {% if post.thumb %}
+        {% if forloop.index == 0 and post.thumb %}
         <div class="post-thumb">
             <a href="{{ post.url }}"><img width="889" height="346" src="{{ post.thumb }}" class="attachment-post-thumbnail wp-post-image"></a>
         </div>
@@ -23,15 +23,17 @@ title: BLOG.rh-flow.de
       <div class="posted-on icon icon-month">
         Posted on <time class="entry-date" datetime="{{ page.date }}">{{ post.date | date_to_string }}</time></a>
       </div>
-      <div class="byline icon icon-user">
-        By <span class="author vcard">{{ post.author }}</span>
-      </div>
     </footer>
+    </article>
+
+  {% else %}
+  <article class="post type-post status-publish format-standard hentry post-bright article-list">
+    <header class="entry-header">
+				<div class="entry-title article-list">
+          <a href="{{ post.url }}" rel="bookmark">{{ post.title }}</a>
+          <span class="time">(<time class="entry-date" datetime="{{ page.date }}">{{ post.date | date_to_string }}</time>)</span>
+        </div>
+		</header><!-- .entry-header -->
   </article>
   {% endif %}
 {% endfor %}
-
-<nav role="navigation" id="nav-below" class="site-navigation paging-navigation">
-	<h1 class="assistive-text">Post navigation</h1>
-	<div class="nav-previous"><a href="index_older.html"><span class="meta-nav">←</span> Older posts</a></div>
-</nav>

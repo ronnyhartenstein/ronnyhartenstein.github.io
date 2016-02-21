@@ -30,6 +30,26 @@ aside.widget {
   }
 }
 
+.entry-title.article-list {
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 10px;
+
+  a, a:visited {
+    color: #086199;
+  }
+}
+
+
+body.single .hentry.article-list, body.page .hentry.article-list {
+  margin: 10px 0;
+}
+
+.entry-title .time {
+  font-size: 20px;
+  color: gray;
+}
+
 // slim border on small devices
 @media screen and (max-width: 680px) {
   // code in headlines
