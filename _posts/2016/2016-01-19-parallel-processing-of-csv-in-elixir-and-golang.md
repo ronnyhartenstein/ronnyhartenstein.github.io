@@ -36,7 +36,7 @@ File.stream!(file)
 |> Enum.into([])
 ```
 
-### Testing scenario: performance test
+### Testing scenario: timing to approve parallelism
 
 - file with 1000 test rows  (generated with `mix generate test1000.csv 1000`)
 - each row simulates a INSERT-SQL by waiting 10ms
@@ -46,6 +46,8 @@ File.stream!(file)
 See here the code: [ronnyhartenstein/elixir-parallel-csv-importer](https://github.com/ronnyhartenstein/elixir-parallel-csv-importer)
 
 ## Go
+
+I won't do timing tests, because goroutines do just work.
 
 ### First approach: simple goroutings
 
