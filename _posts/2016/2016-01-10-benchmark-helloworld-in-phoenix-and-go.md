@@ -24,6 +24,8 @@ I'll test (like before) on my MacBookPro 15" Mid 2010, 2,53 GHz i5, 8 GB DDR3, O
 
 **TL;DR** Go is still faster than Elixir. But remember .. apples and peaches.
 
+*[see also https://www.techempower.com/]*
+
 <!--more-->
 
 <script>

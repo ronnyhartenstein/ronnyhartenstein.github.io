@@ -24,6 +24,8 @@ When I started with Elixir and Phoenix I wanted to see with my own eyes the spee
 
 Every implementation is benchmarked with the Apache HTTP server benchmarking tool `ab`. I run 1000 requests on 10 and 100 concurrent connections with `ab -n 1000 -c 10 http://127.0.0.1:../`. The return of "Hello world" ist quite enough but it differs a little bit from test to test. So no HTML, no pre/postprocessing or something. Well, its a bit "comparing apples with peaches".
 
+*[see also https://www.techempower.com/]*
+
 <!--more-->
 
 My test machine is my faithful MacbookPro (Mid 2010) with i5 2,53Ghz, 8 GB RAM, El Capitan.
@@ -37,7 +39,7 @@ Beside the plain implementation I also tried a standard framework each. So here 
 
 (**Update** Added version numbers)
 
-Please find the source here: [github.com/ronnyhartenstein/benchmarking-helloworld-http](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/) 
+Please find the source here: [github.com/ronnyhartenstein/benchmarking-helloworld-http](https://github.com/ronnyhartenstein/benchmarking-helloworld-http/)
 
 ## HowTo Apache benchmark
 
