@@ -10,7 +10,7 @@ categories: Patterns
 
 in JS
 
-```
+```js
 var n = function(n) {
   return function (x) {
     return (x * x) + n;
@@ -22,7 +22,7 @@ l(3); // 12
 
 in PHP
 
-```
+```php
 $n = function($n) {
   return function($x) use ($n) {
     return $x * $x + $n;
@@ -36,7 +36,7 @@ $l(3); // 12
 
 g'ol JS
 
-```
+```js
 function get_redis(key) {
   return new Promise(function(fullfill, reject) {
       Redis.get(key, function(err, value) {
@@ -83,7 +83,7 @@ function tuewas() {
 
 in Coffeescript .. no more clutter
 
-```
+```coffee-script
 get_redis(key) ->
   new Promise (fullfill, reject) ->
     Redis.get key, (err, value) ->
