@@ -1,63 +1,89 @@
 ---
 layout: post
-status: publish
-published: true
-title: 'PHP: foreach mit &amp;$ref immer mit unset($ref) beenden'
-author:
-  display_name: ''
-  login: ''
-  email: ''
-  url: ''
-
-wordpress_id: 460
-wordpress_url: http://rhflow.wp-root.rh-flow.de/?p=460
-date: '2014-11-11 11:48:08 +0100'
-date_gmt: '2014-11-11 09:48:08 +0100'
+title: 'PHP: foreach mit &amp;$ref immer mit unset($ref) beenden [Update]'
+date_first: '2014-11-11'
+date: '2016-03-12'
 categories:
 - Allgemein
 - PHP
-tags: []
 ---
-<p>Referenzen in PHP sind tückisch, wie ich gerade wieder einmal feststellen durfte. Solche Konstrukten kennen wir ja alle:</p>
-<pre class="prettyprint prettyprinted" style=""><code><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$a</span><span class="pun">[</span><span class="str">'sehr'</span><span class="pun">][</span><span class="str">'tiefes'</span><span class="pun">][</span><span class="str">'array'</span><span class="pun">]</span><span class="pln"> </span><span class="kwd">as</span><span class="pln"> </span><span class="pun">&amp;</span><span class="pln">$b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-    $b</span><span class="pun">[</span><span class="str">'anzahl'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln">
-</span><span class="pun">}</span></code></pre>
-<p>Das lässt sich besser lesen als das hier:</p>
-<pre class="prettyprint prettyprinted" style=""><code><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$a</span><span class="pun">[</span><span class="str">'sehr'</span><span class="pun">][</span><span class="str">'tiefes'</span><span class="pun">][</span><span class="str">'array'</span><span class="pun">]</span><span class="pln"> </span><span class="kwd">as</span><span class="pln"> $i </span><span class="pun">=&gt;</span><span class="pln"> $b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-    $a</span><span class="pun">[</span><span class="str">'sehr'</span><span class="pun">][</span><span class="str">'tiefes'</span><span class="pun">][</span><span class="str">'array'</span><span class="pun">][</span><span class="pln">$i</span><span class="pun">][</span><span class="str">'anzahl'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> $b</span><span class="pun">[</span><span class="str">'anzahl'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln">
-</span><span class="pun">}</span></code></pre>
-<p>Die Kollegen haben mich aber immer angehalten, hinter solche <code>foreach</code>-Konstrukte ein <code>unset</code> zu platzieren.</p>
-<p>Es hätte wohl schon komische Phänomene gegeben, wenn man es nicht tut, aber so recht innermechanisch erklären konnte es keiner. Nun ja, bis jetzt.</p>
 
-<!--more-->
+**Update** In PHP 7 ändert `foreach` nicht mehr den internen Array Referenzen. Siehe [Backward incompatible changes](http://php.net/manual/de/migration70.incompatible.php#migration70.incompatible.variable-handling.list.string)
 
-<p>So muss es also ausschauen:</p>
-<pre class="prettyprint prettyprinted" style=""><code><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$a</span><span class="pun">[</span><span class="str">'sehr'</span><span class="pun">][</span><span class="str">'tiefes'</span><span class="pun">][</span><span class="str">'array'</span><span class="pun">]</span><span class="pln"> </span><span class="kwd">as</span><span class="pln"> </span><span class="pun">&amp;</span><span class="pln">$b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-    $b</span><span class="pun">[</span><span class="str">'anzahl'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln">
-</span><span class="pun">}</span><span class="pln">
-unset</span><span class="pun">(</span><span class="pln">$b</span><span class="pun">);</span></code></pre>
-<p>Heute ist es nun tatsächlich „in a nutshell“ passiert. Hier nun ein Minimalbeispiel wie es zustande kommt:</p>
-<pre class="prettyprint prettyprinted" style=""><code><span class="pln">$a1 </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">);</span><span class="pln">
-$a2 </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">(</span><span class="str">'d'</span><span class="pln"> </span><span class="pun">,</span><span class="str">'e'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'f'</span><span class="pun">);</span><span class="pln">
-</span><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$a1 </span><span class="kwd">as</span><span class="pln"> </span><span class="pun">&amp;</span><span class="pln">$b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{}</span><span class="pln">
-</span><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$a2 </span><span class="kwd">as</span><span class="pln"> $b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{}</span><span class="pln">
-var_dump</span><span class="pun">(</span><span class="pln">$a1</span><span class="pun">);</span><span class="pln">  </span></code></pre>
-<p>Ergebnis:</p>
-<pre class="prettyprint prettyprinted" style=""><code><span class="pln">array
-    </span><span class="lit">0</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> </span><span class="lit">1</span><span class="pln">
-    </span><span class="lit">1</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> </span><span class="lit">2</span><span class="pln">
-    </span><span class="lit">2</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">&amp;</span><span class="kwd">string</span><span class="pln"> </span><span class="str">'f'</span><span class="pln"> </span><span class="pun">(</span><span class="pln">length</span><span class="pun">=</span><span class="lit">1</span><span class="pun">)</span></code></pre>
-<p><em>WTF?</em></p>
-<h2>Erklärung</h2>
-<p>PHP hat für $b als letztes die Referenz auf den letzten Eintrag von $a (da noch <code>3</code>). Bei der zweiten Interation legt er jeden Wert aus $a2 auf $b und damit durch die Referenz auf den letzten Eintrag von <code>$a1</code>. Klar soweit?</p>
-<p>Das geht übrigens auch mit dem selben Array:</p>
-<pre class="prettyprint prettyprinted" style=""><code><span class="pln">$a </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">(</span><span class="str">'a'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'b'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'c'</span><span class="pun">);</span><span class="pln">
-</span><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$a </span><span class="kwd">as</span><span class="pln"> </span><span class="pun">&amp;</span><span class="pln">$b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{}</span><span class="pln">
-</span><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$a </span><span class="kwd">as</span><span class="pln"> $b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{}</span><span class="pln">
-var_dump</span><span class="pun">(</span><span class="pln">$a</span><span class="pun">);</span></code></pre>
-<p>Ergebnis:</p>
-<pre class="prettyprint prettyprinted" style=""><code><span class="pln">array
-    </span><span class="lit">0</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="kwd">string</span><span class="pln"> </span><span class="str">'a'</span><span class="pln"> </span><span class="pun">(</span><span class="pln">length</span><span class="pun">=</span><span class="lit">1</span><span class="pun">)</span><span class="pln">
-    </span><span class="lit">1</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="kwd">string</span><span class="pln"> </span><span class="str">'b'</span><span class="pln"> </span><span class="pun">(</span><span class="pln">length</span><span class="pun">=</span><span class="lit">1</span><span class="pun">)</span><span class="pln">
-    </span><span class="lit">2</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">&amp;</span><span class="kwd">string</span><span class="pln"> </span><span class="str">'b'</span><span class="pln"> </span><span class="pun">(</span><span class="pln">length</span><span class="pun">=</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span></code></pre>
-<p>Also vergesst nie das <code>unset</code> nachdem ihr mit Referenzen in <code>foreach</code>es herumgespielt habt!</p>
+> The order of the elements in an array has changed when those elements have been automatically created by referencing them in a by reference assignment.
+
+**TL;DR** Wenn man in PHP 5 `foreach` mit Array Referenzen arbeitet muss man abschließend ein `unset()` machen.
+
+Referenzen in PHP sind tückisch, wie ich gerade wieder einmal feststellen durfte. Solche Konstrukten kennen wir ja alle:
+
+```php
+foreach ($a['sehr']['tiefes']['array'] as &$b) {
+    $b['anzahl'] += 10;
+}
+```
+
+Das lässt sich besser lesen als das hier:
+
+```php
+foreach ($a['sehr']['tiefes']['array'] as $i => $b) {
+    $a['sehr']['tiefes']['array'][$i]['anzahl'] = $b['anzahl'] + 10;
+}
+```
+
+Die Kollegen haben mich aber immer angehalten, hinter solche foreach-Konstrukte ein unset zu platzieren.
+
+Es hätte wohl schon komische Phänomene gegeben, wenn man es nicht tut, aber so recht innermechanisch erklären konnte es keiner. Nun ja, bis jetzt.
+
+So muss es also ausschauen:
+
+```php
+foreach ($a['sehr']['tiefes']['array'] as &$b) {
+    $b['anzahl'] += 10;
+}
+unset($b);
+```
+
+Heute ist es nun tatsächlich „in a nutshell“ passiert. Hier nun ein Minimalbeispiel wie es zustande kommt:
+
+```php
+$a1 = array(1, 2, 3);
+$a2 = array('d' ,'e', 'f');
+foreach ($a1 as &$b) {}
+foreach ($a2 as $b) {}
+var_dump($a1);  
+```
+
+Ergebnis:
+
+```
+array
+    0 => int 1
+    1 => int 2
+    2 => &string 'f' (length=1)
+```
+
+_WTF?_
+
+## Erklärung
+
+PHP hat für `$b` als letztes die Referenz auf den letzten Eintrag von $a (da noch 3). Bei der zweiten Interation legt er jeden Wert aus `$a2` auf `$b` und damit durch die Referenz auf den letzten Eintrag von `$a1`. Klar soweit?
+
+Das geht übrigens auch mit dem selben Array:
+
+```php
+$a = array('a', 'b', 'c');
+foreach ($a as &$b) {}
+foreach ($a as $b) {}
+var_dump($a);
+```
+
+Ergebnis:
+
+```
+array
+    0 => string 'a' (length=1)
+    1 => string 'b' (length=1)
+    2 => &string 'b' (length=1)
+```
+
+Also vergesst nie das unset nachdem ihr mit Referenzen in `foreaches` herumgespielt habt!

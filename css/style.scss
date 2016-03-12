@@ -50,6 +50,12 @@ body.single .hentry.article-list, body.page .hentry.article-list {
   color: gray;
 }
 
+#content a.nohover,
+#sidebar a.nohover,
+#colophon a.nohover {
+  border-bottom-width: 0;
+}
+
 // slim border on small devices
 @media screen and (max-width: 680px) {
   // code in headlines

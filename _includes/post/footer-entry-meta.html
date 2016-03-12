@@ -1,10 +1,16 @@
 <footer class="entry-meta">
-  <div class="posted-on icon icon-month">
-    Posted on <time class="entry-date" datetime="{{ page.date }}">{{ page.date | date_to_string }}</time></a>
-  </div>
-  {% comment %}<div class="byline icon icon-user">
-    By <span class="author vcard">{{ page.author }}</span>
-  </div>{% endcomment %}
+  {% if page.date_first == blank %}
+    <div class="posted-on icon icon-month">
+      Posted on <time class="entry-date" datetime="{{ page.date }}">{{ page.date | date_to_string }}</time>
+    </div>
+  {% else %}
+    <div class="posted-on icon icon-month">
+      Posted on {{ page.date_first | date_to_string }}
+    </div>
+    <div class="last-update-on icon icon-refresh">
+      Last update on <time class="entry-date" datetime="{{ page.date }}">{{ page.date | date_to_string }}
+    </div>
+  {% endif %}
   {% comment %}<div class="cat-links icon icon-category">
     <ul class="post-categories">
       {% for category in page.categories %}
@@ -13,11 +19,11 @@
       {% endfor %}
     </ul>
   </div>{% endcomment %}
-  <span class="history">
-    <i class="genericon genericon-month"></i> <a href="https://github.com/ronnyhartenstein/ronnyhartenstein.github.io/commits/master/{{page.path}}" target="_blank">history</a>
-  </span>
-  <span class="source">
-    <i class="genericon genericon-code"></i> <a href="https://github.com/ronnyhartenstein/ronnyhartenstein.github.io/blob/master/{{page.path}}" target="_blank">source</a>
-  </span>
+  <div class="history icon icon-time">
+    <a href="https://github.com/ronnyhartenstein/ronnyhartenstein.github.io/commits/master/{{page.path}}" target="_blank">Show History</a>
+  </div>
+  <div class="source icon icon-code">
+    <a href="https://github.com/ronnyhartenstein/ronnyhartenstein.github.io/blob/master/{{page.path}}" target="_blank">View Markdown</a>
+  </div>
 
 </footer><!-- .entry-meta -->

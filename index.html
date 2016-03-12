@@ -20,9 +20,16 @@ title: BLOG.rh-flow.de
   	</div><!-- .entry-content -->
 
   	<footer class="entry-meta">
-      <div class="posted-on icon icon-month">
-        Posted on <time class="entry-date" datetime="{{ page.date }}">{{ post.date | date_to_string }}</time></a>
-      </div>
+      {% if post.date_first == blank %}
+        <div class="posted-on icon icon-month">
+          Posted on <time class="entry-date" datetime="{{ post.date }}">{{ post.date | date_to_string }}</time>
+        </div>
+      {% else %}
+        <div class="last-update-on icon icon-refresh">
+          Last update on <time class="entry-date" datetime="{{ post.date }}">{{ post.date | date_to_string }}
+        </div>
+      {% endif %}
+
     </footer>
     </article>
 
