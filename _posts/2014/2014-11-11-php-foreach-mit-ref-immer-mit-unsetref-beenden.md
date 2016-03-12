@@ -14,6 +14,8 @@ categories:
 
 **TL;DR** Wenn man in PHP 5 `foreach` mit Array Referenzen arbeitet muss man abschließend ein `unset()` machen.
 
+<!--more-->
+
 Referenzen in PHP sind tückisch, wie ich gerade wieder einmal feststellen durfte. Solche Konstrukten kennen wir ja alle:
 
 ```php
