@@ -6,6 +6,8 @@ date: '2016-03-30'
 
 Some paragraphs of the book "Programming Phoenix" (McCord, Tate, Valim) I found really interesting, so I marked it in my Kindle...
 
+<!--more-->
+
 ## in chapter 1: Building with Functional MVC
 
 > In Phoenix, whenever its possible, we try to limit side effects, those functions that touch and possibly change the outside world, to the controller. That means that we’ll try to keep the functions in our models and views pure, so that calling the same function with the same arguments will always yield the same results.
