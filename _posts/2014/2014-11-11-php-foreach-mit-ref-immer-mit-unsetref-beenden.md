@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'PHP: foreach mit &amp;$ref immer mit unset($ref) beenden [Update]'
-date_first: '2014-11-11'
+#date_first: '2014-11-11'
 date: '2016-03-12'
 categories:
 - Allgemein
