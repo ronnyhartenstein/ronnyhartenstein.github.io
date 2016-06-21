@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Aus dem fantastischen Buch "Pragmatisches Denken und Lernen" von Andy Hunt
-date: '2016-06-11'
+date_first: '2016-06-11'
+date: '2016-06-21'
 tags:
 - Lernen
 ---
