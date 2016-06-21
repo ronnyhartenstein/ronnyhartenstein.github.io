@@ -28,7 +28,7 @@ In ca. 2013 oder 2014 habe ich auf der Suche nach neuer Inspiration geschaut was
 
 Aber nun einige geraffte Artefakte aus dem Inhalt.
 
-## <small>zu Kap. 2:</small> Vom Anfänger zum Experten
+## <small>aus Kap. 2:</small> Vom Anfänger zum Experten
 
 Dreyfus-Modell:
 
@@ -52,19 +52,19 @@ Dreyfus-Modell:
   - können Anfänger kaum helfen, denn wie erklärt man woher Intuition und Bauchgefühl kommen? 
 
 
-## <small>zu Kap. 3:</small> Ihr Gehirn
+## <small>aus Kap. 3:</small> Ihr Gehirn
 
 - Dual-Prozessor-Modus: L-Modus + R-Modus
 - Der R-Modus sieht den Wald, der L-Modus die Bäume
 
 
-## <small>zu Kap. 4:</small> Nutzen Sie Ihren ganzen Verstand
+## <small>aus Kap. 4:</small> Nutzen Sie Ihren ganzen Verstand
 
 - Fließender Übergang von R-Modus zum L-Modus
 - Pair programming
 
 
-## <small>zu Kap. 5:</small> Ihren Verstand debuggen
+## <small>aus Kap. 5:</small> Ihren Verstand debuggen
 
 - kognitive Vorlieben
 - Versagen beim Vorsagen
@@ -121,7 +121,7 @@ Homeland -> Künstler
 
  
 
-## <small>zu Kap. 6:</small> Bewusstes Lernen
+## <small>aus Kap. 6:</small> Bewusstes Lernen
 
 - SMART-Methode: Spezifisch, Messbar, Angemessen, Relevant, Terminiert
 - Pragmatic Investment Plan (PIP)
@@ -132,7 +132,7 @@ Homeland -> Künstler
 
 _Auch wenn diese Mindmap hier steht, entstand sie doch beim Buch lesen als letztes und sieht daher eher wie eine Mindmap aus._ 
 
-## <small>zu Kap. 7:</small> Erfahrungen sammeln
+## <small>aus Kap. 7:</small> Erfahrungen sammeln
 
 - Spielen, um zu Lernen
 - Fehlschläge in die Praxis integrieren
@@ -156,7 +156,7 @@ Säulen vom **LERNEN**:
 Mustererkennung + Filter + implizites Wissen => **Intuition** -> beginnendes Expertenverhalten
 
 
-## <small>zu Kap. 8:</small> Den Fokus lenken
+## <small>aus Kap. 8:</small> Den Fokus lenken
 
 - Steigern Sie Ihre Konzentration und Aufmerksamkeit -> Achtsamkeit
 - Aufmerksamkeitsdefizit
@@ -206,7 +206,7 @@ Säulen von **FOKUS**:
 - u.a. technisch per Virtuelle Desktops
 - nach Thema gruppiert, z.B. Kommunikation (Email, Chat), Entwicklung, Dokumentation, Recherche (Browser, Wiki), Musik/Ablenkung (anderer Browser)
 
-## <small>zu Kap. 9:</small> Jenseits des Expertentums
+## <small>aus Kap. 9:</small> Jenseits des Expertentums
 
 - Wirksame Veränderung
 - Was steht morgen früh an?
