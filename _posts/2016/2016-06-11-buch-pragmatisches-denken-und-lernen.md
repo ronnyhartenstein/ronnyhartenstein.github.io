@@ -97,7 +97,7 @@ Dreyfus-Modell:
   - deutlich weniger innovationsfreudige Herangehensweise
   - sind Unternehmen gegenüber loyal und wenger unternehmerisch denkend veranlagt
   - erwarten dass Behörden Probleme lösen; machen sich nicht auf die Welt zu retten
-- **Homeland-Generation** (2005-..): (damals) gerade erst geborden; die Hälfte dieser Generation wird Milleniumseltern haben
+- **Homeland-Generation** (2005-..): (damals) gerade erst geboren; die Hälfte dieser Generation wird Milleniumseltern haben
 
 Spannend: heute arbeiten viele Generationen zusammen zur gleichen Zeit am Arbeitsplatz, interagieren miteinander, kommen miteinander aus - und manchmal nicht.
 
