@@ -97,11 +97,12 @@ Dreyfus-Modell:
   - deutlich weniger innovationsfreudige Herangehensweise
   - sind Unternehmen gegenüber loyal und wenger unternehmerisch denkend veranlagt
   - erwarten dass Behörden Probleme lösen; machen sich nicht auf die Welt zu retten
-- **Homeland-Generation** (2005-..): (damals) gerade erst geborden; die Hälfte dieser Generation wird Milleniumseltern haben
+- **Homeland-Generation** (2005-..): (damals) gerade erst geboren; die Hälfte dieser Generation wird Milleniumseltern haben
 
 Spannend: heute arbeiten viele Generationen zusammen zur gleichen Zeit am Arbeitsplatz, interagieren miteinander, kommen miteinander aus - und manchmal nicht.
 
 Vier Archetypen:
+
 - **Prophet:** Vision, Werte
 - **Nomade:** Freiheit, Überleben, Ehrgefühl
 - **Held:** Gemeinschaft, Wohlstand
@@ -111,13 +112,13 @@ Vier Archetypen:
 
 Generationelle Archetypen nach How/Strauss: _(das Bild im Buch ist plakativer..)_ 
 
-G.I. -> Held
-Stille Gen. -> Künstler
-Babyboom -> Prophet
-Gen. X -> Nomade
-Millenial -> Held
-Homeland -> Künstler
-?? -> Prophet
+- G.I. -> Held
+- Stille Gen. -> Künstler
+- Babyboom -> Prophet
+- Gen. X -> Nomade
+- Millenial -> Held
+- Homeland -> Künstler
+- ?? -> Prophet
 
  
 
@@ -132,6 +133,33 @@ Homeland -> Künstler
 
 _Auch wenn diese Mindmap hier steht, entstand sie doch beim Buch lesen als letztes und sieht daher eher wie eine Mindmap aus._ 
 
+Transcript aus dem Bild:
+
+- Technik
+  - zweidimensionale ganzheitliche organische Gliederung
+  - hierarchisch
+  - keine freien Enden
+- positive Effekte
+  - Platz für großartige Ideen die gerade nicht reinpassen
+  - fördert Kreativität 
+  - räumliche Anhaltspunkte
+  - Farben und Symbole bereichern die Darstellung
+  - kann nach und nach ergänzt werden 
+  - bei neuen Erkentnissen -> "Wohin gehört das?" klären
+- Bedingungen
+  - sind schemafrei
+  - keine Hierarchie / lineare Gliederung
+- Gestaltung
+  - Pfeile, Symbole -> Welche Information kann damit hinzugefügt werden?
+  - jede Ecke vom Papier nutzen
+  - gestrichelte Linien für lose, ggf. noch unklare Verbindungen
+  - Strichstärke zeigt Stärke der Verbindung
+  - Mindmap komplett neu zeichnen für Neuausrichtung
+- Problem -> diese Mindmap (Bild) ist zu klein
+- sind gut für Sondierungen
+- kann nach und nach wachsen
+- nicht zu früh neu zeichnen
+
 ## <small>aus Kap. 7:</small> Erfahrungen sammeln
 
 - Spielen, um zu Lernen
@@ -144,6 +172,7 @@ _Auch wenn diese Mindmap hier steht, entstand sie doch beim Buch lesen als letzt
 ![Mindmap zum Kapitel Erfahrungen sammeln](/files/2016/pragdenken_erfahrungen_sammeln.jpg)
 
 Säulen vom **LERNEN**:
+
 - Achtsamkeit: "Bemühung schlägt fehl, Achtsamkeit kuriert"
 - Spielen:
 - Erfolg: Schwierigkeit simulieren, bereitet Geist auf künftige reale Situation vor
