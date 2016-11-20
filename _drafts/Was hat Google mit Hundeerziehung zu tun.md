@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: Was hat Google mit Hunde-Erziehung zu tun?
-#date: '2016-??-??'
+date: '2015-01-01'
 categories: Philosophy
 ---
 

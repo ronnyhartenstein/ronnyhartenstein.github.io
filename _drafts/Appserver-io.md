@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: PHP-Application-Server antesten
-#date: '2016-??-??'
+date: '2015-11-11'
 #categories: Patterns
 ---
 

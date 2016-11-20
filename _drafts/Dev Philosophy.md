@@ -1,4 +1,12 @@
-
+---
+layout: post
+comments: true
+title: Devs Philosophy
+date: '2015-01-01'
+categories: 
+- Patterns
+- Softskills
+---
 
 Tech als Modeerscheinung
 http://deliberate-software.com/pop-culture-architecture/
@@ -11,3 +19,7 @@ http://mikehadlow.blogspot.de/2014/06/heisenberg-developers.html?m=1
 
 How do you build a healthy code review culture?
 https://news.ycombinator.com/item?id=11257835
+
+
+http://www.ilker.de/enjoyable-engineering.html
+Freude am Coden - Enjoyable Engineering

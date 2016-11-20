@@ -2,8 +2,9 @@
 layout: post
 comments: true
 title: Learnings 2016
-#date: '2016-??-??'
-categories: Patterns
+date: '2016-03-01'
+categories: 
+- Lernen
 ---
 
 **Januar:**
@@ -14,11 +15,9 @@ categories: Patterns
 **Februar**
 - PHP REST Microframeworks
 - PHP7
+- Technische Dokumentationen MkDocs?
 
+**Oktober**
+- Stand der Web-Apps
+- React Native
 
-
-
-## Ausblick..
-
-- Buch: Refactoring
-- Elm

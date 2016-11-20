@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: Promises
-#date: '2016-??-??'
+date: '2015-10-04'
 categories: Patterns
 ---
 
