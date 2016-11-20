@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Migration Gitlab to Gogs on Ubuntu 14.04 LTS
+title: Gogs instead of GitLab: How to migrate on Ubuntu 14.04 LTS
 #date_first: '2016-06-11'
 date: '2016-11-20'
 tags:
