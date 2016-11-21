@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Gogs instead of GitLab and How to migrate on Ubuntu 14.04 LTS
+title: Gogs instead of GitLab and How to migrate on Ubuntu plus Bonus about memory consumption confusion
 #date_first: '2016-06-11'
 date: '2016-11-20'
 tags:
@@ -10,7 +10,7 @@ tags:
 
 Normally I just want to rant a bit about the amount of ressources which Gitlab is consuming. Recently I installed Nextcloud, which using the existing MySQL and use Redis for caching (yay!). But Gitlab comes as a bundle of services (Nginx, PostgresSQL, Redis (own port), Sidekiq, Unicorn, Workhorse). Gogs instead is using also MySQL and Redis (yay!).
 
-Well, I thought Gitlab is consuming around 6 GB of RAM, but after reading [Linux ate my RAM](http://www.linuxatemyram.com) I'm not sure anymore. More about memory and resources at the end of post. But hey, for my purposes Gogs is quite the better (and more slim) solution. So fast forward to Gogs. Um, how to migrate? 
+Well, I thought Gitlab is consuming around 6 GB of RAM, but after reading [Linux ate my RAM](http://www.linuxatemyram.com) I'm not sure anymore. More about memory and resources at the end of post. But hey, for my purposes Gogs is quite the better (and more slim) solution. So fast forward to Gogs. **Um, how to migrate?**
 
 If you search for "gogs migration gitlab" then you [get](http://stackoverflow.com/questions/31128371/migrate-gitlab-to-gogs) [some](https://github.com/valeriangalliat/gogs-migrate) [poor](https://github.com/gogits/gogs/issues/881) informations but nothing like a keep-it-simple HowTo. At least nothing special for the Gitlab-to-Gogs scenario. 
 
@@ -151,7 +151,7 @@ for bundle in *.bundle; do
 done
 ```
 
-## Memory consumption irritation
+## Memory consumption confusion
 
 I told you about my primary reason why I switched from GitLab to Gogs - reducing memory consumption. And I told you before that I was probably wrong. Here are some stats from my server, after I started the services and played a bit with them (just to fill the caches).
 
