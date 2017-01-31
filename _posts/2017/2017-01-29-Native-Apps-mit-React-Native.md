@@ -152,8 +152,7 @@ benutzt *Breaking Changes* aus Wiki
 https://github.com/facebook/react-native/wiki/Breaking-Changes
 
 
-
-##Redux 
+## Redux 
 
 [Tutorial](http://www.reactnative.com/getting-started-with-react-native-and-redux/)
 
@@ -174,8 +173,8 @@ basiert auf Flux (Facebooks State für React), Elm ("model view update" Architek
 
 **Memoized Selectors** um mapStateToProps bei großen Datenmengen nur mit den Änderungen zu bedienen
 
-* http://redux.js.org/docs/recipes/ComputingDerivedData.html#creating-a-memoized-selector
-* https://github.com/ronnyhartenstein/pilzliste-react-native-redux/commit/e27025297d2cb02f37da74e57df85c5d0f8336f9
+* [Creating a Memoized Selector](http://redux.js.org/docs/recipes/ComputingDerivedData.html#creating-a-memoized-selector)
+* [Commit in pilzliste-react-native-redux](https://github.com/ronnyhartenstein/pilzliste-react-native-redux/commit/e27025297d2cb02f37da74e57df85c5d0f8336f9)
 
 [**Realm** mit Redux Beispiel](https://github.com/realm/realm-js/issues/141)
 
@@ -302,6 +301,7 @@ Tap auf ein Element, highlightet es und führt eine Aktion durch.
 ## Iteration über Elemente mit Child components
 
 benötigt immer key als Attribut
+
 ```js
 { this.state.items.map((item, i) => ( 
           <ListeItem key={i} item={item} /> 
