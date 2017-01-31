@@ -10,6 +10,8 @@ Produktiv haben wir erfolgreich eine Ember-basierende App und eine Meteor-basier
 Was sagen andere die Erfahrungen mit den Techs gemacht haben, würden die dieses wieder verwenden? 
 Wie bekommt man das "Native App Erlebnis" aka 60fps hin?
 
+<!--more-->
+
 In einen ersten Schritt habe ich auf den einschlägigen Kanälen nach Expertenmeinungen gesucht und zusammengetragen
 im Dokument ["Stand der Web Apps: Native vs. Hybrid vs. Mobile" (PDF)](/files/2017/StandderWebApps.pdf).
 
