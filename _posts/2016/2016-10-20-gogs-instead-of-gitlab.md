@@ -137,16 +137,16 @@ Place the `migration.sh` in a group directory, e.g. `/home/gogs/gitlab-backup/yo
 ```bash
 admuser="admin"
 admpwd="yoURp@ssW0rd"
-orga="your-group"
+orga="johndoe"
+
 for bundle in *.bundle; do
     echo $bundle
     repo=${bundle%.bundle}
-    mkdir $repo
-    cd $repo
-    tar xf ../$bundle
+    git clone $bundle
     post="{\"name\":\"$repo\",\"private\":true}"
-    curl -u $admuser:$admpwd -d $post -X POST -H 'Content-Type: application/json; charset=utf-8' https://gogs.yourdomain.lol/api/v1/org/$orga/repos
-	  git push --mirror https://$admuser:$admpwd@gogs.yourdomain.lol/$orga/$repo.git
+    curl --insecure -u $admuser:$admpwd -d $post -X POST -H 'Content-Type: application/json; charset=utf-8' https://gogs.yourdomain.lol/api/v1/org/$orga/repos
+    cd $repo
+    git -c http.sslVerify=false push --mirror https://$admuser:$admpwd@gogs.yourdomain.lol/$orga/$repo.git
     cd ..
 done
 ```
