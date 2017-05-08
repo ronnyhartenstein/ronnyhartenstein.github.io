@@ -150,6 +150,7 @@ for bundle in *.bundle; do
     cd ..
 done
 ```
+*(improved by Reza Snowdon)*
 
 ## Memory consumption confusion
 
