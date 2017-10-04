@@ -8,9 +8,9 @@ Am vergangenen Freitag war der **PHP Dev Day 2017** in Dresden. Hier nun ein Üb
 
 <!--more-->
 
-Homepage, **Programm**, etc.: http://phpug-dresden.org/phpdd17.html
+[Homepage, **Programm**, etc.](http://phpug-dresden.org/phpdd17.html)
 
-**Videos aller Vorträge** demnächst vermutlich hier: https://www.youtube.com/channel/UC9RvlzszDfeZ_ILq0JSNHZQ/videos
+[**Videos aller Vorträge** demnächst vermutlich hier](https://www.youtube.com/channel/UC9RvlzszDfeZ_ILq0JSNHZQ/videos)
 
 ![Beginn](/files/2017/phpdevday/beginn.jpeg)
 
@@ -22,8 +22,8 @@ Tool um die Dinge  nichts mit der eigene App zu tun haben aus der composer.json
 
 ![Thank you](/files/2017/phpdevday/phar.jpeg)
 
-- **PHAR.IO**: Plattform für PHARs https://phar.io/
-- **Phive**: https://github.com/phar-io/phive/blob/master/README.md
+- [**PHAR.IO**: Plattform für PHARs](https://phar.io/)
+- [**Phive**](https://github.com/phar-io/phive/blob/master/README.md)
 
 
 ### **Middleware Web APIs** in PHP 7.x (mit Zend **Expressive**)
@@ -34,7 +34,7 @@ Aus dem Zend Framework wurde ein auf Web APIs spezialisiertes Fw heraus extrahie
 
 ![Dankeschön](/files/2017/phpdevday/expressive-2.jpeg)
 
-- **Expressive** (Zend Framework Nachfolger) https://docs.zendframework.com/zend-expressive/
+- [**Expressive** (Zend Framework Nachfolger)](https://docs.zendframework.com/zend-expressive/)
 
 
 ### PostgreSQL - Die NoSQL Datenbank, die niemand kennt
@@ -57,7 +57,7 @@ Der gefühlt beste Vortrag, weil mit Event-getriebener Entwicklung ein völlig a
 
 ![ORM throws changes to DB](/files/2017/phpdevday/eventsource-3.jpeg)
 
-**Slides**: noch nicht veröffentlicht, aber folgender Vortrag von 2015 erhellt bis dahin: http://slidedeck.io/Ocramius/real-time-applications-and-event-sourcing-in-php
+[**Slides**](http://slidedeck.io/Ocramius/real-time-applications-and-event-sourcing-in-php): noch nicht veröffentlicht, aber folgender Vortrag von 2015 erhellt bis dahin: 
 
 
 ### **prooph/micro** - weniger ist mehr
@@ -68,13 +68,13 @@ Die Vortragsreihenfolge war perfekt. Nach "Event Sourcing" am Beispiel folgte nu
 
 ![PHP & ES](/files/2017/phpdevday/prooph-2.jpeg)
 
-- Functional **prooph for microservices** https://github.com/prooph/micro
-- **prooph** CQRS and Event Sourcing components for PHP http://getprooph.org/
-- **phunkie**: functional structures for PHP https://github.com/phunkie/phunkie/blob/master/README.md
-- Building Microservices Using an **API Gateway** | NGINX https://www.nginx.com/blog/building-microservices-using-an-api-gateway/
-- **Nginx Unit**: Ein Application Server für Microservices | iX https://m.heise.de/ix/meldung/Nginx-Unit-Ein-Application-Server-fuer-Microservices-3823638.html
-- faas: Functions as a Service (**OpenFaaS**) - a serverless framework for Docker & Kubernetes https://github.com/alexellis/faas
-- **aws-lambda-php**: Amazon Lambda mit PHP nutzen (geht nur indirekt) https://github.com/dannylinden/aws-lambda-php/blob/master/README.md
+- [Functional **prooph for microservices**](https://github.com/prooph/micro)
+- [**prooph** CQRS and Event Sourcing components for PHP](http://getprooph.org/)
+- [**phunkie**: functional structures for PHP](https://github.com/phunkie/phunkie/blob/master/README.md)
+- [Building Microservices Using an **API Gateway** | NGINX](https://www.nginx.com/blog/building-microservices-using-an-api-gateway/)
+- [**Nginx Unit**: Ein Application Server für Microservices | iX](https://m.heise.de/ix/meldung/Nginx-Unit-Ein-Application-Server-fuer-Microservices-3823638.html)
+- [faas: Functions as a Service (**OpenFaaS**) - a serverless framework for Docker & Kubernetes](https://github.com/alexellis/faas)
+- [**aws-lambda-php**: Amazon Lambda mit PHP nutzen (geht nur indirekt)](https://github.com/dannylinden/aws-lambda-php/blob/master/README.md)
 
 
 ### Pushing the limits - with **reactPHP**
@@ -85,11 +85,11 @@ Gelernt: "React" als Begriff in der Framework-Welt gibt es nicht erst seit Faceb
 
 **Slides**: https://speakerdeck.com/clue/pushing-the-limits-with-reactphp-phpdd17
 
-- **ReactPHP**: Event-driven, non-blocking I/O with PHP https://reactphp.org/
-- **Amp** amphp: non-blocking concurrency framework for PHP https://amphp.org/amp/
-- **Buzz**: PHP's lightweight HTTP client https://github.com/kriswallsmith/Buzz
-- **php-zenity-react**: Build graphical desktop (GUI) applications in PHP https://github.com/clue/php-zenity-react
-- PHP: streamWrapper::stream_write - Manual http://php.net/manual/de/streamwrapper.stream-write.php
+- [**ReactPHP**: Event-driven, non-blocking I/O with PHP](https://reactphp.org/)
+- [**Amp** amphp: non-blocking concurrency framework for PHP](https://amphp.org/amp/)
+- [**Buzz**: PHP's lightweight HTTP client](https://github.com/kriswallsmith/Buzz)
+- [**php-zenity-react**: Build graphical desktop (GUI) applications in PHP](https://github.com/clue/php-zenity-react)
+- [PHP: streamWrapper::stream_write - Manual](http://php.net/manual/de/streamwrapper.stream-write.php)
 
 
 ### Lightning Talk: Retrospektiven  (Sebastian Heuer)
@@ -104,20 +104,20 @@ Spannender Talk welche Regeln man befolgen muss für sinnvolle Retrospektiven.
 
 ![Staplerfahrer Klaus](/files/2017/phpdevday/retro-1.jpeg)
 
-- inspiriert von Judith Andresens **Buch** "Retrospektiven in agilen Projekten: Ablauf, Regeln und Methodenbausteine" https://www.amazon.de/Retrospektiven-agilen-Projekten-Ablauf-Methodenbausteine/dp/3446439080
-- **Fun Retro**: (zu) technisches Tool um Retros zu managen https://funretro.github.io/distributed/
+- inspiriert von Judith Andresens [**Buch** "Retrospektiven in agilen Projekten: Ablauf, Regeln und Methodenbausteine"](https://www.amazon.de/Retrospektiven-agilen-Projekten-Ablauf-Methodenbausteine/dp/3446439080)
+- [**Fun Retro**: (zu) technisches Tool um Retros zu managen](https://funretro.github.io/distributed/)
 
---
+-----
 
 Sonstiges was noch so an Tipps herumflog in Talks oder bei Gesprächen:
 
-- **phpbu**: PHP Backup Utility - Creates and encrypts database and file backups, syncs your backups to other servers or cloud services and assists you monitor your backup process https://github.com/sebastianfeldmann/phpbu
-- **Whoops!** There was an error. http://filp.github.io/whoops/demo/
-- **Aura.Di**: Dependency Injection System https://github.com/auraphp/Aura.Di
-- **Pimple**: A simple PHP Dependency Injection Container https://pimple.symfony.com/
-- The **League of Extraordinary Packages** https://thephpleague.com/de/
-- **dredd**: HTTP API Testing Framework https://github.com/apiaryio/dredd/blob/master/README.md
-- **phpunit-snapshot-assertions**: Snapshot testing for PHPUnit https://github.com/spatie/phpunit-snapshot-assertions/blob/master/README.md
-- **Laravel Horizon**: Beautiful Dashboard For Your Redis Queue https://horizon.laravel.com/
+- [**phpbu**: PHP Backup Utility - Creates and encrypts database and file backups, syncs your backups to other servers or cloud services and assists you monitor your backup process](https://github.com/sebastianfeldmann/phpbu)
+- [**Whoops!** There was an error.](http://filp.github.io/whoops/demo/)
+- [**Aura.Di**: Dependency Injection System](https://github.com/auraphp/Aura.Di)
+- [**Pimple**: A simple PHP Dependency Injection Container](https://pimple.symfony.com/)
+- [The **League of Extraordinary Packages**](https://thephpleague.com/de/)
+- [**dredd**: HTTP API Testing Framework](https://github.com/apiaryio/dredd/blob/master/README.md)
+- [**phpunit-snapshot-assertions**: Snapshot testing for PHPUnit](https://github.com/spatie/phpunit-snapshot-assertions/blob/master/README.md)
+- [**Laravel Horizon**: Beautiful Dashboard For Your Redis Queue](https://horizon.laravel.com/)
 
 ![Blick von Terrasse beim Bier](/files/2017/phpdevday/terasse.jpeg)
