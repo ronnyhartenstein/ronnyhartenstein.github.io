@@ -4,7 +4,7 @@ title: Resümé des PHP Dev Day in Dresden
 date: '2017-10-04'
 ---
 
-Am vergangenen Freitag war der **PHP Dev Day 2017** in Dresden. Hier nun ein Überblick über die Talks inkl. einer kurzen Einschätzung meinerseits - und vor allem weiterführender Links.
+Der **PHP Dev Day 2017** in Dresden ist nun auch schon wieder vorbei. Hier nun ein Überblick über die Talks inkl. einer kurzen Einschätzung meinerseits - und vor allem weiterführender Links.
 
 <!--more-->
 
@@ -18,7 +18,7 @@ Am vergangenen Freitag war der **PHP Dev Day 2017** in Dresden. Hier nun ein Üb
 
 ### **PHIVE** - Managing you PHP toolchain
 
-Tool um die Dinge  nichts mit der eigene App zu tun haben aus der composer.json als Abhängigkeit herauszubekommen. Also PHPUnit, Behat, PHPMD, phpDox und die anderen Test- und Metrik-Tools.
+Tool um die Dinge nichts mit der eigene App zu tun haben aus der `composer.json` als Abhängigkeit herauszubekommen. Also PHPUnit, Behat, PHPMD, phpDox und die anderen Test- und Metrik-Tools.
 
 ![Thank you](/files/2017/phpdevday/phar.jpeg)
 
@@ -39,9 +39,9 @@ Aus dem Zend Framework wurde ein auf Web APIs spezialisiertes Fw heraus extrahie
 
 ### PostgreSQL - Die NoSQL Datenbank, die niemand kennt
 
-Mäßig spannend gehaltener Vortrag wie mit JSON in PostgreSQL arbeitet (speichern, suchen, ändern). Eindruck: Die Syntax bzw. die Operatoren stammen direkt aus der Hölle.
+Ein tiefer Eindruck wie man mit JSON in PostgreSQL arbeitet (speichern, suchen, ändern). Eindruck: Die Syntax bzw. die Operatoren stammen direkt aus der Hölle.
 
-Slides: https://talks.bitexpert.de/phpdd17-postgresql-nosql/
+[Slides](https://talks.bitexpert.de/phpdd17-postgresql-nosql/)
 
 ![NoSQL Database Types](/files/2017/phpdevday/postgres-1.jpeg)
 
@@ -49,7 +49,7 @@ Slides: https://talks.bitexpert.de/phpdd17-postgresql-nosql/
 
 ### Event Sourcing: The good, the bad, and the complicated
 
-Der gefühlt beste Vortrag, weil mit Event-getriebener Entwicklung ein völlig anderen Ansatz als das bekannt MVC an einen griffigen Beispiel erklärt wurde. Event Sourcing passt aber nicht für alle Anwendungen.  *(Wenn die Folien im Netz stehen, unbedingt anschauen wer auf Italo-Western steht)*
+Der für mich beste Vortrag, weil mit Event-getriebener Entwicklung ein völlig anderen Ansatz als das bekannt MVC an einen griffigen Beispiel erklärt wurde. Event Sourcing passt aber nicht für alle Anwendungen.  *(Wenn die Folien im Netz stehen, unbedingt anschauen wer auf Italo-Western steht)*
 
 ![Process Managers](/files/2017/phpdevday/eventsource-1.jpeg)
 
@@ -71,19 +71,19 @@ Die Vortragsreihenfolge war perfekt. Nach "Event Sourcing" am Beispiel folgte nu
 - [Functional **prooph for microservices**](https://github.com/prooph/micro)
 - [**prooph** CQRS and Event Sourcing components for PHP](http://getprooph.org/)
 - [**phunkie**: functional structures for PHP](https://github.com/phunkie/phunkie/blob/master/README.md)
-- [Building Microservices Using an **API Gateway** | NGINX](https://www.nginx.com/blog/building-microservices-using-an-api-gateway/)
-- [**Nginx Unit**: Ein Application Server für Microservices | iX](https://m.heise.de/ix/meldung/Nginx-Unit-Ein-Application-Server-fuer-Microservices-3823638.html)
+- [Building Microservices Using an **API Gateway**](https://www.nginx.com/blog/building-microservices-using-an-api-gateway/)
+- [**Nginx Unit**: Ein Application Server für Microservices](https://m.heise.de/ix/meldung/Nginx-Unit-Ein-Application-Server-fuer-Microservices-3823638.html)
 - [faas: Functions as a Service (**OpenFaaS**) - a serverless framework for Docker & Kubernetes](https://github.com/alexellis/faas)
 - [**aws-lambda-php**: Amazon Lambda mit PHP nutzen (geht nur indirekt)](https://github.com/dannylinden/aws-lambda-php/blob/master/README.md)
 
 
 ### Pushing the limits - with **reactPHP**
 
-Gelernt: "React" als Begriff in der Framework-Welt gibt es nicht erst seit Facebook. Im PHP Kosmos gibt es den schon länger. Nützt nur nix. Das Fw wird von der Kommandozeile gestartet und arbeitet ähnlich eines Application Servers. Der Event-Loop arbeitet mit PHPs stream_select() oder libevent. Spannend für schnelle Microservices, da man sich damit das Bootstrapping des PHP-Prozesses spart. Man darf nur das Variablen beräumen nicht verkacken.
+Gelernt: "React" als Begriff in der Framework-Welt gibt es nicht erst seit Facebook. Im PHP Kosmos gibt es den schon länger. Nützt nur nix, "React" wird trotzdem immer mit dem Fw von Facebook assoziiert. Das Fw wird von der Kommandozeile gestartet und arbeitet ähnlich eines Application Servers. Der Event-Loop arbeitet mit PHPs stream_select() oder libevent. Spannend für schnelle Microservices, da man sich damit das Bootstrapping des PHP-Prozesses spart. Man darf nur das Variablen beräumen nicht verkacken.
 
 ![Knock knock! 2017!](/files/2017/phpdevday/reactphp.jpeg)
 
-**Slides**: https://speakerdeck.com/clue/pushing-the-limits-with-reactphp-phpdd17
+[**Slides**](https://speakerdeck.com/clue/pushing-the-limits-with-reactphp-phpdd17)
 
 - [**ReactPHP**: Event-driven, non-blocking I/O with PHP](https://reactphp.org/)
 - [**Amp** amphp: non-blocking concurrency framework for PHP](https://amphp.org/amp/)
@@ -121,3 +121,5 @@ Sonstiges was noch so an Tipps herumflog in Talks oder bei Gesprächen:
 - [**Laravel Horizon**: Beautiful Dashboard For Your Redis Queue](https://horizon.laravel.com/)
 
 ![Blick von Terrasse beim Bier](/files/2017/phpdevday/terasse.jpeg)
+
+Bleibt festzustellen, es war ein toller Tag, tolle Vorträge, tolle Orga, tolles Essen, toller Ausblick und abschließend tolles Bier. Wir sind beim nächsten Mal wieder dabei.
