@@ -78,8 +78,6 @@ const puppeteer = require('puppeteer');
 })();
 ```
 
-Andy H. hat ja jüngst mit seiner Obelisk Grunt-Extension einiges an Erfahrung mit NodeJS gesammelt. Die Implementierung von andere komplexeren Abläufen ist auch damit möglich - JS ist bockig aber kein Hexenwerk. PhpStorm und WebStorm bieten zudem die Möglichkeit, NodeJS Scripte im Debugmodus zu starten um damit Breakpoints und gewohntes Step-by-Step-Debugging zu ermöglichen.
-
 Natürlich sind JS-Ökosystem-typisch schon [zahlreiche darauf aufbauende Libs verfügbar](https://medium.com/@kensoh/chromeless-chrominator-chromy-navalia-lambdium-ghostjs-autogcd-ef34bcd26907), bzw. haben bestehende Projekte die neue Schnittstelle integriert. Mal schauen welches Integration-Testframework diese integriert, sodass man automatisierte Oberflächen-Tests damit abwickeln kann. Dadurch dass man in einer Sprache bleibt, JS, fällt der gewisse Medienbruch weg, der zwangsläufig bei der Verwendung von Behat (PHP) oder Cucumber (Ruby) und andere erfolgt.
 
 **Nachschlag**
