@@ -59,8 +59,8 @@ const puppeteer = require('puppeteer');
 (async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto('https://www.axilaris.de');
-  await page.screenshot({path: 'axilaris.png'});
+  await page.goto('https://heise.de');
+  await page.screenshot({path: 'heise.png'});
   await browser.close();
 })();
 ```
@@ -72,8 +72,8 @@ const puppeteer = require('puppeteer');
 (async () => {
    const browser = await puppeteer.launch();
    const page = await browser.newPage();
-   await page.goto('https://www.axilaris.de', {waitUntil: 'networkidle2'});
-   await page.pdf({path: 'axilaris.pdf', format: 'A4'});
+   await page.goto('https://heise.de', {waitUntil: 'networkidle2'});
+   await page.pdf({path: 'heise.pdf', format: 'A4'});
    await browser.close();
 })();
 ```
