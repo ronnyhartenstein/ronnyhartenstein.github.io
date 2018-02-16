@@ -4,7 +4,7 @@ title: Brower-Automatisierung mit Puppeteer
 date: '2018-02-16'
 ---
 
-Das Problem ist eigentlich einfach: Ich muss mich 1x im Monat bei GMX anmelden sonst löschen die irgendwann meinen Primäraccount rha@gmx.li. Das Login-Formular ist einfach gestrickt, doch per einfaches cURL lässt es sich natürlich nicht bewerkstelligen - ein headless Browser muss her damit die Seite tatsächlich abgeholt und etwaige Redirects etc durchgeführt werden.
+Das Problem ist eigentlich einfach: Ich muss mich 1x im Monat bei GMX anmelden sonst löschen die irgendwann meinen Primäraccount ***@gmx.li. Das Login-Formular ist einfach gestrickt, doch per einfaches cURL lässt es sich natürlich nicht bewerkstelligen - ein headless Browser muss her damit die Seite tatsächlich abgeholt und etwaige Redirects etc durchgeführt werden.
 
 Aktueller Stand der Tech für sowas ist [Headless Chrome (CLI)](https://developers.google.com/web/updates/2017/04/headless-chrome), welcher ab Chrome 59 verfügbar ist. Der Chrome/Chromium selbst wiederum bietet das fantastische WebDev Protocol, welches eine mittlerweile anerkannte allgemeine Schnittstelle zur Browsersteuerung ist und von den mitgelieferten Entwicklertools (DevTools) genutzt wird. Genau auf dieses Protokoll setzt nun [Puppeteer](https://github.com/GoogleChrome/puppeteer) auf, eine NodeJS Bibliothek.
 
