@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Buch Review zu Crafting Quality Software (Qafoo GmbH()
+title: Buch Review zu Crafting Quality Software (Qafoo GmbH)
 date: '2018-05-14'
 ---
 
 Die nachfolgenden kommentierten Fundstücke aus der Qafoo-Team-Blog-Sammlung ist für mein zukünftiges Ich geschrieben - quasi ein TL;DR zum Buch. Allerdings möchte ich damit auch anregen, selbst das PDF zu lesen. Für mich, einen PHP-Entwickler mit viel Legacy-Background und eher wenig Test-Erfahrung, bot es einen Rundumschlag über viele alltägliche Aspekte von Brownfield-Software-Engineering. Damit war es mir möglich, mein angelesenes Wissen und gebildetete Meinung zum z.B. Mocking - aber auch besonders Behat - durch die fundierten Ausführungen zu justieren und festigen.
 
-**[Hier gehts zum Buch-Download](https://qafoo.com/blog/106_crafting_quality_software.html)**
+<div style="font-size: 2em;"><strong>[Hier gehts zum Buch-Download](https://qafoo.com/blog/106_crafting_quality_software.html)</strong></div>
 
 ## zu 2. Clean Code
 
