@@ -8,13 +8,13 @@ kramdown:
   syntax_highlighter: rouge
 
 permalink: /:year/:month/:day/:title/
-url: http://blog.rh-flow.de
+url: https://blog.rh-flow.de
 #url: http://ronnyhartenstein.github.io
 baseurl:
 
 
 # additional Gems
-gems:
+plugins:
   - jemoji
   - gemoji
   - rouge
