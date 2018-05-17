@@ -252,6 +252,14 @@ as it is executable through a BDD test tool.
 5. **Always Write Tests for Bugs (Regression tests)**
 
 
+### Einschub: The State of Testing in PHP in 2018
+
+Von [Codacy gibts einen schönen Artikel](https://www.codacy.com/blog/the-state-of-testing-in-php-in-2018/) zum Stand von Tests mit PHP in 2018.
+
+**TL;DR**: Es schaut sehr gut aus. Alle Major-Frameworks bieten Testing als First-Class Citizen an. Auch auf Konferenzen, Meetups und Fachmagazinen finden sich immer wieder Beiträge rund um Tests. Mit PHP 7 gibts nunmehr **Scalar Type-hinting** und Return Type Declaration - jede davon ist immer ein kleiner Test. Bei den vielen Test-Frameworks und -Tools haben nur wenige eine signifikanten Support-Level - u.a. die nachfolgend genannten. **Mockery** ist zum mocken eine gute Wahl. **Behat** ist immernoch gut für BDD-Tests im "Context-Action-Outcome" oder Gherkin Format. **PHPUnit** ist der Großvater der Test-Tools und weiterhin Defacto-Standard. **Codeception** schickt sich an alle Vorgenannten zu ersetzen - quasi als umfassende One-fits-all-Lösung. 
+
+
+
 ## zu 5. Refactoring
 
 ### zu 5.1 Loving Legacy Code
