@@ -1,3 +1,3 @@
 #!/bin/sh
 
-bundle exec jekyll serve --drafts --baseurl ''
+bundle exec jekyll serve --drafts --baseurl '' --incremental
