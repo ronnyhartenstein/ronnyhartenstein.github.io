@@ -6,15 +6,29 @@ date: '2018-05-14'
 
 Die nachfolgenden kommentierten Fundstücke aus der Qafoo-Team-Blog-Sammlung ist für mein zukünftiges Ich geschrieben - quasi ein TL;DR zum Buch. Allerdings möchte ich damit auch anregen, selbst das PDF zu lesen. Für mich, einen PHP-Entwickler mit viel Legacy-Background und eher wenig Test-Erfahrung, bot es einen Rundumschlag über viele alltägliche Aspekte von Brownfield-Software-Engineering. Damit war es mir möglich, mein angelesenes Wissen und gebildetete Meinung zum z.B. Mocking - aber auch besonders Behat - durch die fundierten Ausführungen zu justieren und festigen.
 
-<div style="font-size: 2em;"><a target="_blank" href="https://qafoo.com/blog/106_crafting_quality_software.html"><strong>Hier gehts zum Buch-Download</strong></a></div>
+Das Buch sammelt Blog-Post u.a. zu den Themen **Clean Code**, **Object Oriented Design**, **Testing**, **Refactoring** und **Workflow**. Hie und da hab ich nicht nur Zitate kopiert sondern noch ein wenig ausschweifender resümiert und weitere Quellen bemüht.
+ 
+<!--more-->
+
+<p style="font-size: 1.5em;">
+  <a target="_blank" href="https://qafoo.com/blog/106_crafting_quality_software.html"><strong>⤳ ↝ ⇶ Hier gehts zum Buch-Download</strong></a>
+</p>
 
 ## zu 2. Clean Code
 
+### zu 2.1 Developers Life is a Trade-Off
+
+> There is no silver bullet and one of the most important skills every developer needs to hone is to assess possibilities and to find the best trade-off for the current challenge.
+
 ### zu 2.1.2 Overengineering State Machines
 
-### zu 2.2 Never use `null`
+Schönes Beispiel wie man ein Problem richtig Clean und mit Architektur runterprogrammiert, und es der nächste Kollege trotzdem nicht warten kann weil es für das bisschen was es tut overengineert ist.
 
-Wenn eine Methode/Klassenkonstruktor eine Objektinstanz benötigt, man aber im besonderen Fall die Funktionalität nicht benötigt, gibt man statt `null` eine Null-Implementierung rein. Also eine Objekt die zwar das geforderte Interface implementiert, aber bei allen Funktionsaufrufen einfach nix tut. Damit erspart man sich `null`-ge`if`e. Das kann ein Null-Mailer, ein Null-Logger oder Null-Fremd-API-Aufrufer sein.
+> Whenever you take a software design decision in your project, there is a ton of possible solutions. Just picking a random, interesting, clean, ... one is most probably not the right choice. Instead, you need to check your actual constraints and then find the best trade-off between the possibilities. Which one that is can vary greatly.
+
+### zu 2.2 Never use `null` (throw Exceptions!)
+
+Wenn eine Methode/Klassenkonstruktor eine Objektinstanz benötigt, man aber im besonderen Fall die Funktionalität nicht benötigt, gibt man statt `null` eine Null-Implementierung rein. Also eine Objekt die zwar das geforderte Interface implementiert, aber bei allen Funktionsaufrufen einfach nix tut. Damit erspart man sich `null`-ge-`if`-e. Das kann ein Null-Mailer, ein Null-Logger oder Null-Fremd-API-Aufrufer sein.
 
 > Those null objects are usually really trivial to implement. Even it costs time to implement those you’ll safe a lot time in the long run because you will not run in `Fatal Errors` and have to debug them.
 
@@ -26,28 +40,86 @@ Innerhalb von Value-Objects ist `null` okay und zeigt an, dass das Property nich
 
 > Using null can be valid inside of value objects and sometimes you just want to show nothing is there. In most cases null should be either replaced by throwing an exception or providing a null object which fulfills the API but does nothing. Those null objects are trivial and fast to develop. The return on investment will be huge due to saved debugging hours.
 
+### Ein Ausflug zu Exceptions
+
+Eine gute Übersicht zu den Möglichkeiten gibt es [hier](https://blog.eleven-labs.com/en/fr/php7-throwable-error-exception/), in der [PHP Hilfe](http://php.net/manual/fr/language.errors.php7.php) selbst, und [hier](http://www.phptherightway.com/#exceptions).
+
+Die Basis ab PHP 7 bildet `Throwable`. Davon abgeleitet gibt es `Error` für die PHP-internen Fehler und Warnungen, und es gibt g'ol `Exception`. Das Interface `Throwable` darf man nicht implementieren sondern muss zwingend von `Exception` oder `Error` ableiten. 
+
+Einen `Error` braucht man selbst praktisch nie werfen, höchstens wenn man in einer Variadic Function (mit beliebig vielen Params) eine ungültige Anzahl Parameter übergeben bekommt.
+
+Für den täglichen Gebrauch sind die wichtigsten Standard-Exceptions wohl `LogicException` für logische Fehler die eine Code-Korrektur erfordern. `RuntimeException` für Laufzeit-Fehler wie ungültige Daten, nicht erreichbare Ressource etc. Und `ErrorException` für alles andere :) 
+
+#### Kontext zur Fehlermeldung
+
+Üblich ist:
+
+```php
+throw new RuntimeException("Ungültiger Parameterwert '$bla'");
+```
+
+Besser ist es den Wert als Kontext mitzugeben und den Fehlermeldungstext statisch zu halten. Dann kann man im Log-Backend (z.B. **Graylog**) diese Fehler gruppieren und Metriken fahren. Ist der Text aufgrund des Variableninhaltes immer anders schießt man sich diese Möglichkeit ab.
+
+Also besser: 
+
+```php
+class MyRuntimeException {
+  private $context = [];
+  public function __construct($message = "", array $context = [], $code = 0, Throwable $previous = null) {
+    parent::__construct($message, $code, $previous);
+    $this->context = $context;
+  }
+  public function getContext() {
+    return $this->context;
+  }
+}
+
+// im Code dann..
+return new MyRuntimeException("Ungültiger Parameterwert", ['bla' => $bla]);
+```
+
+Natürlich muss der Logwriter entsprechend reagieren. Ggf. ergibt ein eigenes Interface `ExceptionWithContext` Sinn. Aber Achtung: ein Interface sollte keinen Konstruktor vorschreiben.
+
+#### Weitere Techniken
+
+**Rethrow:** Man kann Exceptions weiterwerfen. Dazu einfach im `catch` Block nach z.B. eigenen Logging od. Kontext-Erweiterung `throw $e;` aufrufen und weiter im Stack hochblubbern.
+
+**Wrap:** Man kann eine im `catch` gefangene Exception auch in eine neue einwickeln mit `throw new MyException("Bla foo", 0, $e);`. Man kann später dann mit `getPrevious()` auf die vorherige(n) zugreifen.
+
+#### Noch was zur Benamung eigener Exception-Klassen
+
+> Name the Error, not the Issuer
+
+> It is easier to name the exception by its location than by the problem itself. This is not a good practice because the returned message will not be able to identify the cause quickly and simply. For example, a divide by zero operation generates an exception. Raising an exception OperationNotPossibleException gives little indication of the origin of the error. With this name: DivisionByZeroException, the error is clear and precise.
+
+([Quelle](https://blog.eleven-labs.com/en/php_handle-exception-gracefully/))
+
+PHP bringt bei den SPL `LogicException`s schon eine ganze Menge guter Standard-Exceptions mit wie `OutOfBoundsException`, `RangeException` oder auch `UnexpectedValueException`. An der Namensgebung kann man sich orientieren.
+
+
 ### zu 2.3 Struct classes in PHP
 
 Einfach ad-hoc mehrdimensionale Arrays (mit und ohne Keys) sind ein Core-Feature von PHP und ein Grund für dessen Erfolg. Für schnelles Prototyping sind sie ideal. Allerdings für Long-Term- und Enterprise-Level-Projekte (so mit 10 Jahre Entwicklungshorizont) ist die Wartung ein Grauen. Kein IDE-Support, keine Transparenz, neue Entwickler wissen nicht was drin stecken könnte. Spätestens wenn die Feature-Ausprägung (Implementierung) als stabil angesehen werden kann, sollten Data-Objekte (DTOs, Value Objects, Structs) verwendet werden. 
 
-> The benefits:
-> - Struct classes are far easier to document
-> - Your IDE can provide you with correct auto-completion
-> - Your IDE even knows the type of each child in a struct allowing you to create and process deeply nested structures correctly
-> - You can be sure which properties a passed struct has - no need to check the availability of each property on access
-> - Structs can throw exceptions access to non-existent properties
+>The benefits:
+>- Struct classes are far easier to document
+>- Your IDE can provide you with correct auto-completion
+>- Your IDE even knows the type of each child in a struct allowing you to create and process deeply nested structures correctly
+>- You can be sure which properties a passed struct has - no need to check the availability of each property on access
+>- Structs can throw exceptions access to non-existent properties
+
 
 > The drawbacks:
-- The structs are objects, which means they are passed by reference. This can be an issue if you are operating on those structs. 
+>- The structs are objects, which means they are passed by reference. This can be an issue if you are operating on those structs. 
 
-Lösung:
+**Lösung:**
 - Immutable gestalten (`__construct()` beachten, [Referenz](http://blog.florianwolters.de/educational/2013/03/07/Pattern-Immutable-Object/#php-54))
-- nur Getter, via `__get` gefiltert damit kein automatisches anlegen neuer Properties, zudem `clone` verwenden ([Referenz](http://blog.florianwolters.de/educational/2013/03/07/Pattern-Immutable-Object/#php-54))
+- nur Getter, via `__get` gefiltert, unbekannte Properties mit `InvalidArgumentException` quittieren, zudem `clone` verwenden ([Referenz](http://blog.florianwolters.de/educational/2013/03/07/Pattern-Immutable-Object/#php-54))
 - keine Setter - via `__set` mit Exception quittieren, set nur via Constructor
 - deep-copy `clone` via Magic Function `__clone`
-- automagische `withX` Methode via `__call`, um ein neues Objekt mit einer geänderten Eigenschaft zu erzeugen
+- automagische `withX` Methode via `__call`, um ein neues Objekt mit einer geänderten Eigenschaft zu erzeugen, unbekannte Properties mit `BadMethodCallException` quittieren
 
-Zusätzlich um Debugging und Kompatibilität zu gewährleisten:
+**Für Debugging und Komfort:**
 - LSB-Funktion (Late-static-binding) `__set_state` implementieren damit es bei `var_export` sauber zu exportiern
 - Funktion `__debugInfo` implementieren um es bei `var_dump` sauber zu dumpen
 - Interface `ArrayAccess` implementieren um es wie ein Hash-Array aufzurufen
@@ -60,11 +132,9 @@ Zusätzlich um Debugging und Kompatibilität zu gewährleisten:
 
 ### zu 3.4 Abstract Classes vs. Interfaces
 
-Wann Interface, wann Abstrakte Klasse? Interfaces beschreiben **Verhalten**, Abstrakte Klassen sind Basis-**Typen** (Entitäten, Modelle, Business-Logik). Beide 
+Wann Interface, wann Abstrakte Klasse? Interfaces beschreiben **Verhalten**, Abstrakte Klassen sind Basis-**Typen** (Entitäten, Modelle, Business-Logik). Beide Interfaces sollten auf `able` und `ing` (deutsch: `bar`, `end`) enden. `Cacheable` (`Speicherbar`), `Serializable`, `Countable` (`Zaehlbar`). Damit indiziert ein Interface einen Nutzungseffekt.
 
-Interfaces sollten auf `able`und `ing` (deutsch: `bar`, `end`) enden. `Cacheable` (`Speicherbar`), `Serializable`, `Countable` (`Zaehlbar`). Damit indiziert ein Interface einen Nutzungseffekt.
-
-Z.B.  Interface `Trinkbar`. Ein Objekt von Typ `See` und `Kaffee` kann `Trinkbar` sein, haben aber sonst nichts gemein.
+Ein Beispiel (aus dem Buch): Interface `Trinkbar`. Ein Objekt von Typ `See` und `Kaffee` kann `Trinkbar` sein, haben aber sonst nichts gemein.
 
 Beispiele für Abstrakte Klassen:  `Logger`, `Cache`. Es gibt verschiedene Implementierungen von Cache, mit jeweils unterschiedlichen Konstruktoren aber einigen gemeinsamen Basisfunktionalitäten (Formatter, Getter, Setter).
 
@@ -75,7 +145,7 @@ Beispiele für Abstrakte Klassen:  `Logger`, `Cache`. Es gibt verschiedene Imple
 
 Symfony hat seinerzeit `ContainerAware` (`*Interface`) eingeführt, um anzuzeigen, dass eine Klasse den DI Container *im Bauch* hat. D.h. im Konstruktor muss man die Instanz des DI-Containers reinreichen. Aufrufe zum DI-Container sind dann überall in der Klasse versteckt (verstreut). Mocking so sehr schwierig ohne Studium des Codes. Besser (wie immer) ist Construktor-Injection. 
 
-> ContainerAware is the new Singleton.
+> `ContainerAware` is the new Singleton.
 
 > No class of your application (except for factories) should know about the Dependency Injection Container (DIC).
 
@@ -136,19 +206,19 @@ Keine vorausschauenden Optimierungen ("premature optimizations"), keine komplizi
 
 > Test Doubles allow you to replace dependencies of an object with lookalikes, much like crash test dummies are used during automobile safety tests so humans aren’t harmed.
 
-**Test Doubles Explained**
+> Test Doubles Explained:
+>- Add expectations of the arguments passed to a method (**Verification**)
+>- Add results that are returned from a method-call to the mock object (**Stubbing**)
+>- Delegate calls to the original code (**Spying**)
 
-> - Add expectations of the arguments passed to a method (**Verification**)
-> - Add results that are returned from a method-call to the mock object (**Stubbing**)
-> - Delegate calls to the original code (**Spying**)
+#### Die "richtige" Lib
 
-**die "richtige" Lib**
+**TL;DR:** Mockery ist schon okay, kann alles, hat eine gut lesbare API und alle nötigen Features.
 
 Mockery vs [Phake](https://packagist.org/packages/phake/phake): https://prezi.com/jafacc6i25cv/which-mock-framework-to-choose/
 
 Mockery vs. [Prophecy](https://github.com/phpspec/prophecy): http://everzet.com/post/72910908762/conceptual-difference-between-mockery-and-prophecy
 
-TLDR: Mockery ist schon okay, kann alles, hat eine gut lesbare API und alle nötigen Features.
 
 ### zu 4.7.3 Test Data
 
@@ -173,24 +243,16 @@ as it is executable through a BDD test tool.
 
 ### zu 4.14 Five Tips to Improve Your Unit Testing
 
-**1. Be Pragmatic About a "Unit"**
-
-**2. Test Where the Logic is**
-
-> Instead of focussing on trivials, look where there really is logic. In technical terms: Where are the loops, conditions, private methods and so on? Focus on these places. Accept the challenges they offer and write tests for stuff that matters.
-
-**3. Continuously Refactor Test Code**
-
-> **Never** change production and test code at the same time. When you refactor your test code, the production code is the reference to asserts tests are still working as they should. And of course your tests are the assertion while working on your production code.
-
-**4. Build Your Own Set of Utilities**
-
-**5. Always Write Tests for Bugs (Regression tests)**
+1. **Be Pragmatic About a "Unit"**
+2. **Test Where the Logic is**
+  > Instead of focussing on trivials, look where there really is logic. In technical terms: Where are the loops, conditions, private methods and so on? Focus on these places. Accept the challenges they offer and write tests for stuff that matters.
+3. **Continuously Refactor Test Code**
+  > **Never** change production and test code at the same time. When you refactor your test code, the production code is the reference to asserts tests are still working as they should. And of course your tests are the assertion while working on your production code.
+4. **Build Your Own Set of Utilities**
+5. **Always Write Tests for Bugs (Regression tests)**
 
 
-
-
-### zu 5. Refactoring
+## zu 5. Refactoring
 
 ### zu 5.1 Loving Legacy Code
 
@@ -208,9 +270,9 @@ as it is executable through a BDD test tool.
 
 > Code coverage can be of good help here to see if you have already enough tests to be safe. [Behat, PHPUnit with Mink] But beware: the goal is not `$someHighPercent` code coverage! The goal is to give you a good feeling for working with the underlying code. Once you have reached that state, stop writing tests and focus on the actual refactoring again.
 
-**Baby Steps**
+#### Baby Steps
 
-TLDR: Refactoring in wirklich keinen Schritten durchführen. Gleich anschließend die Tests laufen lassen, commiten. Wenn der Weg in die Irre führt (= Tests schlagen fehl), Änderungen resetten. Auch wenn das Zielbild so länger braucht, evtl. ändert sich unterwegs der Weg. Oder man wird unterbrochen, oder eine wichtigere Aufgabe drängt.
+**TL;DR:** Refactoring in wirklich keinen Schritten durchführen. Gleich anschließend die Tests laufen lassen, commiten. Wenn der Weg in die Irre führt (= Tests schlagen fehl), Änderungen resetten. Auch wenn das Zielbild so länger braucht, evtl. ändert sich unterwegs der Weg. Oder man wird unterbrochen, oder eine wichtigere Aufgabe drängt.
 
 
 ### zu 5.5. Getting Rid of `static`
@@ -247,29 +309,32 @@ Im Kap. 5.7.3 wird eine Smooth Migration beschrieben.
 > As a rule of thumb, code in a method should work on the same level of abstraction (high- vs low-level code) to hide unnecessary details from the programmer when reading code. Mixing high level controller with low level data access does not hold up to that rule.
 
 Vorgehen:
-> Step 1: Identify code fragment to extract
-> Step 2: Create empty method and copy code
-> Step 3: Identify undeclared variables that must be arguments
-> Step 4: Identify variables that are still used in old method
-> Step 5: Call new method from original method 
+>1. Identify code fragment to extract
+>2. Create empty method and copy code
+>3. Identify undeclared variables that must be arguments
+>4. Identify variables that are still used in old method
+>5. Call new method from original method 
 
 > Extract Method is a fundamental building block for more advanced refactorings such as Extract Service and refactoring towards different design patterns.
 
+
 ### zu 5.9 How to Perform Extract Service Refactoring When You Don’t Have Tests
 
-> Step 1: Create Class and Copy Method
-> Step 2: Fix Visibility, Namespace, Use and Autoloading
-> Step 3: Check for Instance Variable Usage
-> Step 4: Use New Class Inline
-> Step 5: Inline Method
-> Step 6: Move Instantiation into Constructor or Setter
-> Step 7: Cleanup Dependency Injection
+>1. Create Class and Copy Method
+>2. Fix Visibility, Namespace, Use and Autoloading
+>3. Check for Instance Variable Usage
+>4. Use New Class Inline
+>5. Inline Method
+>6. Move Instantiation into Constructor or Setter
+>7. Cleanup Dependency Injection
 
 > Compared to the extract method refactoring, extracting a service requires more steps and each of them is more risky. On top of that IDEs usually don’t provide this refactoring as an automatic procedure, so you have to do it manually. But even though the refactoring is risky, you should learn and master it, because it is very effective at splitting up code that started out simple and got more complex over time.
+
 
 ### zu 5.10 How You Can Successfully Ship New Code in a Legacy Codebase
 
 > Usually the problems software needs to solve get more complex over time. As the software itself needs to model this increased complexity it is often necessary to replace entire subsystems with more efficient or flexible solutions. Instead of starting from scratch whenever this happens (often!), a better solution is to refactor the existing code and therefore reducing the risk of losing existing business rules and knowledge.
+
 
 ### zu 5.11 Extracting Value Objects
 
@@ -280,11 +345,11 @@ Mal zum Unterschied von DTOs, Value- und Data-Objects/Structs.
 
 > The problem here is a code smell that is widespread in every codebase I have ever seen and is called "Primitive Obsession". It means that as developers we often rely on the most basic types of our programming language, instead of increasing the abstraction and introducing new types.
 
-[Stackoverflow-Referenz](https://stackoverflow.com/questions/6986032/difference-between-value-object-pattern-and-data-transfer-pattern)
+Nachfolgendes stammt von [Stackoverflow](https://stackoverflow.com/questions/6986032/difference-between-value-object-pattern-and-data-transfer-pattern):
 
-> `CustomerAndLastFiveOrders` is a DTO (optimized to avoid multiple network calls)
-> `Customer` is a Entity (oder Data-Object)
-> `Money` is a Value object
+>- `CustomerAndLastFiveOrders` is a DTO (optimized to avoid multiple network calls)
+>- `Customer` is a Entity (oder Data-Object)
+>- `Money` is a Value object
 
 > Value object is an object whose equality is based on the value rather than identity.
 
