@@ -31,10 +31,6 @@ Genericons - http://genericons.com/
 License: Distributed under the terms of the GNU General Public License v2.0
 Copyright: Automattic, http://automattic.com/
 
-Roboto Slab - http://www.google.com/fonts/specimen/Roboto+Slab
-License: Distributed under the terms of the Apache License, version 2.0
-Copyright: Christian Robertson, https://plus.google.com/110879635926653430880/about
-
 Resetting and rebuilding styles have been helped along thanks to the fine work of
 Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
 along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
@@ -306,7 +302,7 @@ a img {
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
-	font-family: "Roboto Slab", "Georgia", sans-serif;
+	font-family: "Georgia", sans-serif;  
 	font-weight: 400;
 }
 h1 {
@@ -709,7 +705,7 @@ a.caption-image img {
 	line-height: 20px;
 	color: #fff;
 	opacity: 0.75;
-	font-family: "Segoe UI", "Roboto Slab", sans-serif;
+	font-family: "Segoe UI", "Georgia", sans-serif;
 	font-size: 14px;
 	font-weight: 300;
 	text-shadow: 0 1px rgba(0,0,0,0.35);
@@ -743,7 +739,7 @@ a.caption-image img {
 	display: block;
 	padding: 0 10px;
 	overflow: hidden;
-	font-family: "Roboto Slab", sans-serif;
+	font-family: "Georgia", sans-serif;
 	font-weight: 300;
 	color: #fff;
 	white-space: nowrap;
@@ -1335,7 +1331,7 @@ ul.post-tags li a:after {
 .format-link .entry-content,
 .format-link .entry-content p {
 	line-height: 30px;
-	font-family: "Roboto Slab", sans-serif;
+	font-family: "Georgia", sans-serif;
 	font-weight: 700;
 	font-size: 24px;
 }
@@ -1433,7 +1429,7 @@ ul.post-tags li a:after {
 .type-attachment .entry-caption {
 	margin: 0 0 20px;
 	line-height: 24px;
-	font-family: "Roboto Slab", sans-serif;
+	font-family: "Georgia", sans-serif;
 	font-size: 18px;
 	font-weight: 400;
 }
@@ -1695,7 +1691,7 @@ video,
 	margin: 0 2% 0 0;
 	overflow: hidden;
 	color: #262626;
-	font-family: "Roboto Slab", sans-serif;
+	font-family: "Georgia", sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	text-overflow: ellipsis;
@@ -2159,7 +2155,7 @@ body.logged-in #respond #submit {
 	margin-bottom: 7px;
 	line-height: 24px;
 	font-size: 18px;
-	font-family: "Roboto Slab", sans-serif;
+	font-family: "Georgia", sans-serif;
 	text-align: right;
 	text-shadow: 0 1px rgba(0,0,0,0.25);
 }
