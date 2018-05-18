@@ -99,6 +99,11 @@ PHP bringt bei den SPL `LogicException`s schon eine ganze Menge guter Standard-E
 
 ### zu 2.3 Struct classes in PHP
 
+([Original-Blogpost](https://qafoo.com/blog/016_struct_classes_in_php.html))
+
+> There is also another name for "struct classes" -> value objects. They are a good known construct in Domain Driven Design methodology
+Nachteile:
+
 Einfach ad-hoc mehrdimensionale Arrays (mit und ohne Keys) sind ein Core-Feature von PHP und ein Grund für dessen Erfolg. Für schnelles Prototyping sind sie ideal. Allerdings für Long-Term- und Enterprise-Level-Projekte (so mit 10 Jahre Entwicklungshorizont) ist die Wartung ein Grauen. Kein IDE-Support, keine Transparenz, neue Entwickler wissen nicht was drin stecken könnte. Spätestens wenn die Feature-Ausprägung (Implementierung) als stabil angesehen werden kann, sollten Data-Objekte (DTOs, Value Objects, Structs) verwendet werden. 
 
 >The benefits:
@@ -108,9 +113,17 @@ Einfach ad-hoc mehrdimensionale Arrays (mit und ohne Keys) sind ein Core-Feature
 >- You can be sure which properties a passed struct has - no need to check the availability of each property on access
 >- Structs can throw exceptions access to non-existent properties
 
-
 > The drawbacks:
 >- The structs are objects, which means they are passed by reference. This can be an issue if you are operating on those structs. 
+>- An object requires more space (zval + object in object storage + class entry (once for all objects of that class) + object itself + HashTable w/ properties) compared to an array (zval + HashTable)
+>- Accessing elements takes a bit more time (fetch the object from the object storage and call the `get_property` handler before doing the actual hash lookup)
+
+> I think this can implemented more usefully atop `ArrayObject`. The attribute handlers `getOffset` and `setOffset` operate identically to `__get` and `__set`, but provide array syntax in addition. Yet autocompletion driven development can still be facilitated.
+
+> `ArrayObject` is cool, but it uses `ArrayAccess`. `ArrayAccess` is substantially slower than just a property access since it involves multiple method calls.
+
+Das dürfte allerdings nur bei massiven Gebrauch eine Rolle spielen. Im allermeisten Fall bremsen Netzlatenzen, Drittsystem-Anbindungen, Dateisystem-Zugriffe, DB-Locks etc. mehr als zusätzliche Objekt-Methoden-Zugriffe. Der Zugewinn an Lesbarkeit, Wartbarkeit und IDE-Support wiegt das allemal auf. Und: Nicht auf "Premature Optimization", "Fear of many Classes" oder "Primitive Obsession" reinfallen!
+
 
 **Lösung:**
 - Immutable gestalten (`__construct()` beachten, [Referenz](http://blog.florianwolters.de/educational/2013/03/07/Pattern-Immutable-Object/#php-54))
@@ -127,6 +140,7 @@ Einfach ad-hoc mehrdimensionale Arrays (mit und ohne Keys) sind ein Core-Feature
 
 > For POCs (Proof-of-Concepts) I tend to still use arrays for structs, but once the software reaches production quality I tend to convert array structs into struct classes since some time in the software I write / maintain.
 
+Die schleichende Migration von Arrays zu Structs kann im Rahmen von "Baby Steps" (5.4) oder "Advanced Boy Scout Rule" (5.2) erfolgen.
 
 ## zu 3. Object Oriented Design
 
@@ -264,8 +278,24 @@ Von [Codacy gibts einen schönen Artikel](https://www.codacy.com/blog/the-state-
 
 ### zu 5.1 Loving Legacy Code
 
-> The first thing to realize about existing code bases - no matter how bad you feel their quality is - is that it provides business value. The code is in production and people use it and gain value from that. For us as developers that means: The business rules that the appplication is meant to reflect **are already written down in code.**
+> The first thing to realize about existing code bases - no matter how bad you feel their quality is - is that it provides business value. The code is in production and people use it and gain value from that. For us as developers that means: The business rules that the appplication is mea
 
+### zu 5.2 Refactoring with the Advanced Boy Scout Rule
+
+Refactoring passiert nicht in separaten Sprints, Hackathon oder Rewrites. Es funktioniert gut in der täglichen Arbeit.
+
+> Always leave the code cleaner than you found it.
+
+>1. When you feel pain while working on a specific code piece, stash your changes and try to resolve the pain through refactoring right now.
+>2. If you managed to fix it, commit and resume your original work.
+>3. If you did not manage to resolve the issue within `$x` (maybe 15-20) minutes:
+  - Revert the refactoring attempt
+  - Add a `@refactor` annotation describing shortly what your issue is
+  - If there already is a `@refactor` annotation, append a `!` to it
+>4. After 1-2 sprints, grep your code for `@refactor` and sort the output by the number of `!` descending.
+>5. Pick the highest priority issue(s), define a solution strategy and add regulartickets to execute the refactoring in the upcoming sprint.
+
+Soweit, so einfach. Der pragmatische Umgang mit "müsste man mal tun" und "dauert doch zu lange" gepaart mit dem Fokus auf den größten Schmerz und das anschließende Ableiten einer echten Aufgabe zeichnet den Charme dieser Methode aus.
 
 ### zu 5.3 Extended Definition Of Done
 
