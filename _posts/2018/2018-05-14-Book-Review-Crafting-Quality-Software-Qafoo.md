@@ -170,7 +170,9 @@ Unabhängig vom Kontext des Artikels sollte man noch folgenden Satz im Hinterkop
 
 > Whenever you feel the need to mock a method of the test subject, that is a clear sign for the need to refactor (so-called code smell).
 
-Warum sind Singletons eigentlich böse? Immerhin sind es ein bekanntes Entwurfsmuster der Gang of Four ([Buch](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/), '94). [Hier](https://github.com/jupeter/clean-code-php#dont-use-a-singleton-pattern) ist es mal gut zusammengefasst:
+#### Warum sind Singletons eigentlich böse? 
+
+Immerhin sind es ein bekanntes Entwurfsmuster der Gang of Four ([Buch](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/), '94). [Hier](https://github.com/jupeter/clean-code-php#dont-use-a-singleton-pattern) ist es mal gut zusammengefasst:
 
 **TL;DR:** Singletons lassen sich unfassbar schlecht testen.
 
