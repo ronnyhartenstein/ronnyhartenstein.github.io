@@ -101,8 +101,7 @@ PHP bringt bei den SPL `LogicException`s schon eine ganze Menge guter Standard-E
 
 ([Original-Blogpost](https://qafoo.com/blog/016_struct_classes_in_php.html))
 
-> There is also another name for "struct classes" -> value objects. They are a good known construct in Domain Driven Design methodology
-Nachteile:
+> There is also another name for "struct classes" -> value objects. They are a good known construct in Domain Driven Design methodology.
 
 Einfach ad-hoc mehrdimensionale Arrays (mit und ohne Keys) sind ein Core-Feature von PHP und ein Grund für dessen Erfolg. Für schnelles Prototyping sind sie ideal. Allerdings für Long-Term- und Enterprise-Level-Projekte (so mit 10 Jahre Entwicklungshorizont) ist die Wartung ein Grauen. Kein IDE-Support, keine Transparenz, neue Entwickler wissen nicht was drin stecken könnte. Spätestens wenn die Feature-Ausprägung (Implementierung) als stabil angesehen werden kann, sollten Data-Objekte (DTOs, Value Objects, Structs) verwendet werden. 
 
@@ -323,7 +322,7 @@ Soweit, so einfach. Der pragmatische Umgang mit "müsste man mal tun" und "dauer
 
 #### Baby Steps
 
-**TL;DR:** Refactoring in wirklich keinen Schritten durchführen. Gleich anschließend die Tests laufen lassen, commiten. Wenn der Weg in die Irre führt (= Tests schlagen fehl), Änderungen resetten. Auch wenn das Zielbild so länger braucht, evtl. ändert sich unterwegs der Weg. Oder man wird unterbrochen, oder eine wichtigere Aufgabe drängt.
+**TL;DR:** Refactoring in wirklich kleinen Schritten durchführen. Gleich anschließend die Tests laufen lassen, commiten. Wenn der Weg in die Irre führt (= Tests schlagen fehl), Änderungen resetten. Auch wenn das Zielbild so länger braucht, evtl. ändert sich unterwegs der Weg. Oder man wird unterbrochen, oder eine wichtigere Aufgabe drängt.
 
 
 ### zu 5.5. Getting Rid of `static`
