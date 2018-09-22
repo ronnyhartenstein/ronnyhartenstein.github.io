@@ -6,7 +6,7 @@ date: '2018-09-21'
 
 Ich beschäftige mich mit dem Thema Event Sourcing schon seit ich zur #PHPDD17 erstmals bei Talks von @Ocramius und Alexander Miertsch davon gehört habe. Mein Ziel ist klar, damit irgendwann ein Projekt zu realisieren. Aber neue disruptive Konzepte erfordern Übung - also von den Besten lernen und in kleinen Projekten und Prototypen lernen.
 
-<!--weiterlesen-->
+<!--more-->
 
 ## Katas
 
