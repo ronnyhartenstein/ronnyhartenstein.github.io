@@ -232,6 +232,8 @@ Der End-Zustand ([Commit](https://github.com/thePHPcc/phpdd18-event-sourcing/tre
 ![Ende 1](/files/2018/EventSourcing/workshop-ende-1.png)
 ![Ende 2](/files/2018/EventSourcing/workshop-ende-2.png)
 
+Man sieht, es entsteht schon ein ganz schöner Klassenzoo wenn man S.O.L.I.D. berücksichtigt. Aber man kann es ja dank Classmap Autloading jederzeit umsortieren wie man mag, weil **alle** Klassen im Namespace `\EventSourcing` liegen, egal wie tief in physischen Unterverzeichnissen die wirklich liegen.
+
 ## Schlusswort
 
 Ein anstrengender Tag geht zuende. Selbst was wirklich gemacht hab ich zwar erst gegen 16 Uhr, aber in der kurzen Zeit konnte zumindest noch eine wesentliche Frage geklärt werden: Wer kennt/bekommt das Request Objekt.
