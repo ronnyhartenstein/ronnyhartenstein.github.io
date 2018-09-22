@@ -38,6 +38,8 @@ Weiterlesen zu Prooph:
 
 Zunächst gab es ein paar einführende [Slides](https://pragmatic-event-sourcing.de/pragmatic-event-sourcing.pdf). 
 
+*Nachfolgendes sind fast 1:1 meine Notizen, daher sind die kurz, knackig und evtl. nicht verständlich. Ist irgendwas nicht klar, schreibt mir @rhflow_de und ich konkretisiere es.*
+
 - herkömmliche Persistierung -> direkt in DB schreiben
 - Absicht für Schreioperation fehlt - Warum wurde gespeichert?
 - nur der aktuelle Stand ist bekannt (keine Historie)
