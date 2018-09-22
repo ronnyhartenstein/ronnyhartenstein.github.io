@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Workshop "Pragmatic Event Sourcing" zum #PHPDD18
+title: Workshop "Pragmatic Event Sourcing" zur PHPDD18
 date: '2018-09-21'
 ---
 
