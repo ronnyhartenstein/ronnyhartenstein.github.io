@@ -18,6 +18,11 @@ Es gibt natürlich das [Prooph Cargo Beispiel](http://codeliner.github.io/php-dd
 
 Also hab ich mich hingesetzt und einen minimalen eigenen Prototyp gescribbelt. Das stellte sich für mich als ideale Voraussetzung für den Workshop heraus. Ok, ich hatte da sogar schon CommandBus und EventBus, sowie AggregateRoot drin - stellt sich heraus, braucht man gar nicht zwingend.
 
+Ich bin dabei auf folgende Architektur gekommen:
+
+![Mein Prototyp Architektur](/files/2018/EventSourcing/es-minimal-architektur.png)
+
+
 Weiterlesen zu Event Sourcing:
 - [Martin Fowler: Event Sourcing (2005)](https://martinfowler.com/eaaDev/EventSourcing.html)
 - [Why use Event Sourcing? (2010)](http://codebetter.com/gregyoung/2010/02/20/why-use-event-sourcing/)
@@ -220,12 +225,12 @@ Das Repo vom Tag findet sich bei Github [thephpcc/phpdd18-event-sourcing](https:
 
 Der Start-Zustand ([Commit](https://github.com/thePHPcc/phpdd18-event-sourcing/tree/4e22606fe7145ca01f5089c41928d1c8f8abb66d))
 
-![Anfang](/files/2018/workshop-anfang.png)
+![Anfang](/files/2018/EventSourcing/workshop-anfang.png)
 
 Der End-Zustand ([Commit](https://github.com/thePHPcc/phpdd18-event-sourcing/tree/21386140b9215a1e6c0d435f17ae730e35ec4abe))
 
-![Ende 1](/files/2018/workshop-ende-1.png)
-![Ende 2](/files/2018/workshop-ende-2.png)
+![Ende 1](/files/2018/EventSourcing/workshop-ende-1.png)
+![Ende 2](/files/2018/EventSourcing/workshop-ende-2.png)
 
 ## Schlusswort
 
