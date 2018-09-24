@@ -14,7 +14,7 @@ Prooph ist quasi **das** Event Sourcing Framework - besser: eine Komponenten-Sam
 
 Es gibt natürlich das [Prooph Cargo Beispiel](http://codeliner.github.io/php-ddd-cargo-sample/) und auch [Buttercup Project](http://buttercup-php.github.io/protects/)
 
-@morrisjobke hat mir zudem dankenswerter weise ein privates Projekt auf Basis Slim und **Prooph** zur Verfügung gestellt. Irgendwie ist mir das zu viel, ich möchte einfach minimal Event Sourcing machen. Prooph ist wie React (oder Angular) - es löst sicherlich allerhand large scale Probleme - aber zum lernen ist die Lernkurve einfach zu steil - zumindest für meine kognitive Leistungsfähigkeit abends auf der Couch.
+@morrisjobke hat mir zudem dankenswerter weise ein privates Projekt auf Basis Slim und **Prooph** zur Verfügung gestellt. Irgendwie ist mir das zu viel, ich möchte einfach minimal Event Sourcing machen. Prooph ist wie React (oder Angular) - es löst sicherlich allerhand large scale Probleme - aber zum verstehen der Konzepte ist die Lernkurve aufgrund der Komponenten-Komplexität einfach zu steil - zumindest für meine kognitive Leistungsfähigkeit abends auf der Couch.
 
 Also hab ich mich hingesetzt und einen minimalen eigenen Prototyp gescribbelt. Das stellte sich für mich als ideale Voraussetzung für den Workshop heraus. Ok, ich hatte da sogar schon CommandBus und EventBus, sowie AggregateRoot drin - stellt sich heraus, braucht man gar nicht zwingend.
 
