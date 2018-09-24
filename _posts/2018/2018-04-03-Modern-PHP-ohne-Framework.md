@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Lese-Tipp: „Modern PHP Without a Framework“
-date: '2018-02-16'
+title: Lese-Tipp "Modern PHP Without a Framework"
+date: '2018-04-03'
 ---
 
 Hier hat mal jemand notiert, wie man heutzutage ein größeres PHP-Projekt bootstrappen könnte, wenn man nicht auf ein Framework wie Symfony, Laravel oder Zend aufsetzen will. Mit Framework ist man bekanntlich an dessen Update- und Innovations-Zyklen gebunden – oder bleibt auf der Version stehen wovon man startet. Ohne Framework frickelt man wieder alles selbst? Nicht in Zeiten von PHP-Industriestandards – den **PHP Standards Recommendations** – kurz PSR – der PHP Framework Interop Group.
