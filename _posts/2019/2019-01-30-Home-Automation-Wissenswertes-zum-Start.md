@@ -6,6 +6,8 @@ date: '2019-01-30'
 
 Nach Andys sehr guten Talk ["Kosten runter, Komfort rauf - Smart Home für Fortgeschrittene"](https://github.com/ChemnitzerWebDevs/slides/blob/master/2018/11-November/fhem-smarthome.pptx) hab ich selbst bisschen angefangen. Bislang dachte ich, ich müsste irgendwelche Sensoren an den Raspi ranlöten und hatte keine Lust darauf. Aber der Ansatz günstige Baumarkt-Komponenten zu verwenden und entsprechende Empfänger an den Raspi zu stöpseln hat mich überzeugt, selbst loszulegen.
 
+<!--more-->
+
 **Was wollte ich:**
 - Steckdosen schalten zu Weihnachten, 
 - Temperaturen aller Räume in Grafiken darstellen um die Heizung sinnvoll einzustellen.
