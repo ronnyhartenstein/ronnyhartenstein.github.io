@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Home Automation: Wissenswertes zum Start
+title: Home Automation - Wissenswertes zum Start
 date: '2019-01-02'
 ---
 
