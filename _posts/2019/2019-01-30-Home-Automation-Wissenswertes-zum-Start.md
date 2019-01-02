@@ -32,6 +32,7 @@ Nach Andys sehr guten Talk ["Kosten runter, Komfort rauf - Smart Home für Fortg
 CUNO?
 
 **JeeLink: Temperatur-Sensoren**
+
 - früher hat man den JeeLink USB-Stick verwendet, heute bekommt man die günstiger selbst gebaut
 - die meisten Baumarkt-Sensoren folgen den LaCrosse-Standard
 - nicht irgendeinen Sensor kaufen, sondern in die [Kompatiblitäts-Liste](https://wiki.fhem.de/wiki/JeeLink#Unterst.C3.BCtzte_Sensoren_und_Aktoren_incl._Wetterstation_WS_1600) schauen
