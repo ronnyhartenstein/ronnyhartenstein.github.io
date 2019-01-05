@@ -21,7 +21,7 @@ Nach Andys sehr guten Talk ["Kosten runter, Komfort rauf - Smart Home für Fortg
 
 - CUL - mit **C**C1101 CPU an **U**SB **L**ite, 
 - kann FS20/FHT/S300/EM/HMS 
-- kann auch Homematic Zentrale CCU ersetzen
+- kann auch Homematic Zentrale CCU ersetzen ([Bilder via DuckDuckGo](https://duckduckgo.com/?q=homematic+ccu&iax=images&ia=images))
 - Homematic: Defacto-Standard in Deutschland
 - FS20: der eigentliche Billig-Standard mit Rückkanal, aber doch teuer (160€ ein 3er-Set Steckdosen auf Amazon!) ([Bilder von Steckdosen via DuckDuckGo](https://duckduckgo.com/?q=fs20+steckdose&iax=images&ia=images))
 - Original **[Busware CUL Stick](http://busware.de/tiki-index.php?page=CUL)**, auf Arduino nano Basis
