@@ -23,7 +23,7 @@ Nach Andys sehr guten Talk ["Kosten runter, Komfort rauf - Smart Home für Fortg
 - kann FS20/FHT/S300/EM/HMS 
 - kann auch Homematic Zentrale CCU ersetzen
 - Homematic: Defacto-Standard in Deutschland
-- FS20: der eigentliche Billig-Standard mit Rückkanal, aber doch teuer (160€ ein 3er-Set Steckdosen auf Amazon)
+- FS20: der eigentliche Billig-Standard mit Rückkanal, aber doch teuer (160€ ein 3er-Set Steckdosen auf Amazon!) ([Bilder von Steckdosen via DuckDuckGo](https://duckduckgo.com/?q=fs20+steckdose&iax=images&ia=images))
 - Original **[Busware CUL Stick](http://busware.de/tiki-index.php?page=CUL)**, auf Arduino nano Basis
 
 ![vorn](/files/2019/busware-culstick-868-1.jpg)
@@ -48,6 +48,8 @@ CUNO?
 - bei 868 MHz wird fürs schalten kurz auf 433 MHz umgetaktet
 - kann dafür aber nicht auf 433 MHz horchen und Signale der Fernbedienung in FHEM autocreaten
 
+*Woher bekommt man die Bastel-Sticks?* 
+Im [FHEM Forum unter "Sammelbestellungen"](https://forum.fhem.de/index.php/board,98.0.html) nachgucken/-fragen.
 
 **JeeLink: Temperatur-Sensoren**
 
