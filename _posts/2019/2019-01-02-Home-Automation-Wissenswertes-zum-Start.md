@@ -15,9 +15,9 @@ Nach Andys sehr guten Talk ["Kosten runter, Komfort rauf - Smart Home für Fortg
 **Was möchte ich nicht:**
 - echte Home-Automation mit irgendeinen größeren System wie Philips Hue, IKEA TRADFRI, Homematic etc.
 
-## Was ist da gerne noch vorher gewußt hätte und mir anfangs es etwas leichter gemacht hätte:
+**Was ist da gerne noch vorher gewußt hätte und mir anfangs es etwas leichter gemacht hätte:**
 
-**CUL-Stick: 868 MHz Protokolle & 433 MHz Funksteckdosen**
+## CUL-Stick: 868 MHz Protokolle & 433 MHz Funksteckdosen
 
 - CUL - mit **C**C1101 CPU an **U**SB **L**ite, 
 - kann FS20/FHT/S300/EM/HMS 
@@ -51,7 +51,7 @@ CUNO?
 *Woher bekommt man die Bastel-Sticks?* 
 Im [FHEM Forum unter "Sammelbestellungen"](https://forum.fhem.de/index.php/board,98.0.html) nachgucken/-fragen.
 
-**JeeLink: Temperatur-Sensoren**
+## JeeLink: Temperatur-Sensoren
 
 - früher hat man den JeeLink USB-Stick verwendet, heute bekommt man die günstiger selbst gebaut
 - Original **JeeBase JeeLink** 433 MHz
@@ -87,7 +87,7 @@ Nicht vergessen, oben meine Anforderungen.. Kontext matters
 - lets try [Homegear](https://homegear.eu): CLI-Tool (woot?!), Homematic-Emulator in C++ mit PHP \o/ Scripting-Schnittstelle  -- das Teil kann als Homematic-CCU an Home Assistant und OpenHAB angebunden werden
 - zurück zu **FHEM**: der JeeLink für die LaCrosse ist mittlerweile auch angekommen
 
-**FHEM: eine Liebe auf den zweiten Blick**
+## FHEM: eine Liebe auf den zweiten Blick
 - FHEM ist zwar nicht hübsch, passt aber für meine Zwecke gut, die Entwicklung rund um die CUL-Sticks findet im FHEM Universum statt
 - genial auf den zweiten Blick ist die Kommandoeingabe gepaart mit Autocreate
 - flashen des Jeelink geht auch direkt aus der Oberfläche
