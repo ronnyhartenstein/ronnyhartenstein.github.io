@@ -71,7 +71,7 @@ Im [FHEM Forum unter "Sammelbestellungen"](https://forum.fhem.de/index.php/board
 - funkt auf 2x unterschiedlichen Geschwindigkeiten (9,5kbps und 17,2kbps) - hat man gemischte Geräte, muss man toggeln - oder verwendet ein [LaCrosse-Gateway](https://wiki.fhem.de/wiki/LaCrosseGateway_V1.x) mit mehreren Empfängern
 - kauft einfach TX29DTH-IT, hat ein LCD und gibts gelegentlich für 12€
 
-die Wetterstationen der Umgebung sind sich nicht immer einig
+**Fun-Fact: die Wetterstationen der Umgebung sind sich nicht immer einig**
 
 ![Außenstationen](/files/2019/wetterstationen-der-umgebung.jpg)
 
@@ -84,7 +84,7 @@ Nicht vergessen, oben meine Anforderungen.. Kontext matters
 ![Homeassistation Diagramme](/files/2019/homeassistant-diagramme.jpg)
 
 - weiter mit [OpenHAB](openhab.org/): Java, läuft trotzdem auf Raspi los, mehrere GUIs, bekomme bei Anbindung des CUL-Stick Exceptions - finde keine Lösung beim Googeln - schade
-- lets try [Homegear](https://homegear.eu): CLI-Tool (woot?!), Homematic-Emulator in C++ mit PHP \o/ Scripting-Schnittstelle  -- das Teil kann als Homematic-CCU an Home Assistant und OpenHAB angebunden werden
+- lets try [Homegear](https://homegear.eu): CLI-Tool (woot?!), Homematic-Emulator in C++ mit PHP \o/ Scripting-Schnittstelle  -- das Teil kann als Homematic-CCU an Home Assistant und OpenHAB angebunden werden, aber *Intertechno Funksteckdosen* und *LaCrosse Temperatursensoren* ist damit nicht automatisch möglich
 - zurück zu **FHEM**: der JeeLink für die LaCrosse ist mittlerweile auch angekommen
 
 ## FHEM: eine Liebe auf den zweiten Blick
