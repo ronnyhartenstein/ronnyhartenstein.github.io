@@ -28,7 +28,7 @@ Deutschland<br/>
 
 **Kontakt:**
 
-e-mail: info (at) rh-flow.de<br/>
+e-mail: \[vorname\] (at) rh-flow.de<br/>
 Handy: +49-(0)1511-78 80 844 1<br/>
 Telefon: +49-(0)371-26 79 088<br/>
 Missbräuchliche Nutzung der Nummern kann zivil- und strafrechtlich verfolgt werden.<br/>
