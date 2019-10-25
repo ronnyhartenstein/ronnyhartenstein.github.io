@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Workshop Herbst: Xdebug, TDD, PHPStan
+title: Workshop Herbst mit Xdebug, TDD, PHPStan
 date: '2019-10-25'
 ---
 
