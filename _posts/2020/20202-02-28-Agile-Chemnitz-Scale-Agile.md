@@ -6,6 +6,8 @@ date: '2019-11-09'
 
 Gestern war ich mit einem PM-Kollege zum ersten Mal beim Agile Chemnitz Meetup. Im erstaunlich kleinen Kreis von 12 Leuten inkl. 3 Vortragenden gab es eine Mini-Konferenz zu Methoden um Scrum auf mehrere Teams zu skalieren. Vermutlich sind alle Projekte die in Chemnitz entwickelt werden zu klein für sowas. Oder die Reichweite des Meetups ist noch nicht gegeben. Denn was da an Input in kurzer Zeit vermittelt wurde, von Leuten die das tatsächlich leben, war unfassbar beeindruckend und lehrreich. Ein kleiner Erfahrungsbericht. Seht es mir nach, dass ich meine Hören-Schreiben-Mitschriften fast 1:1 hier reinkopiert habe. Fragen gerne per Twitter @rhflow_de
 
+<!--more-->
+
 Erfahrungen IBM:
 - 10 Teams, max 8 Leute inkl. Master und PO
 - PO je SCRUM Team - je nach Framework
