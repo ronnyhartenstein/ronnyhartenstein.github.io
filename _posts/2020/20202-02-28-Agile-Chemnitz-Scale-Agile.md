@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Scale Agile: Scrum Frameworks zum skalierten agilen Vorgehen - beim Agile Chemnitz Meetup'
+title: 'Scale Agile - Scrum Frameworks zum skalierten agilen Vorgehen - beim Agile Chemnitz Meetup'
 date: '2020-02-28'
 ---
 
