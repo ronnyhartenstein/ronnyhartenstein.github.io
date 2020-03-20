@@ -24,7 +24,7 @@ alle Fws erweitern Scrum nur, die Regeln von Scrum bleiben erhalten
 
 ## LeSS (Large-Scale Scrum)
 
-https://less.works/
+[less.works](https://less.works/)
 
 - für 2-8 Teams,  danach "LeSS huge"
 - ein PO, ein Backlog
@@ -58,7 +58,7 @@ LeSS Huge
 
 ## SAFe (Scaled Agile Framework)
 
-https://www.scaledagileframework.com/
+[scaledagileframework.com](https://www.scaledagileframework.com/)
 
 - Big Picture auf Webseite -- Doku ohne Ende -- verliert man sich darin
 - setzt IBM ein
@@ -77,7 +77,7 @@ https://www.scaledagileframework.com/
 
 ## Nexus
 
-https://www.scrum.org/resources/nexus-guide
+[scrum.org](https://www.scrum.org/resources/nexus-guide)
 
 - von den scrum.org Machern
 - nur wenige Artefakte mehr als bei Scrum
