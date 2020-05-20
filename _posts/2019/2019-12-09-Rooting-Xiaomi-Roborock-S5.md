@@ -136,4 +136,35 @@ various map data
 - previous map, will be used if robot does not recognize where it is -> `mnt/data/rockrobo/last_map` 
 - last cleaning path -> `mnt/data/rockrobo/robot.db` 
 - virtual zones and walls? -> `mnt/data/rockrobo/PersistData` 
-- named positions -> `mnt/data/rockrobo/ChargerPos.data`, `mnt/data/rockrobo/StartPos.data` 
+- named positions -> `mnt/data/rockrobo/ChargerPos.data`, `mnt/data/rockrobo/StartPos.data`
+
+## Troubleshooting: Token manuell auslesen
+
+Falls der Flash-Befehl aus Schritt 5 das Gerät nicht finden kann oder das Token nicht auslesen kann, dann hilft eventuell noch das manuelle Auslesen. Dazu einfach im venv folgenden Befehl ausführen und die IP-Adresse und das Token aus der vorletzten Zeile mittels `-a IP -t TOKEN` an den `flasher.py` übergeben.
+
+```
+$ mirobo --debug discover --handshake true
+INFO:miio.vacuum_cli:Debug mode active
+INFO:miio.miioprotocol:Sending discovery to <broadcast> with timeout of 5s..
+DEBUG:miio.protocol:Unable to decrypt, returning raw bytes: b''
+DEBUG:miio.miioprotocol:Got a response: Container:
+    data = Container:
+        data = b'' (total 0)
+        value = b'' (total 0)
+        offset1 = 32
+        offset2 = 32
+        length = 0
+    header = Container:
+        data = b'!1\x00 \x00\x00\x00\x00\x0f\x99\\\xbb\x00\x00\x0b\x1f' (total 16)
+        value = Container:
+            length = 32
+            unknown = 0
+            device_id = unhexlify('0f995cbb')
+            ts = 1970-01-01 00:47:27
+        offset1 = 0
+        offset2 = 16
+        length = 16
+    checksum = b'VdebsnHPhgthzlfk' (total 16)
+INFO:miio.miioprotocol:  IP 192.168.8.1 (ID: 0f995cbb) - token: b'TOKEN_IS_WRITTEN_HERE'
+INFO:miio.miioprotocol:Discovery done
+```
