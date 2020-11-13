@@ -15,8 +15,8 @@ Wie also geht das? Morris hat das sich mit viel Fluchen durch die Anleitungen ge
 <!--more-->
 
 Hier schonmal die Quellen:
-- Valetudo Install Guide: https://github.com/Hypfer/Valetudo/wiki/Installation-Instructions
-- FAQ: https://github.com/Hypfer/Valetudo/wiki/FAQ (inkl. German Voice Pack)
+- [Valetudo Install Guide](https://github.com/Hypfer/Valetudo/wiki/Installation-Instructions)
+- [FAQ](https://github.com/Hypfer/Valetudo/wiki/FAQ) (inkl. German Voice Pack)
 
 ## 1. Firmware Image anfordern
 
@@ -83,7 +83,7 @@ Dann einfach nochmal Wifi am Robo reseten und erneut versuchen.
 
 Wenn der Robo die Firmware vom Mac heruntergeladen hat, spricht es "Updating firmware. It maybe take 5 to 10 minutes."
 
-Wenn fertig ertönt eine Tada-Melodie und "Charging" gefolgt von "Updated successfully."
+Wenn fertig ertönt eine Tada-Melodie und "Charging" gefolgt von "Updated complete."
 
 ## 6. WIFI via Browser konfigurieren
 
@@ -106,7 +106,7 @@ Ab da gibts eine schöne Weboberfläche wo man auch die SSH-Keys unbedingt tausc
 
 ## Bonbon: MQTT aktivieren
 
-https://github.com/Hypfer/Valetudo/wiki/Home-Assistant-Integration
+([Quelle](https://github.com/Hypfer/Valetudo/wiki/Home-Assistant-Integration))
 
 Datei `/mnt/data/valetudo/config.json` editieren:
 ```
@@ -126,7 +126,7 @@ Das `provideMapData` mag man ausschalten wenn man es nicht nutzt.
 
 ## Wichtig! Dateien fürs Backup
 
-https://github.com/Hypfer/Valetudo/wiki/Important-Files-&-Folder
+([Quelle](https://github.com/Hypfer/Valetudo/wiki/Important-Files-&-Folder))
 
 - Zones + Spots configuration, mqtt + other config -> `/mnt/data/valetudo/config.json`
 - Status to keep map  -> `/mnt/data/rockrobo/lab.cfg`
@@ -140,7 +140,12 @@ various map data
 
 ## Troubleshooting: Token manuell auslesen
 
-Falls der Flash-Befehl aus Schritt 5 das Gerät nicht finden kann oder das Token nicht auslesen kann, dann hilft eventuell noch das manuelle Auslesen. Dazu einfach im venv folgenden Befehl ausführen und die IP-Adresse und das Token aus der vorletzten Zeile mittels `-a IP -t TOKEN` an den `flasher.py` übergeben.
+Falls der Flash-Befehl aus Schritt 5 das Gerät nicht finden kann oder das Token nicht auslesen kann, dann hilft eventuell noch das manuelle Auslesen. Dazu einfach im venv folgenden Befehl ausführen 
+```
+mirobo --debug discover --handshake true
+```
+und die IP-Adresse und das Token **aus der vorletzten Zeile** (siehe `TOKEN_IS_WRITTEN_HERE`) mittels `-a IP -t TOKEN` an den `flasher.py` übergeben.
+
 
 ```
 $ mirobo --debug discover --handshake true
